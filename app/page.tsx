@@ -1,0 +1,426 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe } from "lucide-react"
+import { 
+  SiNextdotjs, 
+  SiDjango, 
+  SiFastapi, 
+  SiPostgresql, 
+  SiFlutter, 
+  SiTailwindcss, 
+  SiGit, 
+  SiGithub,
+  SiFirebase,
+  SiSupabase,
+  SiTypescript,
+  SiDocker,
+  SiC,
+  SiCplusplus,
+  SiQt,
+  SiPython,
+  SiJavascript
+} from "react-icons/si"
+import Image from "next/image"
+import { StarField } from "@/components/star-field"
+import { ShootingStars } from "@/components/shooting-star"
+
+export default function Portfolio() {
+  const [isDark, setIsDark] = useState(true)
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
+  }, [isDark])
+
+  const projects = [
+    {
+      title: "E-Commerce Platform",
+      description: "Full-stack e-commerce solution with payment integration and admin dashboard",
+      tags: ["Next.js", "Django", "PostgreSQL", "Stripe"],
+      image: "/placeholder.svg?height=200&width=300",
+      link: "#",
+    },
+    {
+      title: "Task Management App",
+      description: "Cross-platform mobile app for team collaboration and project management",
+      tags: ["Flutter", "Firebase", "Dart"],
+      image: "/placeholder.svg?height=200&width=300",
+      link: "#",
+    },
+    {
+      title: "Real-time Chat Application",
+      description: "WebSocket-based chat app with file sharing and group messaging",
+      tags: ["React", "FastAPI", "WebSocket", "PostgreSQL"],
+      image: "/placeholder.svg?height=200&width=300",
+      link: "#",
+    },
+    {
+      title: "Analytics Dashboard",
+      description: "Data visualization dashboard with real-time metrics and reporting",
+      tags: ["Next.js", "Django REST", "Chart.js", "Redis"],
+      image: "/placeholder.svg?height=200&width=300",
+      link: "#",
+    },
+  ]
+
+  const techStack = {
+    core: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Django", icon: SiDjango },
+      { name: "Django REST Framework", icon: SiDjango },
+      { name: "FastAPI", icon: SiFastapi },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Flutter", icon: SiFlutter },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Git", icon: SiGit },
+      { name: "GitHub", icon: SiGithub },
+    ],
+    learning: [
+      { name: "Firebase", icon: SiFirebase },
+      { name: "Supabase", icon: SiSupabase },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Docker", icon: SiDocker },
+    ],
+    foundations: [
+      { name: "C", icon: SiC },
+      { name: "C++", icon: SiCplusplus },
+      { name: "Qt", icon: SiQt },
+      { name: "Python", icon: SiPython },
+      { name: "JavaScript", icon: SiJavascript },
+    ],
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-[#282A36] text-gray-900 dark:text-[#F8F8F2] transition-colors duration-300 relative">
+      <StarField />
+      <ShootingStars />
+      {/* Navigation */}
+      <nav className="sticky top-0 z-[100] bg-white/95 dark:bg-[#1E1F29]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#6272A4] transition-colors duration-300 shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="font-bold text-xl text-gray-800 dark:text-[#F8F8F2]">
+              Ron Vincent Cada
+            </div>
+            <div className="flex items-center space-x-4">
+              <a
+                href="#projects"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors"
+              >
+                Projects
+              </a>
+              <a
+                href="#about"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors"
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors"
+              >
+                Contact
+              </a>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsDark(!isDark)}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:bg-gray-100 dark:hover:bg-[#343746]"
+              >
+                {isDark ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="mb-8">
+            <Image
+              src="/ron.jpg"
+              alt="Ron Vincent Cada"
+              width={150}
+              height={150}
+              className="rounded-full mx-auto mb-6 border-4 border-[#8BE9FD]"
+            />
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
+            Hi, I'm <span className="text-[#8BE9FD]">Ron Vincent Cada</span>
+          </h1>
+          <p className="text-xl sm:text-2xl mb-8 text-gray-600 dark:text-[#F8F8F2]/80 max-w-3xl mx-auto">
+            a full-stack web & mobile developer.
+          </p>
+          <div className="flex items-center justify-center mb-8">
+            <MapPin className="h-5 w-5 mr-2 text-[#FF79C6]" />
+            <span className="text-lg text-gray-700 dark:text-[#F8F8F2]">
+              Philippines 🇵🇭
+            </span>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] font-semibold"
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              View Projects
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Contact Me
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
+            Featured Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <Card
+                key={index}
+                className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
+              >
+                <CardHeader>
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    width={300}
+                    height={200}
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                  <CardTitle className="flex items-center justify-between text-gray-800 dark:text-[#F8F8F2]">
+                    {project.title}
+                    <ExternalLink className="h-5 w-5 text-[#FF79C6] group-hover:text-[#8BE9FD] transition-colors" />
+                  </CardTitle>
+                  <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <Badge
+                        key={tagIndex}
+                        variant="secondary"
+                        className="bg-gray-100 text-gray-700 border-gray-300 dark:bg-[#8BE9FD]/20 dark:text-[#8BE9FD] dark:border-[#8BE9FD]/30"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section
+        id="about"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-[#1E1F29]/50"
+      >
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
+            About Me
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-lg mb-6 leading-relaxed text-gray-700 dark:text-[#F8F8F2]/80">
+                I'm Ron Vincent Cada, a full-stack web and mobile developer from the
+                Philippines. I'm currently open to internship opportunities,
+                freelance work, and collaborations where I can contribute
+                meaningful solutions and continue growing as a developer.
+              </p>
+              <p className="text-lg mb-6 leading-relaxed text-gray-700 dark:text-[#F8F8F2]/80">
+                I specialize in building responsive, user-centered applications
+                using modern technologies like Next.js, React, Tailwind CSS,
+                Django, and Flutter.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
+                Tech Stack
+              </h3>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold mb-3 flex items-center text-gray-700 dark:text-[#F8F8F2]">
+                    <Code className="h-5 w-5 mr-2 text-[#8BE9FD]" />
+                    Core Tools
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {techStack.core.map((tech, index) => {
+                      const IconComponent = tech.icon;
+                      return (
+                        <div
+                          key={index}
+                          className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                        >
+                          <IconComponent className="h-4 w-4" />
+                          {tech.name}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-3 flex items-center text-gray-700 dark:text-[#F8F8F2]">
+                    <Database className="h-5 w-5 mr-2 text-[#FF79C6]" />
+                    Actively Learning
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {techStack.learning.map((tech, index) => {
+                      const IconComponent = tech.icon;
+                      return (
+                        <div
+                          key={index}
+                          className="border border-gray-600 dark:border-[#FF79C6] text-gray-700 dark:text-[#FF79C6] hover:bg-gray-100 dark:hover:bg-[#FF79C6]/10 px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                        >
+                          <IconComponent className="h-4 w-4" />
+                          {tech.name}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-3 flex items-center text-gray-700 dark:text-[#F8F8F2]">
+                    <Globe className="h-5 w-5 mr-2 text-gray-500 dark:text-[#F8F8F2]/60" />
+                    Foundations
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {techStack.foundations.map((tech, index) => {
+                      const IconComponent = tech.icon;
+                      return (
+                        <div
+                          key={index}
+                          className="bg-gray-200 dark:bg-[#343746] text-gray-700 dark:text-[#F8F8F2]/80 hover:bg-gray-300 dark:hover:bg-[#404552] px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                        >
+                          <IconComponent className="h-4 w-4" />
+                          {tech.name}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
+            Get In Touch
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
+                Let's work together
+              </h3>
+              <div className="space-y-4">
+                <a
+                  href="mailto:cronvincent@example.com"
+                  className="flex items-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+                >
+                  <Mail className="h-5 w-5 mr-3" />
+                  cronvincent@gmail.com
+                </a>
+                <a
+                  href="https://github.com/lucifron28"
+                  className="flex items-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+                >
+                  <Github className="h-5 w-5 mr-3" />
+                  github.com/lucifron28
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
+                  className="flex items-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+                >
+                  <Linkedin className="h-5 w-5 mr-3" />
+                  linkedin.com/in/roncada
+                </a>
+              </div>
+            </div>
+            <Card className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] backdrop-blur-sm shadow-sm dark:shadow-none">
+              <CardHeader>
+                <CardTitle className="text-gray-800 dark:text-[#F8F8F2]">
+                  Send a Message
+                </CardTitle>
+                <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
+                  I'll get back to you as soon as possible
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Input
+                    placeholder="Your Name"
+                    className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
+                  />
+                  <Input
+                    placeholder="Your Email"
+                    type="email"
+                    className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
+                  />
+                </div>
+                <Input
+                  placeholder="Subject"
+                  className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
+                />
+                <Textarea
+                  placeholder="Your message..."
+                  rows={4}
+                  className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
+                />
+                <Button className="w-full bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]">
+                  Send Message
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-[#6272A4] bg-gray-50 dark:bg-transparent">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-gray-600 dark:text-[#F8F8F2]/60">
+            © 2025 Ron Vincent Cada. Built with Next.js and Tailwind CSS.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
