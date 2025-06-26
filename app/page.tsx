@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe } from "lucide-react"
+import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award } from "lucide-react"
 import { 
   SiNextdotjs, 
   SiDjango, 
@@ -98,6 +98,35 @@ export default function Portfolio() {
       { name: "JavaScript", icon: SiJavascript },
     ],
   }
+
+  const education = [
+    {
+      degree: "Bachelor of Science in Information Technology",
+      school: "Manuel S. Enverga University Foundation - Lucena",
+      period: "2023 - 2027",
+      description: "Specalizatoin Track in Web and Mobile Application Deelopment",
+      achievements: ["Dean's Lister", "Academic Scholar", "GWA: 1.28"]
+    }
+  ]
+
+  const achievements = [
+    {
+      title: "SikapTala: The National CS & IT Skills Competition",
+      organization: "De La Salle University - Dasmarinas",
+      position: "2nd Place",
+      date: "March 2025",
+      description: "Competed in the Collegiate Python Programming Division",
+      type: "competition"
+    },
+    {
+      title: "CodeChum National Programming Competition - Group Stage 3",
+      organization: "CodeChum",
+      position: "1st Place",
+      date: "March 2024",
+      description: "",
+      type: "competition"
+    }
+  ]
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#282A36] text-gray-900 dark:text-[#F8F8F2] transition-colors duration-300 relative">
@@ -377,6 +406,108 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
+            Education
+          </h2>
+          <div className="space-y-8">
+            {education.map((edu, index) => (
+              <Card
+                key={index}
+                className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 backdrop-blur-sm shadow-sm dark:shadow-none"
+              >
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center mb-2">
+                      <GraduationCap className="h-6 w-6 mr-3 text-[#8BE9FD]" />
+                      <div>
+                        <CardTitle className="text-gray-800 dark:text-[#F8F8F2] mb-1">
+                          {edu.degree}
+                        </CardTitle>
+                        <div className="flex items-center text-[#FF79C6] font-semibold">
+                          <span>{edu.school}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center text-gray-600 dark:text-[#F8F8F2]/70">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      <span className="text-sm">{edu.period}</span>
+                    </div>
+                  </div>
+                  <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70 ml-9">
+                    {edu.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="ml-9">
+                  <div className="flex flex-wrap gap-2">
+                    {edu.achievements.map((achievement, achievementIndex) => (
+                      <Badge
+                        key={achievementIndex}
+                        variant="secondary"
+                        className="bg-[#8BE9FD]/10 text-[#8BE9FD] border-[#8BE9FD]/30 dark:bg-[#8BE9FD]/20 dark:text-[#8BE9FD] dark:border-[#8BE9FD]/30"
+                      >
+                        {achievement}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements & Competitions Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-[#1E1F29]/50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
+            Achievements & Competitions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {achievements.map((achievement, index) => (
+              <Card
+                key={index}
+                className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#FF79C6] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
+              >
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-center">
+                      {achievement.type === "competition" ? (
+                        <Trophy className="h-6 w-6 mr-3 text-[#FF79C6]" />
+                      ) : (
+                        <Award className="h-6 w-6 mr-3 text-[#8BE9FD]" />
+                      )}
+                      <div>
+                        <CardTitle className="text-gray-800 dark:text-[#F8F8F2] mb-1">
+                          {achievement.title}
+                        </CardTitle>
+                        <div className="text-[#FF79C6] font-semibold text-sm">
+                          {achievement.organization}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-[#8BE9FD] font-bold text-sm mb-1">
+                        {achievement.position}
+                      </div>
+                      <div className="flex items-center text-gray-600 dark:text-[#F8F8F2]/70 text-xs">
+                        <Calendar className="h-3 w-3 mr-1" />
+                        <span>{achievement.date}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70 ml-9">
+                    {achievement.description}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
