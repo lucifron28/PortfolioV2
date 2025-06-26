@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    /* Dracula Theme Colors */
+    --background: 240 2% 16%; /* #282A36 */
+    --foreground: 60 9% 98%; /* #F8F8F2 */
+    --card: 240 3% 21%; /* #343746 */
+    --card-foreground: 60 9% 98%; /* #F8F8F2 */
+    --popover: 240 3% 21%; /* #343746 */
+    --popover-foreground: 60 9% 98%; /* #F8F8F2 */
+    --primary: 187 100% 77%; /* #8BE9FD */
+    --primary-foreground: 240 2% 16%; /* #282A36 */
+    --secondary: 240 4% 15%; /* #1E1F29 */
+    --secondary-foreground: 60 9% 98%; /* #F8F8F2 */
+    --muted: 240 4% 15%; /* #1E1F29 */
+    --muted-foreground: 240 5% 65%; /* #6272A4 */
+    --accent: 330 100% 71%; /* #FF79C6 */
+    --accent-foreground: 240 2% 16%; /* #282A36 */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 65%; /* #6272A4 */
+    --input: 240 5% 65%; /* #6272A4 */
+    --ring: 187 100% 77%; /* #8BE9FD */
+    --chart-1: 187 100% 77%; /* #8BE9FD */
+    --chart-2: 185 81% 64%; /* #50FA7B */
+    --chart-3: 41 100% 71%; /* #F1FA8C */
+    --chart-4: 25 100% 71%; /* #FFB86C */
+    --chart-5: 271 81% 56%; /* #BD93F9 */
+    --sidebar-background: 240 4% 15%; /* #1E1F29 */
+    --sidebar-foreground: 60 9% 98%; /* #F8F8F2 */
+    --sidebar-primary: 187 100% 77%; /* #8BE9FD */
+    --sidebar-primary-foreground: 240 2% 16%; /* #282A36 */
+    --sidebar-accent: 240 3% 21%; /* #343746 */
+    --sidebar-accent-foreground: 60 9% 98%; /* #F8F8F2 */
+    --sidebar-border: 240 5% 65%; /* #6272A4 */
+    --sidebar-ring: 187 100% 77%; /* #8BE9FD */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+  10% {
+    transform: translate(calc(var(--end-x) * 0.1), calc(var(--end-y) * 0.1)) scale(1);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(calc(var(--end-x) * 0.9), calc(var(--end-y) * 0.9)) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(var(--end-x), var(--end-y)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Ensure content is above the star field */
+nav,
+section,
+footer {
+  position: relative;
+  z-index: 20;
+}
+
+/* Add subtle backdrop blur to cards for better readability */
+.backdrop-blur-card {
+  backdrop-filter: blur(1px);
+  background-color: rgba(var(--card), 0.95);
+}
+
+/* Dracula theme custom classes */
+.dracula-primary {
+  color: #8BE9FD;
+}
+
+.dracula-accent {
+  color: #FF79C6;
+}
+
+.dracula-green {
+  color: #50FA7B;
+}
+
+.dracula-yellow {
+  color: #F1FA8C;
+}
+
+.dracula-orange {
+  color: #FFB86C;
+}
+
+.dracula-purple {
+  color: #BD93F9;
+}
+
+.dracula-pink {
+  color: #FF79C6;
+}
+
+.dracula-red {
+  color: #FF5555;
+}
+
+.dracula-comment {
+  color: #6272A4;
+}
+
+/* Dark mode specific styles */
+.dark .bg-dracula-card {
+  background-color: #343746;
+}
+
+.dark .border-dracula-border {
+  border-color: #6272A4;
+}
+
+.dark .text-dracula-text {
+  color: #F8F8F2;
+}
+
+.dark .bg-dracula-bg {
+  background-color: #282A36;
+}
+
+.dark .bg-dracula-nav {
+  background-color: #1E1F29;
+}
