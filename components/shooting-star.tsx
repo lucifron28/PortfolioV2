@@ -20,11 +20,11 @@ export function ShootingStars() {
   useEffect(() => {
     const createShootingStar = () => {
       const id = Date.now() + Math.random()
-      const startX = Math.random() * window.innerWidth
-      const startY = Math.random() * (window.innerHeight * 0.6) // Upper portion of screen
-      const endX = startX + (Math.random() * 300 + 200) * (Math.random() > 0.5 ? 1 : -1)
-      const endY = startY + Math.random() * 200 + 100
-      const duration = Math.random() * 2000 + 1000 // 1-3 seconds
+      const startX = Math.random() * (window.innerWidth * 0.3)
+      const startY = Math.random() * (window.innerHeight * 0.4) 
+      const endX = startX + Math.random() * 300 + 200 
+      const endY = startY + Math.random() * 200 + 100 
+      const duration = Math.random() * 2000 + 1000 
 
       const newStar: ShootingStar = {
         id,
@@ -38,19 +38,16 @@ export function ShootingStars() {
 
       setShootingStars((prev) => [...prev, newStar])
 
-      // Remove shooting star after animation
       setTimeout(() => {
         setShootingStars((prev) => prev.filter((star) => star.id !== id))
       }, duration + 500)
     }
 
-    // Create shooting stars at random intervals
     const interval = setInterval(() => {
-      if (Math.random() > 0.7) {
-        // 30% chance every interval
+      if (Math.random() > 0.4) {
         createShootingStar()
       }
-    }, 3000)
+    }, 1500) 
 
     return () => clearInterval(interval)
   }, [])
@@ -60,7 +57,7 @@ export function ShootingStars() {
       {shootingStars.map((star) => (
         <div
           key={star.id}
-          className="absolute w-1 h-1 bg-gradient-to-r from-transparent via-dracula-primary to-transparent rounded-full opacity-60"
+          className="absolute"
           style={
             {
               left: star.startX,
@@ -71,7 +68,18 @@ export function ShootingStars() {
             } as React.CSSProperties
           }
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-dracula-primary to-transparent rounded-full opacity-80" />
+          {/* Outer glow/aura */}
+          <div className="absolute w-6 h-6 -translate-x-1/2 -translate-y-1/2 bg-gradient-radial from-[#8BE9FD]/40 via-[#8BE9FD]/20 to-transparent rounded-full blur-sm" />
+          
+          {/* Middle glow */}
+          <div className="absolute w-3 h-3 -translate-x-1/2 -translate-y-1/2 bg-gradient-radial from-[#8BE9FD]/60 via-[#8BE9FD]/30 to-transparent rounded-full blur-xs" />
+          
+          {/* Core shooting star */}
+          <div className="absolute w-1 h-1 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-[#8BE9FD] to-transparent rounded-full opacity-90" />
+          
+          {/* Trail effect */}
+          <div className="absolute w-8 h-0.5 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#8BE9FD]/80 via-[#8BE9FD]/40 to-transparent rounded-full opacity-70" 
+               style={{ transform: 'translateX(-50%) translateY(-50%) rotate(25deg)' }} />
         </div>
       ))}
     </div>

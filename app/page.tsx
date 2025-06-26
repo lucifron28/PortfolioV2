@@ -108,27 +108,39 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="font-bold text-xl text-gray-800 dark:text-[#F8F8F2]">
-              Ron Vincent Cada
+              <img src="/favicon.ico" className="inline-block px-2" />Ron Vincent Cada
             </div>
             <div className="flex items-center space-x-4">
-              <a
-                href="#projects"
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors"
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors cursor-pointer"
               >
                 Projects
-              </a>
-              <a
-                href="#about"
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors"
+              </button>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("about")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors cursor-pointer"
               >
                 About
-              </a>
-              <a
-                href="#contact"
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors"
+              </button>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors cursor-pointer"
               >
                 Contact
-              </a>
+              </button>
               <Button
                 variant="ghost"
                 size="sm"
