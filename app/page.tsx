@@ -155,7 +155,7 @@ export default function Portfolio() {
       degree: "Bachelor of Science in Information Technology",
       school: "Manuel S. Enverga University Foundation - Lucena",
       period: "2023 - 2027",
-      description: "Specalizatoin Track in Web and Mobile Application Deelopment",
+      description: "Specalization Track in Web and Mobile Application Development",
       achievements: ["Dean's Lister", "Academic Scholar", "GWA: 1.28"]
     }
   ]
@@ -167,15 +167,17 @@ export default function Portfolio() {
       position: "2nd Place",
       date: "March 2025",
       description: "Competed in the Collegiate Python Programming Division",
-      type: "competition"
+      type: "competition",
+      image: "/sikaptala.jpg"
     },
     {
       title: "CodeChum National Programming Competition - Group Stage 3",
       organization: "CodeChum",
       position: "1st Place",
-      date: "March 2024",
-      description: "",
-      type: "competition"
+      date: "November 2024",
+      description: "Regional programming competition focusing on algorithmic problem solving",
+      type: "competition",
+      image: "/codechum.png"
     }
   ]
 
@@ -185,26 +187,27 @@ export default function Portfolio() {
       organization: "Harvard University (edX)",
       date: "2024",
       description: "Comprehensive introduction to computer science and programming, covering algorithms, data structures, web development, and software engineering principles",
-      credentialId: "CS50x-2024",
+      credentialId: "7a497a92-d84d-4e71-9830-4bef46a606b1",
       type: "computer-science",
-      image: "/placeholder-cs50.jpg"
+      image: "/cs50x.png"
     },
     {
       title: "CS50's Introduction to Programming with Python",
       organization: "Harvard University (edX)",
       date: "2024",
       description: "Introduction to programming using Python, covering functions, variables, conditionals, loops, exceptions, libraries, unit tests, and file I/O",
-      credentialId: "CS50P-2024",
+      credentialId: " 4d3ce24e-561a-4004-bed2-e6e372995c6f",
       type: "programming",
-      image: "/placeholder-cs50p.jpg"
+      image: "/cs50p.png"
     },
     {
       title: "Flutter and Dart: Developing iOS, Android, and Mobile Apps",
       organization: "IBM (Coursera)",
       date: "2024",
       description: "Comprehensive course on mobile app development using Flutter and Dart, covering cross-platform development, UI design, and app deployment",
-      credentialId: "IBM-FLUTTER-2024",
-      type: "mobile-development", image: "/placeholder-ibm-flutter.jpg"
+      credentialId: "YMJOROZO4N2",
+      type: "mobile-development", 
+      image: "flutter.png"
     }
   ]
 
@@ -569,7 +572,7 @@ export default function Portfolio() {
 
       {/* Education Section */}
       <section id="education" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
             Education
           </h2>
@@ -632,6 +635,17 @@ export default function Portfolio() {
                 key={index}
                 className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#FF79C6] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
               >
+                {achievement.image && (
+                  <div className="relative w-full h-60 overflow-hidden rounded-t-lg">
+                    <Image
+                      src={achievement.image}
+                      alt={achievement.title}
+                      fill
+                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                )}
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex items-center">
@@ -688,7 +702,7 @@ export default function Portfolio() {
                       alt={cert.title}
                       width={300}
                       height={150}
-                      className="w-full h-32 object-cover rounded-lg mb-4"
+                      className="w-full h-50 object-cover rounded-lg mb-4"
                     />
                   )}
                   <div className="flex items-start justify-between mb-2">
