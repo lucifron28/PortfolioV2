@@ -170,6 +170,36 @@ export default function Portfolio() {
               Philippines 🇵🇭
             </span>
           </div>
+          
+          {/* Contact Links */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+            <a
+              href="mailto:cronvincent@gmail.com"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+            >
+              <Mail className="h-5 w-5 mr-2" />
+              cronvincent@gmail.com
+            </a>
+            <a
+              href="https://github.com/lucifron28"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="h-5 w-5 mr-2" />
+              github.com/lucifron28
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="h-5 w-5 mr-2" />
+              linkedin.com/in/roncada
+            </a>
+          </div>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
@@ -341,75 +371,45 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
             Get In Touch
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
-                Let's work together
-              </h3>
-              <div className="space-y-4">
-                <a
-                  href="mailto:cronvincent@example.com"
-                  className="flex items-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
-                >
-                  <Mail className="h-5 w-5 mr-3" />
-                  cronvincent@gmail.com
-                </a>
-                <a
-                  href="https://github.com/lucifron28"
-                  className="flex items-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
-                >
-                  <Github className="h-5 w-5 mr-3" />
-                  github.com/lucifron28
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
-                  className="flex items-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
-                >
-                  <Linkedin className="h-5 w-5 mr-3" />
-                  linkedin.com/in/roncada
-                </a>
-              </div>
-            </div>
-            <Card className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] backdrop-blur-sm shadow-sm dark:shadow-none">
-              <CardHeader>
-                <CardTitle className="text-gray-800 dark:text-[#F8F8F2]">
-                  Send a Message
-                </CardTitle>
-                <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
-                  I'll get back to you as soon as possible
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Input
-                    placeholder="Your Name"
-                    className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
-                  />
-                  <Input
-                    placeholder="Your Email"
-                    type="email"
-                    className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
-                  />
-                </div>
+          <Card className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] backdrop-blur-sm shadow-sm dark:shadow-none">
+            <CardHeader>
+              <CardTitle className="text-gray-800 dark:text-[#F8F8F2]">
+                Send a Message
+              </CardTitle>
+              <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
+                I'll get back to you as soon as possible
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input
-                  placeholder="Subject"
+                  placeholder="Your Name"
                   className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
                 />
-                <Textarea
-                  placeholder="Your message..."
-                  rows={4}
+                <Input
+                  placeholder="Your Email"
+                  type="email"
                   className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
                 />
-                <Button className="w-full bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]">
-                  Send Message
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
+              <Input
+                placeholder="Subject"
+                className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
+              />
+              <Textarea
+                placeholder="Your message..."
+                rows={4}
+                className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
+              />
+              <Button className="w-full bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]">
+                Send Message
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
