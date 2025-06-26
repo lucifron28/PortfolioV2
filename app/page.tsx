@@ -43,32 +43,32 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration and admin dashboard",
-      tags: ["Next.js", "Django", "PostgreSQL", "Stripe"],
+      title: "Pixel Pages",
+      description: "Flask-based EPUB e-book reader and library management system with Google Books API integration for metadata, user authentication, and reading progress tracking",
+      tags: ["Flask", "Python", "SQLAlchemy", "HTML/CSS", "JavaScript", "EPUB", "Google Books API"],
       image: "/placeholder.svg?height=200&width=300",
-      link: "#",
+      link: "https://github.com/lucifron28/Pixel-Pages",
     },
     {
-      title: "Task Management App",
-      description: "Cross-platform mobile app for team collaboration and project management",
-      tags: ["Flutter", "Firebase", "Dart"],
+      title: "AkbayMed User",
+      description: "Flutter medical donation app connecting donors with patients in Philippine healthcare centers. Features openFDA API integration, Supabase backend, and comprehensive donation/request management",
+      tags: ["Flutter", "Dart", "Supabase", "openFDA API", "PostgreSQL", "Material Design"],
       image: "/placeholder.svg?height=200&width=300",
-      link: "#",
+      link: "https://github.com/lucifron28/AkbayMed_User",
     },
     {
-      title: "Real-time Chat Application",
-      description: "WebSocket-based chat app with file sharing and group messaging",
-      tags: ["React", "FastAPI", "WebSocket", "PostgreSQL"],
+      title: "NPMusic Player",
+      description: "C++/Qt desktop music player demonstrating data structures implementation with stack-based history, queue-based playlist management, and modern audio playback controls",
+      tags: ["C++", "Qt Framework", "Data Structures", "Stack", "Queue", "Audio Processing"],
       image: "/placeholder.svg?height=200&width=300",
-      link: "#",
+      link: "https://github.com/lucifron28/CP103-Semi-Finals-Project-NPMusic",
     },
     {
-      title: "Analytics Dashboard",
-      description: "Data visualization dashboard with real-time metrics and reporting",
-      tags: ["Next.js", "Django REST", "Chart.js", "Redis"],
+      title: "PNA Bank System",
+      description: "Web-based banking application with Firebase authentication, user account management, admin panel for bank operations, and responsive UI with modern animations",
+      tags: ["JavaScript", "HTML/CSS", "Firebase", "REST API", "Responsive Design", "Banking"],
       image: "/placeholder.svg?height=200&width=300",
-      link: "#",
+      link: "https://github.com/lucifron28/PNA-Bank-CSPI101-Midterm-Project",
     },
   ]
 
@@ -277,40 +277,45 @@ export default function Portfolio() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card
+              <a
                 key={index}
-                className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition-transform hover:scale-105"
               >
-                <CardHeader>
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={300}
-                    height={200}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                  />
-                  <CardTitle className="flex items-center justify-between text-gray-800 dark:text-[#F8F8F2]">
-                    {project.title}
-                    <ExternalLink className="h-5 w-5 text-[#FF79C6] group-hover:text-[#8BE9FD] transition-colors" />
-                  </CardTitle>
-                  <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <Badge
-                        key={tagIndex}
-                        variant="secondary"
-                        className="bg-gray-100 text-gray-700 border-gray-300 dark:bg-[#8BE9FD]/20 dark:text-[#8BE9FD] dark:border-[#8BE9FD]/30"
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                <Card className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none h-full">
+                  <CardHeader>
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      width={300}
+                      height={200}
+                      className="w-full h-48 object-cover rounded-lg mb-4"
+                    />
+                    <CardTitle className="flex items-center justify-between text-gray-800 dark:text-[#F8F8F2]">
+                      {project.title}
+                      <ExternalLink className="h-5 w-5 text-[#FF79C6] group-hover:text-[#8BE9FD] transition-colors" />
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <Badge
+                          key={tagIndex}
+                          variant="secondary"
+                          className="bg-gray-100 text-gray-700 border-gray-300 dark:bg-[#8BE9FD]/20 dark:text-[#8BE9FD] dark:border-[#8BE9FD]/30"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
             ))}
           </div>
         </div>
