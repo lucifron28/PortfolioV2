@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award } from "lucide-react"
+import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award, FileCheck, Menu, X } from "lucide-react"
 import { 
   SiNextdotjs, 
   SiDjango, 
@@ -32,6 +32,20 @@ import { ShootingStars } from "@/components/shooting-star"
 
 export default function Portfolio() {
   const [isDark, setIsDark] = useState(true)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    console.log('Hamburger clicked, current state:', isMobileMenuOpen)
+    setIsMobileMenuOpen(prev => {
+      console.log('Setting mobile menu to:', !prev)
+      return !prev
+    })
+  }
+
+  // Debug effect to monitor state changes
+  useEffect(() => {
+    console.log('Mobile menu state changed to:', isMobileMenuOpen)
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     if (isDark) {
@@ -40,6 +54,49 @@ export default function Portfolio() {
       document.documentElement.classList.remove("dark")
     }
   }, [isDark])
+
+  useEffect(() => {
+    // Hide React DevTools
+    if (typeof window !== 'undefined') {
+      const globalHook = (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
+      if (globalHook) {
+        globalHook.isDisabled = true;
+      }
+    }
+  }, [])
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      const hamburgerButton = target.closest('[data-hamburger-menu]');
+      
+      // Don't close if clicking the hamburger button
+      if (hamburgerButton) return;
+      
+      // Close if clicking outside the nav
+      if (isMobileMenuOpen && !target.closest('nav')) {
+        console.log('Clicking outside, closing menu')
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    // Only add listener when menu is open
+    if (isMobileMenuOpen) {
+      setTimeout(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+      }, 100);
+      
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isMobileMenuOpen])
+
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false); // Close mobile menu after clicking
+  }
 
   const projects = [
     {
@@ -128,6 +185,36 @@ export default function Portfolio() {
     }
   ]
 
+  const certifications = [
+    {
+      title: "CS50's Introduction to Computer Science",
+      organization: "Harvard University (edX)",
+      date: "2024",
+      description: "Comprehensive introduction to computer science and programming, covering algorithms, data structures, web development, and software engineering principles",
+      credentialId: "CS50x-2024",
+      type: "computer-science",
+      image: "/placeholder-cs50.jpg"
+    },
+    {
+      title: "CS50's Introduction to Programming with Python",
+      organization: "Harvard University (edX)",
+      date: "2024",
+      description: "Introduction to programming using Python, covering functions, variables, conditionals, loops, exceptions, libraries, unit tests, and file I/O",
+      credentialId: "CS50P-2024",
+      type: "programming",
+      image: "/placeholder-cs50p.jpg"
+    },
+    {
+      title: "Flutter and Dart: Developing iOS, Android, and Mobile Apps",
+      organization: "IBM (Coursera)",
+      date: "2024",
+      description: "Comprehensive course on mobile app development using Flutter and Dart, covering cross-platform development, UI design, and app deployment",
+      credentialId: "IBM-FLUTTER-2024",
+      type: "mobile-development",
+      image: "/placeholder-ibm-flutter.jpg"
+    }
+  ]
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#282A36] text-gray-900 dark:text-[#F8F8F2] transition-colors duration-300 relative">
       <StarField />
@@ -136,40 +223,146 @@ export default function Portfolio() {
       <nav className="sticky top-0 z-[100] bg-white/95 dark:bg-[#1E1F29]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#6272A4] transition-colors duration-300 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="font-bold text-xl text-gray-800 dark:text-[#F8F8F2]">
-              <img src="/favicon.ico" className="inline-block px-2" />Ron Vincent Cada
+            <div className="font-bold text-base sm:text-lg md:text-xl text-gray-800 dark:text-[#F8F8F2] flex items-center min-w-[200px] sm:min-w-[250px]">
+              <img src="/favicon.ico" className="inline-block w-5 h-5 sm:w-6 sm:h-6 mr-2" alt="Favicon" />
+              <span className="hidden sm:inline">Ron Vincent Cada</span>
+              <span className="sm:hidden">Ron Vincent Cada</span>
             </div>
-            <div className="flex items-center space-x-4">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden xl:flex items-center space-x-2">
               <button
-                onClick={() =>
-                  document
-                    .getElementById("projects")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors cursor-pointer"
+                onClick={() => scrollToSection("projects")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
               >
                 Projects
               </button>
               <button
-                onClick={() =>
-                  document
-                    .getElementById("about")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors cursor-pointer"
+                onClick={() => scrollToSection("about")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
               >
                 About
               </button>
               <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors cursor-pointer"
+                onClick={() => scrollToSection("education")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+              >
+                Education
+              </button>
+              <button
+                onClick={() => scrollToSection("achievements")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+              >
+                Achievements
+              </button>
+              <button
+                onClick={() => scrollToSection("certifications")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+              >
+                Certifications
+              </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
               >
                 Contact
               </button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsDark(!isDark)}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:bg-gray-100 dark:hover:bg-[#343746] ml-2"
+              >
+                {isDark ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
+              </Button>
+            </div>
+
+            {/* Tablet Navigation - Condensed */}
+            <div className="hidden lg:flex xl:hidden items-center space-x-1">
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
+              >
+                Projects
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("education")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
+              >
+                Education
+              </button>
+              <button
+                onClick={() => scrollToSection("achievements")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
+              >
+                Achievements
+              </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
+              >
+                Contact
+              </button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsDark(!isDark)}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:bg-gray-100 dark:hover:bg-[#343746] ml-1"
+              >
+                {isDark ? (
+                  <Sun className="h-3 w-3" />
+                ) : (
+                  <Moon className="h-3 w-3" />
+                )}
+              </Button>
+            </div>
+
+            {/* Medium Screen Navigation - Most condensed */}
+            <div className="hidden md:flex lg:hidden items-center space-x-1">
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-all duration-200 cursor-pointer px-1.5 py-1 rounded text-xs"
+              >
+                Projects
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-all duration-200 cursor-pointer px-1.5 py-1 rounded text-xs"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-all duration-200 cursor-pointer px-1.5 py-1 rounded text-xs"
+              >
+                Contact
+              </button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsDark(!isDark)}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:bg-gray-100 dark:hover:bg-[#343746] ml-1 p-1"
+              >
+                {isDark ? (
+                  <Sun className="h-3 w-3" />
+                ) : (
+                  <Moon className="h-3 w-3" />
+                )}
+              </Button>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="md:hidden flex items-center space-x-2">
               <Button
                 variant="ghost"
                 size="sm"
@@ -182,8 +375,65 @@ export default function Portfolio() {
                   <Moon className="h-4 w-4" />
                 )}
               </Button>
+              <button
+                onClick={toggleMobileMenu}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] p-2 transition-colors relative z-50"
+                data-hamburger-menu="true"
+                type="button"
+                aria-label="Toggle mobile menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
             </div>
           </div>
+          
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden border-t border-gray-200 dark:border-[#6272A4] bg-white/95 dark:bg-[#1E1F29]/95 backdrop-blur-md animate-in slide-in-from-top-2 duration-200">
+              <div className="flex flex-col space-y-1 px-4 py-4">
+                <button
+                  onClick={() => scrollToSection("projects")}
+                  className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
+                >
+                  Projects
+                </button>
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => scrollToSection("education")}
+                  className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
+                >
+                  Education
+                </button>
+                <button
+                  onClick={() => scrollToSection("achievements")}
+                  className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
+                >
+                  Achievements
+                </button>
+                <button
+                  onClick={() => scrollToSection("certifications")}
+                  className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
+                >
+                  Certifications
+                </button>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
+                >
+                  Contact
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -199,10 +449,10 @@ export default function Portfolio() {
               className="rounded-full mx-auto mb-6 border-4 border-[#8BE9FD]"
             />
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
             Hi, I'm <span className="text-[#8BE9FD]">Ron Vincent Cada</span>
           </h1>
-          <p className="text-xl sm:text-2xl mb-8 text-gray-600 dark:text-[#F8F8F2]/80 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-600 dark:text-[#F8F8F2]/80 max-w-3xl mx-auto px-4 sm:px-0">
             a full-stack web & mobile developer.
           </p>
           <div className="flex items-center justify-center mb-8">
@@ -213,55 +463,47 @@ export default function Portfolio() {
           </div>
           
           {/* Contact Links */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 px-4 sm:px-0">
             <a
               href="mailto:cronvincent@gmail.com"
-              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
             >
-              <Mail className="h-5 w-5 mr-2" />
-              cronvincent@gmail.com
+              <Mail className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+              <span className="break-all">cronvincent@gmail.com</span>
             </a>
             <a
               href="https://github.com/lucifron28"
-              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="h-5 w-5 mr-2" />
-              github.com/lucifron28
+              <Github className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+              <span>github.com/lucifron28</span>
             </a>
             <a
               href="https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
-              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Linkedin className="h-5 w-5 mr-2" />
-              linkedin.com/in/roncada
+              <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+              <span>linkedin.com/in/roncada</span>
             </a>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
             <Button
               size="lg"
-              className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] font-semibold"
-              onClick={() =>
-                document
-                  .getElementById("projects")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] font-semibold w-full sm:w-auto"
+              onClick={() => scrollToSection("projects")}
             >
               View Projects
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              className="bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36] w-full sm:w-auto"
+              onClick={() => scrollToSection("contact")}
             >
               Contact Me
             </Button>
@@ -416,7 +658,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="education" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
             Education
@@ -469,7 +711,7 @@ export default function Portfolio() {
       </section>
 
       {/* Achievements & Competitions Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-[#1E1F29]/50">
+      <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-[#1E1F29]/50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
             Achievements & Competitions
@@ -510,6 +752,64 @@ export default function Portfolio() {
                   <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70 ml-9">
                     {achievement.description}
                   </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
+            Certifications & Licenses
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {certifications.map((cert, index) => (
+              <Card
+                key={index}
+                className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
+              >
+                <CardHeader>
+                  {cert.image && (
+                    <Image
+                      src={cert.image}
+                      alt={cert.title}
+                      width={300}
+                      height={150}
+                      className="w-full h-32 object-cover rounded-lg mb-4"
+                    />
+                  )}
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-center">
+                      <FileCheck className="h-6 w-6 mr-3 text-[#8BE9FD] flex-shrink-0" />
+                      <div className="min-w-0">
+                        <CardTitle className="text-gray-800 dark:text-[#F8F8F2] mb-1 text-base leading-tight">
+                          {cert.title}
+                        </CardTitle>
+                        <div className="text-[#FF79C6] font-semibold text-sm">
+                          {cert.organization}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-right flex-shrink-0 ml-2">
+                      <div className="flex items-center text-gray-600 dark:text-[#F8F8F2]/70 text-xs">
+                        <Calendar className="h-3 w-3 mr-1" />
+                        <span>{cert.date}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70 ml-9 text-sm">
+                    {cert.description}
+                  </CardDescription>
+                  {cert.credentialId && (
+                    <div className="ml-9 mt-2">
+                      <span className="text-xs text-gray-500 dark:text-[#F8F8F2]/50">
+                        Credential ID: {cert.credentialId}
+                      </span>
+                    </div>
+                  )}
                 </CardHeader>
               </Card>
             ))}
