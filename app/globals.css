@@ -184,3 +184,11 @@ footer {
 .dark .bg-dracula-nav {
   background-color: #1E1F29;
 }
+
+.bg-gradient-radial {
+  background-image: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+.blur-xs {
+  filter: blur(1px);
+}
