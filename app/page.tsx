@@ -42,7 +42,6 @@ export default function Portfolio() {
     })
   }
 
-  // Debug effect to monitor state changes
   useEffect(() => {
     console.log('Mobile menu state changed to:', isMobileMenuOpen)
   }, [isMobileMenuOpen])
@@ -56,7 +55,6 @@ export default function Portfolio() {
   }, [isDark])
 
   useEffect(() => {
-    // Hide React DevTools
     if (typeof window !== 'undefined') {
       const globalHook = (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
       if (globalHook) {
@@ -65,23 +63,19 @@ export default function Portfolio() {
     }
   }, [])
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
       const hamburgerButton = target.closest('[data-hamburger-menu]');
       
-      // Don't close if clicking the hamburger button
       if (hamburgerButton) return;
       
-      // Close if clicking outside the nav
       if (isMobileMenuOpen && !target.closest('nav')) {
         console.log('Clicking outside, closing menu')
         setIsMobileMenuOpen(false);
       }
     };
 
-    // Only add listener when menu is open
     if (isMobileMenuOpen) {
       setTimeout(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -95,7 +89,7 @@ export default function Portfolio() {
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-    setIsMobileMenuOpen(false); // Close mobile menu after clicking
+    setIsMobileMenuOpen(false);
   }
 
   const projects = [
@@ -103,28 +97,28 @@ export default function Portfolio() {
       title: "Pixel Pages",
       description: "Flask-based EPUB e-book reader and library management system with Google Books API integration for metadata, user authentication, and reading progress tracking",
       tags: ["Flask", "Python", "SQLAlchemy", "HTML/CSS", "JavaScript", "EPUB", "Google Books API"],
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/pixel-pages.png",
       link: "https://github.com/lucifron28/Pixel-Pages",
     },
     {
       title: "AkbayMed User",
       description: "Flutter medical donation app connecting donors with patients in Philippine healthcare centers. Features openFDA API integration, Supabase backend, and comprehensive donation/request management",
       tags: ["Flutter", "Dart", "Supabase", "openFDA API", "PostgreSQL", "Material Design"],
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/akbaymed.png",
       link: "https://github.com/lucifron28/AkbayMed_User",
     },
     {
       title: "NPMusic Player",
       description: "C++/Qt desktop music player demonstrating data structures implementation with stack-based history, queue-based playlist management, and modern audio playback controls",
       tags: ["C++", "Qt Framework", "Data Structures", "Stack", "Queue", "Audio Processing"],
-      image: "/placeholder.svg?height=200&width=300",
+      image: "np-music.png",
       link: "https://github.com/lucifron28/CP103-Semi-Finals-Project-NPMusic",
     },
     {
       title: "PNA Bank System",
       description: "Web-based banking application with Firebase authentication, user account management, admin panel for bank operations, and responsive UI with modern animations",
       tags: ["JavaScript", "HTML/CSS", "Firebase", "REST API", "Responsive Design", "Banking"],
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/pna_bank.png",
       link: "https://github.com/lucifron28/PNA-Bank-CSPI101-Midterm-Project",
     },
   ]
@@ -442,76 +436,76 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
             <Image
-              src="/ron.jpg"
-              alt="Ron Vincent Cada"
-              width={150}
-              height={150}
-              className="rounded-full mx-auto mb-6 border-4 border-[#8BE9FD]"
-            />
+                src="/ron.jpg"
+                alt="Ron Vincent Cada"
+                width={150}
+                height={150}
+                className="rounded-full mx-auto mb-6 border-4 border-[#8BE9FD]"
+              />
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
+              Hi, I'm <span className="text-[#8BE9FD]">Ron Vincent Cada</span>
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-600 dark:text-[#F8F8F2]/80 max-w-3xl mx-auto px-4 sm:px-0">
+              a full-stack web & mobile developer.
+            </p>
+            <div className="flex items-center justify-center mb-8">
+              <MapPin className="h-5 w-5 mr-2 text-[#FF79C6]" />
+              <span className="text-lg text-gray-700 dark:text-[#F8F8F2]">
+                Philippines 🇵🇭
+              </span>
+            </div>
+            
+            {/* Contact Links */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 px-4 sm:px-0">
+              <a
+                href="mailto:cronvincent@gmail.com"
+                className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
+              >
+                <Mail className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+                <span className="break-all">cronvincent@gmail.com</span>
+              </a>
+              <a
+                href="https://github.com/lucifron28"
+                className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+                <span>github.com/lucifron28</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
+                className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+                <span>linkedin.com/in/roncada</span>
+              </a>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
+              <Button
+                size="lg"
+                className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] font-semibold w-full sm:w-auto"
+                onClick={() => scrollToSection("projects")}
+              >
+                View Projects
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36] w-full sm:w-auto"
+                onClick={() => scrollToSection("contact")}
+              >
+                Contact Me
+              </Button>
+            </div>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
-            Hi, I'm <span className="text-[#8BE9FD]">Ron Vincent Cada</span>
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-600 dark:text-[#F8F8F2]/80 max-w-3xl mx-auto px-4 sm:px-0">
-            a full-stack web & mobile developer.
-          </p>
-          <div className="flex items-center justify-center mb-8">
-            <MapPin className="h-5 w-5 mr-2 text-[#FF79C6]" />
-            <span className="text-lg text-gray-700 dark:text-[#F8F8F2]">
-              Philippines 🇵🇭
-            </span>
-          </div>
-          
-          {/* Contact Links */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 px-4 sm:px-0">
-            <a
-              href="mailto:cronvincent@gmail.com"
-              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
-            >
-              <Mail className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-              <span className="break-all">cronvincent@gmail.com</span>
-            </a>
-            <a
-              href="https://github.com/lucifron28"
-              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-              <span>github.com/lucifron28</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
-              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-              <span>linkedin.com/in/roncada</span>
-            </a>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
-            <Button
-              size="lg"
-              className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] font-semibold w-full sm:w-auto"
-              onClick={() => scrollToSection("projects")}
-            >
-              View Projects
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36] w-full sm:w-auto"
-              onClick={() => scrollToSection("contact")}
-            >
-              Contact Me
-            </Button>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Projects Section */}
+          {/* Projects Section */}
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
