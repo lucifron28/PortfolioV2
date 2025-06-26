@@ -204,8 +204,7 @@ export default function Portfolio() {
       date: "2024",
       description: "Comprehensive course on mobile app development using Flutter and Dart, covering cross-platform development, UI design, and app deployment",
       credentialId: "IBM-FLUTTER-2024",
-      type: "mobile-development",
-      image: "/placeholder-ibm-flutter.jpg"
+      type: "mobile-development", image: "/placeholder-ibm-flutter.jpg"
     }
   ]
 
@@ -223,41 +222,40 @@ export default function Portfolio() {
               <span className="sm:hidden">Ron Vincent Cada</span>
             </div>
             
-            {/* Desktop Navigation */}
-            <div className="hidden xl:flex items-center space-x-2">
+            <div className="hidden lg:flex items-center space-x-2 flex-wrap">
               <button
                 onClick={() => scrollToSection("projects")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("education")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
               >
                 Education
               </button>
               <button
                 onClick={() => scrollToSection("achievements")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
               >
                 Achievements
               </button>
               <button
                 onClick={() => scrollToSection("certifications")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
               >
                 Certifications
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm"
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
               >
                 Contact
               </button>
@@ -275,88 +273,7 @@ export default function Portfolio() {
               </Button>
             </div>
 
-            {/* Tablet Navigation - Condensed */}
-            <div className="hidden lg:flex xl:hidden items-center space-x-1">
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("education")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
-              >
-                Education
-              </button>
-              <button
-                onClick={() => scrollToSection("achievements")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
-              >
-                Achievements
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-xs"
-              >
-                Contact
-              </button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsDark(!isDark)}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:bg-gray-100 dark:hover:bg-[#343746] ml-1"
-              >
-                {isDark ? (
-                  <Sun className="h-3 w-3" />
-                ) : (
-                  <Moon className="h-3 w-3" />
-                )}
-              </Button>
-            </div>
-
-            {/* Medium Screen Navigation - Most condensed */}
-            <div className="hidden md:flex lg:hidden items-center space-x-1">
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-all duration-200 cursor-pointer px-1.5 py-1 rounded text-xs"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-all duration-200 cursor-pointer px-1.5 py-1 rounded text-xs"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-all duration-200 cursor-pointer px-1.5 py-1 rounded text-xs"
-              >
-                Contact
-              </button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsDark(!isDark)}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:bg-gray-100 dark:hover:bg-[#343746] ml-1 p-1"
-              >
-                {isDark ? (
-                  <Sun className="h-3 w-3" />
-                ) : (
-                  <Moon className="h-3 w-3" />
-                )}
-              </Button>
-            </div>
-
-            {/* Mobile Navigation */}
-            <div className="md:hidden flex items-center space-x-2">
+            <div className="lg:hidden flex items-center space-x-2">
               <Button
                 variant="ghost"
                 size="sm"
@@ -385,9 +302,8 @@ export default function Portfolio() {
             </div>
           </div>
           
-          {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 dark:border-[#6272A4] bg-white/95 dark:bg-[#1E1F29]/95 backdrop-blur-md animate-in slide-in-from-top-2 duration-200">
+            <div className="lg:hidden border-t border-gray-200 dark:border-[#6272A4] bg-white/95 dark:bg-[#1E1F29]/95 backdrop-blur-md animate-in slide-in-from-top-2 duration-200">
               <div className="flex flex-col space-y-1 px-4 py-4">
                 <button
                   onClick={() => scrollToSection("projects")}
