@@ -24,7 +24,8 @@ import {
   SiCplusplus,
   SiQt,
   SiPython,
-  SiJavascript
+  SiJavascript,
+  SiReact
 } from "react-icons/si"
 import Image from "next/image"
 import { StarField } from "@/components/star-field"
@@ -126,6 +127,7 @@ export default function Portfolio() {
   const techStack = {
     core: [
       { name: "Next.js", icon: SiNextdotjs },
+      { name: "React", icon: SiReact },
       { name: "Django", icon: SiDjango },
       { name: "Django REST Framework", icon: SiDjango },
       { name: "FastAPI", icon: SiFastapi },
@@ -162,6 +164,15 @@ export default function Portfolio() {
 
   const achievements = [
     {
+      title: "Open iT Codefest 2025 - Next Level Code: Refining Good into Great",
+      organization: "Open iT Philippines",
+      position: "1st Place",
+      date: "July 2025",
+      description: "Led a team and built a full-stack web application during a hackathon that gamifies project management to enhance team collaboration and productivity.",
+      type: "competition",
+      image: "/openit-codefest.png"
+    },
+    {
       title: "SikapTala: The National CS & IT Skills Competition",
       organization: "De La Salle University - Dasmarinas",
       position: "2nd Place",
@@ -186,30 +197,53 @@ export default function Portfolio() {
       title: "CS50's Introduction to Computer Science",
       organization: "Harvard University (edX)",
       date: "2024",
-      description: "Comprehensive introduction to computer science and programming, covering algorithms, data structures, web development, and software engineering principles",
+      description:
+        "Comprehensive introduction to computer science and programming, covering algorithms, data structures, web development, and software engineering principles",
       credentialId: "7a497a92-d84d-4e71-9830-4bef46a606b1",
       type: "computer-science",
-      image: "/cs50x.png"
+      image: "/cs50x.png",
     },
     {
       title: "CS50's Introduction to Programming with Python",
       organization: "Harvard University (edX)",
       date: "2024",
-      description: "Introduction to programming using Python, covering functions, variables, conditionals, loops, exceptions, libraries, unit tests, and file I/O",
+      description:
+        "Introduction to programming using Python, covering functions, variables, conditionals, loops, exceptions, libraries, unit tests, and file I/O",
       credentialId: " 4d3ce24e-561a-4004-bed2-e6e372995c6f",
       type: "programming",
-      image: "/cs50p.png"
+      image: "/cs50p.png",
     },
     {
       title: "Flutter and Dart: Developing iOS, Android, and Mobile Apps",
       organization: "IBM (Coursera)",
       date: "2024",
-      description: "Comprehensive course on mobile app development using Flutter and Dart, covering cross-platform development, UI design, and app deployment",
+      description:
+        "Comprehensive course on mobile app development using Flutter and Dart, covering cross-platform development, UI design, and app deployment",
       credentialId: "YMJOROZO4N2",
-      type: "mobile-development", 
-      image: "flutter.png"
+      type: "mobile-development",
+      image: "flutter.png",
+    },
+    {
+      title: "Github Foundtions",
+      organization: "GitHub",
+      date: "June 2025",
+      description:
+        "Foundational course on using GitHub for version control, collaboration, and project management",
+      credentialId: "nz51yDUa",
+      type: "version-control",
+      image: "github-foundations.png",
+    },
+    {
+      title: "Intermediate PostgreSQL",
+      organization: "University of Michigan (Coursera)",
+      date: "June 2025",
+      description:
+        "Intermediate course on PostgreSQL, covering advanced SQL queries, database design, and performance optimization",
+      credentialId: "GZO6VI362EUG",
+      type: "database",
+      image: "intermediate-postgresql.png",
     }
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#282A36] text-gray-900 dark:text-[#F8F8F2] transition-colors duration-300 relative">
