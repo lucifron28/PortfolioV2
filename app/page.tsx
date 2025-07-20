@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Head from "next/head"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -34,6 +35,107 @@ import { ShootingStars } from "@/components/shooting-star"
 export default function Portfolio() {
   const [isDark, setIsDark] = useState(true)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // SEO and Open Graph metadata
+  const siteMetadata = {
+    title: "Ron Vincent Cada - Full-Stack Web & Mobile Developer",
+    description: "Full-stack web and mobile developer from the Philippines specializing in Next.js, React, Django, Flutter, and modern web technologies. Open to internship opportunities and collaborations.",
+    url: "https://ron-cada-portfolio.vercel.app",
+    image: "/ron.jpg",
+    keywords: "Ron Vincent Cada, Full-stack developer, Web developer, Mobile developer, React, Next.js, Django, Flutter, Philippines developer, Frontend developer, Backend developer, Software engineer",
+    author: "Ron Vincent Cada",
+    type: "website"
+  }
+
+  useEffect(() => {
+    document.title = siteMetadata.title
+    
+    const updateMetaTag = (name: string, content: string, isProperty?: boolean) => {
+      let meta = document.querySelector(`meta[${isProperty ? 'property' : 'name'}="${name}"]`)
+      if (!meta) {
+        meta = document.createElement('meta')
+        if (isProperty) {
+          meta.setAttribute('property', name)
+        } else {
+          meta.setAttribute('name', name)
+        }
+        document.head.appendChild(meta)
+      }
+      meta.setAttribute('content', content)
+    }
+
+    // Basic SEO meta tags
+    updateMetaTag('description', siteMetadata.description)
+    updateMetaTag('keywords', siteMetadata.keywords)
+    updateMetaTag('author', siteMetadata.author)
+    updateMetaTag('robots', 'index, follow')
+    updateMetaTag('viewport', 'width=device-width, initial-scale=1.0')
+
+    // Open Graph meta tags
+    updateMetaTag('og:title', siteMetadata.title, true)
+    updateMetaTag('og:description', siteMetadata.description, true)
+    updateMetaTag('og:type', siteMetadata.type, true)
+    updateMetaTag('og:url', siteMetadata.url, true)
+    updateMetaTag('og:image', `${siteMetadata.url}${siteMetadata.image}`, true)
+    updateMetaTag('og:image:alt', 'Ron Vincent Cada - Full-Stack Developer', true)
+    updateMetaTag('og:image:width', '400', true)
+    updateMetaTag('og:image:height', '400', true)
+    updateMetaTag('og:locale', 'en_US', true)
+    updateMetaTag('og:site_name', 'Ron Vincent Cada Portfolio', true)
+
+    // Twitter Card meta tags
+    updateMetaTag('twitter:card', 'summary_large_image')
+    updateMetaTag('twitter:title', siteMetadata.title)
+    updateMetaTag('twitter:description', siteMetadata.description)
+    updateMetaTag('twitter:image', `${siteMetadata.url}${siteMetadata.image}`)
+    updateMetaTag('twitter:image:alt', 'Ron Vincent Cada - Full-Stack Developer')
+    updateMetaTag('twitter:creator', '@ronvincent_cada') // Replace with your Twitter handle
+    updateMetaTag('twitter:site', '@ronvincent_cada') // Replace with your Twitter handle
+
+    updateMetaTag('theme-color', '#8BE9FD')
+    updateMetaTag('msapplication-TileColor', '#8BE9FD')
+    updateMetaTag('application-name', 'Ron Vincent Cada Portfolio')
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ron Vincent Cada",
+      "jobTitle": "Full-Stack Web & Mobile Developer",
+      "description": siteMetadata.description,
+      "url": siteMetadata.url,
+      "image": `${siteMetadata.url}${siteMetadata.image}`,
+      "sameAs": [
+        "https://github.com/lucifron28",
+        "https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Philippines"
+      },
+      "email": "cronvincent@gmail.com",
+      "knowsAbout": [
+        "Web Development",
+        "Mobile Development",
+        "React",
+        "Next.js",
+        "Django",
+        "Flutter",
+        "JavaScript",
+        "Python",
+        "TypeScript"
+      ]
+    }
+
+    // Add or update structured data script
+    let scriptTag = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement
+    if (!scriptTag) {
+      scriptTag = document.createElement('script') as HTMLScriptElement
+      scriptTag.type = 'application/ld+json'
+      document.head.appendChild(scriptTag)
+    }
+    scriptTag.textContent = JSON.stringify(structuredData)
+
+  }, [])
 
   const toggleMobileMenu = () => {
     console.log('Hamburger clicked, current state:', isMobileMenuOpen)
@@ -246,7 +348,88 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#282A36] text-gray-900 dark:text-[#F8F8F2] transition-colors duration-300 relative">
+    <>
+      <Head>
+        <title>{siteMetadata.title}</title>
+        <meta name="description" content={siteMetadata.description} />
+        <meta name="keywords" content={siteMetadata.keywords} />
+        <meta name="author" content={siteMetadata.author} />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content={siteMetadata.type} />
+        <meta property="og:url" content={siteMetadata.url} />
+        <meta property="og:title" content={siteMetadata.title} />
+        <meta property="og:description" content={siteMetadata.description} />
+        <meta property="og:image" content={`${siteMetadata.url}${siteMetadata.image}`} />
+        <meta property="og:image:alt" content="Ron Vincent Cada - Full-Stack Developer" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Ron Vincent Cada Portfolio" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={siteMetadata.url} />
+        <meta name="twitter:title" content={siteMetadata.title} />
+        <meta name="twitter:description" content={siteMetadata.description} />
+        <meta name="twitter:image" content={`${siteMetadata.url}${siteMetadata.image}`} />
+        <meta name="twitter:image:alt" content="Ron Vincent Cada - Full-Stack Developer" />
+        <meta name="twitter:creator" content="@aeuxial" />
+        <meta name="twitter:site" content="@aeuxial" />
+
+        {/* Additional meta tags */}
+        <meta name="theme-color" content="#8BE9FD" />
+        <meta name="msapplication-TileColor" content="#8BE9FD" />
+        <meta name="application-name" content="Ron Vincent Cada Portfolio" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href={siteMetadata.url} />
+        
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Ron Vincent Cada",
+              "jobTitle": "Full-Stack Web & Mobile Developer",
+              "description": siteMetadata.description,
+              "url": siteMetadata.url,
+              "image": `${siteMetadata.url}${siteMetadata.image}`,
+              "sameAs": [
+                "https://github.com/lucifron28",
+                "https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Philippines"
+              },
+              "email": "cronvincent@gmail.com",
+              "knowsAbout": [
+                "Web Development",
+                "Mobile Development",
+                "React",
+                "Next.js",
+                "Django",
+                "Django REST Framework",
+                'Dart',
+                "Flutter",
+                "JavaScript",
+                "Python",
+                "FastAPI",
+                "SQLAlchemy",
+                "TypeScript",
+                "PostgreSQL"
+              ]
+            })
+          }}
+        />
+      </Head>
+      
+      <div className="min-h-screen bg-gray-50 dark:bg-[#282A36] text-gray-900 dark:text-[#F8F8F2] transition-colors duration-300 relative">
       <StarField />
       <ShootingStars />
       {/* Navigation */}
@@ -827,6 +1010,7 @@ export default function Portfolio() {
           </p>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
