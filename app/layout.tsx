@@ -37,12 +37,13 @@ export const metadata: Metadata = {
     images: ['/ron.jpg'],
   },
   verification: {
-    google: 'googlee0d318a4df4a12b4.html',
+    google: 'mRGMIHxTxJmaNykLq5kCBRk_zHHPDujn9Qw1cCTfKiY',
   },
   other: {
     'theme-color': '#8BE9FD',
     'msapplication-TileColor': '#8BE9FD',
     'application-name': 'Ron Vincent Cada Portfolio',
+    'sitemap': '/sitemap.xml',
   },
   icons: {
     icon: '/favicon.ico',
