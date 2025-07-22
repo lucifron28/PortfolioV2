@@ -356,6 +356,7 @@ export default function Portfolio() {
         <meta name="author" content={siteMetadata.author} />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="google-site-verification" content="googlee0d318a4df4a12b4.html" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content={siteMetadata.type} />
