@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Ron Vincent Cada - Full-Stack Web & Mobile Developer',
-    description: 'Full-stack web and mobile developer from the Philippines specializing in Next.js, React, Django, Flutter, and modern web technologies. Open to internship opportunities and collaborations.',
+    description: 'Full-stack web and mobile developer from the Philippines specializing in Next.js, React, Django, and Flutter. Open to internship opportunities.',
     creator: '@aeuxial',
     images: ['/ron.jpg'],
   },
