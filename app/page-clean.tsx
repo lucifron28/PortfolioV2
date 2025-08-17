@@ -428,7 +428,7 @@ export default function Portfolio() {
                 <span>github.com/lucifron28</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/ron-vincent-cada-a939282a7/"
+                href="https://www.linkedin.com/in/ron-vincent-cada
                 className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
                 target="_blank"
                 rel="noopener noreferrer"
