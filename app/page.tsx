@@ -174,7 +174,7 @@ export default function Portfolio() {
     },
     {
       title: "SikapTala: The National CS & IT Skills Competition",
-      organization: "De La Salle University - Dasmarinas",
+      organization: "De La Salle University - Dasmariñas",
       position: "2nd Place",
       date: "March 2025",
       description: "Competed in the Collegiate Python Programming Division",
@@ -189,6 +189,33 @@ export default function Portfolio() {
       description: "Regional programming competition focusing on algorithmic problem solving",
       type: "competition",
       image: "/codechum.png"
+    },
+    {
+      title: "CoCo - Coding Competition",
+      organization: "PSITES",
+      position: "1st Place",
+      date: "2025",
+      description: "Participated in programming challenges and algorithmic problem solving",
+      type: "competition",
+      image: "/cp2024.jpg"
+    },
+    {
+      title: "Cyberlympics 2024 - Hackathon",
+      organization: "PSITES",
+      position: "1st Place",
+      date: "2024",
+      description: "Participated in programming challenges and algorithmic problem solving",
+      type: "competition",
+      image: "/cp2025.jpg"
+    },
+    {
+      title: "DLSU - Hackercup 2025",
+      organization: "De La Salle University - Manila",
+      position: "Participant",
+      date: "2025",
+      description: "Developed a mobile application supporting SDG 11.2 (Sustainable Cities and Communities) using Flutter",
+      type: "competition",
+      image: "/GitGood.png"
     }
   ]
 
