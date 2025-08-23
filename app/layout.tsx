@@ -71,7 +71,7 @@ export default function RootLayout({
     "jobTitle": "Full-Stack Web & Mobile Developer",
     "description": "Full-stack web and mobile developer from the Philippines specializing in Next.js, React, Django, Flutter, and modern web technologies. Open to internship opportunities and collaborations.",
     "url": "https://ron-cada-portfolio.vercel.app",
-    "image": "https://ron-cada-portfolio.vercel.app/ron.jpg,
+    "image": "https://ron-cada-portfolio.vercel.app/ron.jpg",
     "sameAs": [
       "https://github.com/lucifron28",
       "https://www.linkedin.com/in/ron-vincent-cada/"
