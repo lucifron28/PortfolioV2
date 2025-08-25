@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award, FileCheck, Menu, X } from "lucide-react"
+import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award, FileCheck, Menu, X, Download } from "lucide-react"
 import { 
   SiNextdotjs, 
   SiDjango, 
@@ -34,6 +34,7 @@ import { ShootingStars } from "@/components/shooting-star"
 export default function Portfolio() {
   const [isDark, setIsDark] = useState(true)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [achievementFilter, setAchievementFilter] = useState("all")
 
   const toggleMobileMenu = () => {
     console.log('Hamburger clicked, current state:', isMobileMenuOpen)
@@ -95,16 +96,44 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "ScrybeSync",
+      description: "LLM-powered Markdown-based note-taking app with built-in audio/video transcription and AI summarization for enhanced productivity and content management",
+      tags: ["Django REST Framework", "React", "PostgreSQL", "AI/ML", "Markdown", "Audio Processing"],
+      image: "https://placehold.co/600x400/8BE9FD/282A36?text=ScrybeSync",
+      link: "https://github.com/lucifron28/ScrybeSync",
+    },
+    {
+      title: "AQuest",
+      description: "Gamified project management platform for teams and students developed during OpeniT Codefest 2025. Features Docker Compose deployment and comprehensive project tracking",
+      tags: ["Django REST Framework", "SvelteKit", "PostgreSQL", "Docker", "Gamification"],
+      image: "https://placehold.co/600x400/50FA7B/282A36?text=AQuest",
+      link: "https://github.com/lucifron28/openit",
+    },
+    {
+      title: "Zentry",
+      description: "AI-powered gamified task manager for productivity tracking and user rewards, built during FEU Tech Hackathon 2025 with Flutter and local database storage",
+      tags: ["Flutter", "Hive", "AI/ML", "Gamification", "Task Management"],
+      image: "https://placehold.co/600x400/BD93F9/282A36?text=Zentry",
+      link: "https://github.com/lucifron28/Zentry",
+    },
+    {
+      title: "JeepGo",
+      description: "Commuter assistant app for jeepney route optimization, fare calculation, and real-time tracking developed for DLSU Hackercup 2025",
+      tags: ["Flutter", "Firebase", "Real-time Tracking", "Route Optimization", "Mobile App"],
+      image: "https://placehold.co/600x400/FF79C6/282A36?text=JeepGo",
+      link: "https://github.com/lucifron28/hackercup",
+    },
+    {
       title: "Pixel Pages",
-      description: "Flask-based EPUB e-book reader and library management system with Google Books API integration for metadata, user authentication, and reading progress tracking",
-      tags: ["Flask", "Python", "SQLAlchemy", "HTML/CSS", "JavaScript", "EPUB", "Google Books API"],
+      description: "Web-based eBook reader and management platform with EPUB parsing and annotation support. CS50x Final Project with comprehensive library management",
+      tags: ["Flask", "SQLite3", "EPUBLIB", "Jinja2", "EPUB Processing", "Web Development"],
       image: "/pixel-pages.png",
       link: "https://github.com/lucifron28/Pixel-Pages",
     },
     {
       title: "AkbayMed User",
-      description: "Flutter medical donation app connecting donors with patients in Philippine healthcare centers. Features openFDA API integration, Supabase backend, and comprehensive donation/request management",
-      tags: ["Flutter", "Dart", "Supabase", "openFDA API", "PostgreSQL", "Material Design"],
+      description: "Medication donation and redistribution platform aligned with SDG 3 & 12, integrated with OpenFDA API for medication verification and tracking",
+      tags: ["Flutter", "Dart", "Supabase", "openFDA API", "SDG", "Healthcare"],
       image: "/akbaymed.png",
       link: "https://github.com/lucifron28/AkbayMed_User",
     },
@@ -126,21 +155,22 @@ export default function Portfolio() {
 
   const techStack = {
     core: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "React", icon: SiReact },
-      { name: "Django", icon: SiDjango },
+      { name: "Python", icon: SiPython },
       { name: "Django REST Framework", icon: SiDjango },
+      { name: "Flask", icon: SiDjango },
       { name: "FastAPI", icon: SiFastapi },
-      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "React", icon: SiReact },
+      { name: "Next.js", icon: SiNextdotjs },
       { name: "Flutter", icon: SiFlutter },
+      { name: "PostgreSQL", icon: SiPostgresql },
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "Git", icon: SiGit },
-      { name: "GitHub", icon: SiGithub },
     ],
     learning: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Docker", icon: SiDocker },
       { name: "Firebase", icon: SiFirebase },
       { name: "Supabase", icon: SiSupabase },
-      { name: "TypeScript", icon: SiTypescript },
       { name: "Docker", icon: SiDocker },
     ],
     foundations: [
@@ -155,10 +185,10 @@ export default function Portfolio() {
   const education = [
     {
       degree: "Bachelor of Science in Information Technology",
-      school: "Manuel S. Enverga University Foundation - Lucena",
+      school: "Manuel S. Enverga University Foundation - Lucena City",
       period: "2023 - 2027",
-      description: "Specalization Track in Web and Mobile Application Development",
-      achievements: ["Dean's Lister", "Academic Scholar", "GWA: 1.28"]
+      description: "Specialization Track in Web & Mobile Application Development",
+      achievements: ["University Scholar", "Dean's Lister", "GWA: 1.328"]
     }
   ]
 
@@ -168,18 +198,10 @@ export default function Portfolio() {
       organization: "Open iT Philippines",
       position: "1st Place",
       date: "July 2025",
-      description: "Led a team and built a full-stack web application during a hackathon that gamifies project management to enhance team collaboration and productivity.",
+      description: "Led team as Full-Stack Developer; implemented backend with Django REST Framework & PostgreSQL, deployed with Docker Compose",
       type: "competition",
+      category: "hackathon",
       image: "/openit-codefest.png"
-    },
-    {
-      title: "SikapTala: The National CS & IT Skills Competition",
-      organization: "De La Salle University - Dasmariñas",
-      position: "2nd Place",
-      date: "March 2025",
-      description: "Competed in the Collegiate Python Programming Division",
-      type: "competition",
-      image: "/sikaptala.jpg"
     },
     {
       title: "CodeChum National Programming Competition - Group Stage 3",
@@ -188,7 +210,68 @@ export default function Portfolio() {
       date: "November 2024",
       description: "Regional programming competition focusing on algorithmic problem solving",
       type: "competition",
+      category: "programming",
       image: "/codechum.png"
+    },
+    {
+      title: "SikapTala: The National CS & IT Skills Competition",
+      organization: "De La Salle University - Dasmariñas",
+      position: "2nd Place",
+      date: "March 2025",
+      description: "Competed in the Collegiate Python Programming Division at national level",
+      type: "competition",
+      category: "programming",
+      image: "/sikaptala.jpg"
+    },
+    {
+      title: "CodeChum National Programming Competition - Grand Finals",
+      organization: "CodeChum",
+      position: "Finalist",
+      date: "2024",
+      description: "Advanced to Grand Finals in national programming competition",
+      type: "competition",
+      category: "programming",
+      image: "https://placehold.co/600x400/FFB86C/282A36?text=CodeChum+Finals"
+    },
+    {
+      title: "FEU Tech Hackathon 2025",
+      organization: "Far Eastern University - Institute of Technology",
+      position: "Participant",
+      date: "2025",
+      description: "Team Leader & Full-Stack Developer; built scalable prototype under time pressure with AI-powered gamified task management",
+      type: "competition",
+      category: "hackathon",
+      image: "/FEU_hackathon_cada.png"
+    },
+    {
+      title: "DLSU Hackercup 2025",
+      organization: "De La Salle University",
+      position: "Participant", 
+      date: "2025",
+      description: "Team Leader; developed mobile app prototype for commuter assistance and pitched solution to judges",
+      type: "competition",
+      category: "hackathon",
+      image: "https://placehold.co/600x400/50FA7B/282A36?text=DLSU+Hackercup"
+    },
+    {
+      title: "ISITE National IT Skills Competition 2025",
+      organization: "ISITE",
+      position: "Participant",
+      date: "2025",
+      description: "Participated in C Programming competition at national level",
+      type: "competition",
+      category: "programming",
+      image: "https://placehold.co/600x400/BD93F9/282A36?text=ISITE+2025"
+    },
+    {
+      title: "ISITE National IT Skills Competition 2024",
+      organization: "ISITE",
+      position: "Participant",
+      date: "2024",
+      description: "Participated in Python Programming competition at national level",
+      type: "competition",
+      category: "programming",
+      image: "https://placehold.co/600x400/F1FA8C/282A36?text=ISITE+2024"
     },
     {
       title: "CoCo - Coding Competition",
@@ -317,12 +400,6 @@ export default function Portfolio() {
               >
                 Certifications
               </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
-              >
-                Contact
-              </button>
               <Button
                 variant="ghost"
                 size="sm"
@@ -399,12 +476,6 @@ export default function Portfolio() {
                 >
                   Certifications
                 </button>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
-                >
-                  Contact
-                </button>
               </div>
             </div>
           )}
@@ -461,7 +532,7 @@ export default function Portfolio() {
                 rel="noopener noreferrer"
               >
                 <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                <span>linkedin.com/in/roncada</span>
+                <span>linkedin.com/in/ron-vincent-cada</span>
               </a>
             </div>
             
@@ -476,10 +547,18 @@ export default function Portfolio() {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36] w-full sm:w-auto"
-                onClick={() => scrollToSection("contact")}
+                className="bg-transparent border-[#FF79C6] text-[#FF79C6] hover:bg-[#FF79C6] hover:text-white dark:border-[#FF79C6] dark:text-[#FF79C6] dark:hover:bg-[#FF79C6] dark:hover:text-[#282A36] w-full sm:w-auto"
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/Cada_CV.pdf';
+                  link.download = 'Ron_Vincent_Cada_CV.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
               >
-                Contact Me
+                <Download className="h-4 w-4 mr-2" />
+                Download CV
               </Button>
             </div>
           </div>
@@ -687,11 +766,74 @@ export default function Portfolio() {
       {/* Achievements & Competitions Section */}
       <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-[#1E1F29]/50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800 dark:text-[#F8F8F2]">
             Achievements & Competitions
           </h2>
+          
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <Button
+              variant={achievementFilter === "all" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setAchievementFilter("all")}
+              className={achievementFilter === "all" 
+                ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
+                : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              }
+            >
+              All
+            </Button>
+            <Button
+              variant={achievementFilter === "hackathon" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setAchievementFilter("hackathon")}
+              className={achievementFilter === "hackathon" 
+                ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
+                : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              }
+            >
+              Hackathons
+            </Button>
+            <Button
+              variant={achievementFilter === "programming" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setAchievementFilter("programming")}
+              className={achievementFilter === "programming" 
+                ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
+                : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              }
+            >
+              Programming
+            </Button>
+            <Button
+              variant={achievementFilter === "competition" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setAchievementFilter("competition")}
+              className={achievementFilter === "competition" 
+                ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
+                : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              }
+            >
+              Other Competitions
+            </Button>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {achievements.map((achievement, index) => (
+            {achievements
+              .filter(achievement => {
+                if (achievementFilter === "all") return true;
+                if (achievementFilter === "hackathon") {
+                  return achievement.category === "hackathon";
+                }
+                if (achievementFilter === "programming") {
+                  return achievement.category === "programming";
+                }
+                if (achievementFilter === "competition") {
+                  return achievement.category === "competition";
+                }
+                return true;
+              })
+              .map((achievement, index) => (
               <Card
                 key={index}
                 className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#FF79C6] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
@@ -799,50 +941,6 @@ export default function Portfolio() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
-            Get In Touch
-          </h2>
-          <Card className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] backdrop-blur-sm shadow-sm dark:shadow-none">
-            <CardHeader>
-              <CardTitle className="text-gray-800 dark:text-[#F8F8F2]">
-                Send a Message
-              </CardTitle>
-              <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
-                I'll get back to you as soon as possible
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Input
-                  placeholder="Your Name"
-                  className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
-                />
-                <Input
-                  placeholder="Your Email"
-                  type="email"
-                  className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
-                />
-              </div>
-              <Input
-                placeholder="Subject"
-                className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
-              />
-              <Textarea
-                placeholder="Your message..."
-                rows={4}
-                className="bg-gray-50 dark:bg-[#1E1F29] border-gray-300 dark:border-[#6272A4] text-gray-800 dark:text-[#F8F8F2] placeholder:text-gray-500 dark:placeholder:text-[#F8F8F2]/50"
-              />
-              <Button className="w-full bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]">
-                Send Message
-              </Button>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
