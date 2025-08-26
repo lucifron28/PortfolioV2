@@ -99,28 +99,28 @@ export default function Portfolio() {
       title: "ScrybeSync",
       description: "LLM-powered Markdown-based note-taking app with built-in audio/video transcription and AI summarization for enhanced productivity and content management",
       tags: ["Django REST Framework", "React", "PostgreSQL", "AI/ML", "Markdown", "Audio Processing"],
-      image: "https://placehold.co/600x400/8BE9FD/282A36?text=ScrybeSync",
+      image: "/ScrybeSync.png",
       link: "https://github.com/lucifron28/ScrybeSync",
     },
     {
       title: "AQuest",
       description: "Gamified project management platform for teams and students developed during OpeniT Codefest 2025. Features Docker Compose deployment and comprehensive project tracking",
       tags: ["Django REST Framework", "SvelteKit", "PostgreSQL", "Docker", "Gamification"],
-      image: "https://placehold.co/600x400/50FA7B/282A36?text=AQuest",
+      image: "./AQuest.png",
       link: "https://github.com/lucifron28/openit",
     },
     {
       title: "Zentry",
       description: "AI-powered gamified task manager for productivity tracking and user rewards, built during FEU Tech Hackathon 2025 with Flutter and local database storage",
       tags: ["Flutter", "Hive", "AI/ML", "Gamification", "Task Management"],
-      image: "https://placehold.co/600x400/BD93F9/282A36?text=Zentry",
+    image: "./Zentry.png",
       link: "https://github.com/lucifron28/Zentry",
     },
     {
       title: "JeepGo",
       description: "Commuter assistant app for jeepney route optimization, fare calculation, and real-time tracking developed for DLSU Hackercup 2025",
       tags: ["Flutter", "Firebase", "Real-time Tracking", "Route Optimization", "Mobile App"],
-      image: "https://placehold.co/600x400/FF79C6/282A36?text=JeepGo",
+      image: "./JeepGo.png",
       link: "https://github.com/lucifron28/hackercup",
     },
     {
@@ -231,7 +231,7 @@ export default function Portfolio() {
       description: "Advanced to Grand Finals in national programming competition",
       type: "competition",
       category: "programming",
-      image: "https://placehold.co/600x400/FFB86C/282A36?text=CodeChum+Finals"
+      image: "./codechum-grandfinals.png"
     },
     {
       title: "FEU Tech Hackathon 2025",
