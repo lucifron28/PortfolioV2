@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award, FileCheck, Menu, X, Download, Users, Shield, Briefcase } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award, FileCheck, Menu, X, Download, Users, Shield, Briefcase, Eye } from "lucide-react"
 import { 
   SiNextdotjs, 
   SiDjango, 
@@ -27,7 +29,6 @@ import {
   SiJavascript,
   SiReact
 } from "react-icons/si"
-import Image from "next/image"
 import { StarField } from "@/components/star-field"
 import { ShootingStars } from "@/components/shooting-star"
 
@@ -99,28 +100,28 @@ export default function Portfolio() {
       title: "ScrybeSync",
       description: "LLM-powered Markdown-based note-taking app with built-in audio/video transcription and AI summarization for enhanced productivity and content management",
       tags: ["Django REST Framework", "React", "PostgreSQL", "AI/ML", "Markdown", "Audio Processing"],
-      image: "https://placehold.co/600x400/8BE9FD/282A36?text=ScrybeSync",
+      image: "/ScrybeSync.png",
       link: "https://github.com/lucifron28/ScrybeSync",
     },
     {
       title: "AQuest",
       description: "Gamified project management platform for teams and students developed during OpeniT Codefest 2025. Features Docker Compose deployment and comprehensive project tracking",
       tags: ["Django REST Framework", "SvelteKit", "PostgreSQL", "Docker", "Gamification"],
-      image: "https://placehold.co/600x400/50FA7B/282A36?text=AQuest",
+      image: "/AQuest.png",
       link: "https://github.com/lucifron28/AQuest",
     },
     {
       title: "Zentry",
       description: "AI-powered gamified task manager for productivity tracking and user rewards, built during FEU Tech Hackathon 2025 with Flutter and local database storage",
       tags: ["Flutter", "Hive", "AI/ML", "Gamification", "Task Management"],
-      image: "https://placehold.co/600x400/BD93F9/282A36?text=Zentry",
+      image: "/Zentry.png",
       link: "https://github.com/lucifron28/Zentry",
     },
     {
       title: "JeepGo",
       description: "Commuter assistant app for jeepney route optimization, fare calculation, and real-time tracking developed for DLSU Hackercup 2025",
       tags: ["Flutter", "Firebase", "Real-time Tracking", "Route Optimization", "Mobile App"],
-      image: "https://placehold.co/600x400/FF79C6/282A36?text=JeepGo",
+      image: "/JeepGo.png",
       link: "https://github.com/lucifron28/JeepGo",
     },
     {
@@ -139,9 +140,9 @@ export default function Portfolio() {
     },
     {
       title: "NPMusic Player",
-      description: "C++/Qt desktop music player demonstrating data structures implementation with stack-based history, queue-based playlist management, and modern audio playback controls",
+      description: "C++/Qt desktop music player demonstrating data structures implementation with stack-based history, queue-based playlist management, and modern audio playbook controls",
       tags: ["C++", "Qt Framework", "Data Structures", "Stack", "Queue", "Audio Processing"],
-      image: "np-music.png",
+      image: "/np-music.png",
       link: "https://github.com/lucifron28/CP103-Semi-Finals-Project-NPMusic",
     },
     {
@@ -258,7 +259,7 @@ export default function Portfolio() {
       description: "Advanced to Grand Finals in national programming competition",
       type: "competition",
       category: "programming",
-      image: "https://placehold.co/600x400/FFB86C/282A36?text=CodeChum+Finals"
+      image: "/codechum-grandfinals.png"
     },
     {
       title: "FEU Tech Hackathon 2025",
@@ -278,7 +279,7 @@ export default function Portfolio() {
       description: "Team Leader; developed mobile app prototype for commuter assistance supporting SDG 11.2 (Sustainable Cities and Communities) using Flutter and pitched solution to judges",
       type: "competition",
       category: "hackathon",
-      image: "/GitGood.png"
+      image: "/JeepGo.png"
     },
     {
       title: "ISITE National IT Skills Competition 2025",
@@ -288,7 +289,7 @@ export default function Portfolio() {
       description: "Participated in C Programming competition at national level",
       type: "competition",
       category: "programming",
-      image: "https://placehold.co/600x400/BD93F9/282A36?text=ISITE+2025"
+      image: "/ISITE-C.jpg"
     },
     {
       title: "ISITE National IT Skills Competition 2024",
@@ -298,7 +299,7 @@ export default function Portfolio() {
       description: "Participated in Python Programming competition at national level",
       type: "competition",
       category: "programming",
-      image: "https://placehold.co/600x400/F1FA8C/282A36?text=ISITE+2024"
+      image: "/ISITE-Python.jpg"
     },
     {
       title: "CoCo - Coding Competition",
@@ -602,15 +603,19 @@ export default function Portfolio() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <a
-                key={index}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition-transform hover:scale-105"
-              >
-                <Card className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none h-full">
-                  <CardHeader>
+              <Card key={index} className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 backdrop-blur-sm shadow-sm dark:shadow-none h-full">
+                <CardHeader>
+                  {project.title === "Zentry" ? (
+                    <div className="w-full h-48 bg-gray-100 dark:bg-[#282A36] rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                      <Image
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        width={300}
+                        height={200}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  ) : (
                     <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
@@ -618,29 +623,70 @@ export default function Portfolio() {
                       height={200}
                       className="w-full h-48 object-cover rounded-lg mb-4"
                     />
-                    <CardTitle className="flex items-center justify-between text-gray-800 dark:text-[#F8F8F2]">
-                      {project.title}
-                      <ExternalLink className="h-5 w-5 text-[#FF79C6] group-hover:text-[#8BE9FD] transition-colors" />
-                    </CardTitle>
-                    <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIndex) => (
-                        <Badge
-                          key={tagIndex}
-                          variant="secondary"
-                          className="bg-gray-100 text-gray-700 border-gray-300 dark:bg-[#8BE9FD]/20 dark:text-[#8BE9FD] dark:border-[#8BE9FD]/30"
+                  )}
+                  <CardTitle className="flex items-center justify-between text-gray-800 dark:text-[#F8F8F2]">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, tagIndex) => (
+                      <Badge
+                        key={tagIndex}
+                        variant="secondary"
+                        className="bg-gray-100 text-gray-700 border-gray-300 dark:bg-[#8BE9FD]/20 dark:text-[#8BE9FD] dark:border-[#8BE9FD]/30"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-2">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button
+                          size="sm"
+                          className="bg-[#8BE9FD] hover:bg-[#8BE9FD]/90 text-[#282A36] font-medium"
                         >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
+                          <Eye className="h-4 w-4 mr-2" />
+                          View Image
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh]">
+                        <DialogHeader>
+                          <DialogTitle className="text-gray-800 dark:text-[#F8F8F2]">
+                            {project.title}
+                          </DialogTitle>
+                        </DialogHeader>
+                        <div className="flex items-center justify-center p-4">
+                          <div className="w-full h-96 bg-gray-100 dark:bg-[#282A36] rounded-lg flex items-center justify-center overflow-hidden">
+                            <Image
+                              src={project.image || "/placeholder.svg"}
+                              alt={project.title}
+                              width={800}
+                              height={600}
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                    
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-[#FF79C6] text-[#FF79C6] hover:bg-[#FF79C6]/10"
+                      onClick={() => window.open(project.link, '_blank')}
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      View on GitHub
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -685,7 +731,7 @@ export default function Portfolio() {
                       return (
                         <div
                           key={index}
-                          className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                          className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2"
                         >
                           <IconComponent className="h-4 w-4" />
                           {tech.name}
@@ -705,7 +751,7 @@ export default function Portfolio() {
                       return (
                         <div
                           key={index}
-                          className="border border-gray-600 dark:border-[#FF79C6] text-gray-700 dark:text-[#FF79C6] hover:bg-gray-100 dark:hover:bg-[#FF79C6]/10 px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                          className="border border-gray-600 dark:border-[#FF79C6] text-gray-700 dark:text-[#FF79C6] hover:bg-gray-100 dark:hover:bg-[#FF79C6]/10 px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2"
                         >
                           <IconComponent className="h-4 w-4" />
                           {tech.name}
@@ -725,7 +771,7 @@ export default function Portfolio() {
                       return (
                         <div
                           key={index}
-                          className="bg-gray-200 dark:bg-[#343746] text-gray-700 dark:text-[#F8F8F2]/80 hover:bg-gray-300 dark:hover:bg-[#404552] px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                          className="bg-gray-200 dark:bg-[#343746] text-gray-700 dark:text-[#F8F8F2]/80 hover:bg-gray-300 dark:hover:bg-[#404552] px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2"
                         >
                           <IconComponent className="h-4 w-4" />
                           {tech.name}
@@ -857,7 +903,7 @@ export default function Portfolio() {
               </Card>
             </div>
 
-            {/* Competitive Programming Experience */}
+            {/*  Compe Experience */}
             <div className="mb-12">
               <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2] flex items-center gap-2">
                 <Trophy className="h-6 w-6 text-[#F1FA8C]" />
@@ -965,15 +1011,37 @@ export default function Portfolio() {
                 className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#FF79C6] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
               >
                 {achievement.image && (
-                  <div className="relative w-full h-60 overflow-hidden rounded-t-lg">
-                    <Image
-                      src={achievement.image}
-                      alt={achievement.title}
-                      fill
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <div className="relative w-full h-60 overflow-hidden rounded-t-lg cursor-pointer">
+                        <Image
+                          src={achievement.image}
+                          alt={achievement.title}
+                          fill
+                          className="object-contain p-4 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[90vh]">
+                      <DialogHeader>
+                        <DialogTitle className="text-gray-800 dark:text-[#F8F8F2]">
+                          {achievement.title}
+                        </DialogTitle>
+                      </DialogHeader>
+                      <div className="flex items-center justify-center p-4">
+                        <div className="w-full h-96 bg-gray-100 dark:bg-[#282A36] rounded-lg flex items-center justify-center overflow-hidden">
+                          <Image
+                            src={achievement.image}
+                            alt={achievement.title}
+                            width={800}
+                            height={600}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 )}
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
@@ -1026,13 +1094,37 @@ export default function Portfolio() {
               >
                 <CardHeader>
                   {cert.image && (
-                    <Image
-                      src={cert.image}
-                      alt={cert.title}
-                      width={300}
-                      height={150}
-                      className="w-full h-50 object-cover rounded-lg mb-4"
-                    />
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="cursor-pointer">
+                          <Image
+                            src={cert.image}
+                            alt={cert.title}
+                            width={300}
+                            height={150}
+                            className="w-full h-50 object-cover rounded-lg mb-4"
+                          />
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh]">
+                        <DialogHeader>
+                          <DialogTitle className="text-gray-800 dark:text-[#F8F8F2]">
+                            {cert.title}
+                          </DialogTitle>
+                        </DialogHeader>
+                        <div className="flex items-center justify-center p-4">
+                          <div className="w-full h-96 bg-gray-100 dark:bg-[#282A36] rounded-lg flex items-center justify-center overflow-hidden">
+                            <Image
+                              src={cert.image}
+                              alt={cert.title}
+                              width={800}
+                              height={600}
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   )}
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex items-center">
