@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award, FileCheck, Menu, X, Download } from "lucide-react"
+import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, MapPin, Code, Database, Globe, GraduationCap, Trophy, Calendar, Award, FileCheck, Menu, X, Download, Users, Shield, Briefcase } from "lucide-react"
 import { 
   SiNextdotjs, 
   SiDjango, 
@@ -99,29 +99,29 @@ export default function Portfolio() {
       title: "ScrybeSync",
       description: "LLM-powered Markdown-based note-taking app with built-in audio/video transcription and AI summarization for enhanced productivity and content management",
       tags: ["Django REST Framework", "React", "PostgreSQL", "AI/ML", "Markdown", "Audio Processing"],
-      image: "/ScrybeSync.png",
+      image: "https://placehold.co/600x400/8BE9FD/282A36?text=ScrybeSync",
       link: "https://github.com/lucifron28/ScrybeSync",
     },
     {
       title: "AQuest",
       description: "Gamified project management platform for teams and students developed during OpeniT Codefest 2025. Features Docker Compose deployment and comprehensive project tracking",
       tags: ["Django REST Framework", "SvelteKit", "PostgreSQL", "Docker", "Gamification"],
-      image: "./AQuest.png",
-      link: "https://github.com/lucifron28/openit",
+      image: "https://placehold.co/600x400/50FA7B/282A36?text=AQuest",
+      link: "https://github.com/lucifron28/AQuest",
     },
     {
       title: "Zentry",
       description: "AI-powered gamified task manager for productivity tracking and user rewards, built during FEU Tech Hackathon 2025 with Flutter and local database storage",
       tags: ["Flutter", "Hive", "AI/ML", "Gamification", "Task Management"],
-    image: "./Zentry.png",
+      image: "https://placehold.co/600x400/BD93F9/282A36?text=Zentry",
       link: "https://github.com/lucifron28/Zentry",
     },
     {
       title: "JeepGo",
       description: "Commuter assistant app for jeepney route optimization, fare calculation, and real-time tracking developed for DLSU Hackercup 2025",
       tags: ["Flutter", "Firebase", "Real-time Tracking", "Route Optimization", "Mobile App"],
-      image: "./JeepGo.png",
-      link: "https://github.com/lucifron28/hackercup",
+      image: "https://placehold.co/600x400/FF79C6/282A36?text=JeepGo",
+      link: "https://github.com/lucifron28/JeepGo",
     },
     {
       title: "Pixel Pages",
@@ -192,6 +192,33 @@ export default function Portfolio() {
     }
   ]
 
+  const experience = [
+    {
+      title: "Student Learning Community — Tutor",
+      organization: "Manuel S. Enverga University Foundation",
+      period: "Aug 2025 - Present",
+      description: "Mentored peers in core CS and web dev topics; prepared study guides and practice sets to reinforce fundamentals.",
+      type: "academic",
+      icon: Users
+    },
+    {
+      title: "CCMS Cyber Academic Team — Participant & Representative",
+      organization: "Manuel S. Enverga University Foundation",
+      period: "Feb 2024 - Present",
+      description: "Represented the university at hackathons, programming competitions, and quiz bees.",
+      type: "academic",
+      icon: Trophy
+    },
+    {
+      title: "NROTC — Midshipman",
+      organization: "Naval Reserve Officers Training Corps",
+      period: "Freshman Year (2023-2024)",
+      description: "Completed freshman-year midshipman training while balancing a full BSIT course load, developing discipline, reliability, and time management.",
+      type: "military",
+      icon: Shield
+    }
+  ]
+
   const achievements = [
     {
       title: "Open iT Codefest 2025 - Next Level Code: Refining Good into Great",
@@ -231,7 +258,7 @@ export default function Portfolio() {
       description: "Advanced to Grand Finals in national programming competition",
       type: "competition",
       category: "programming",
-      image: "./codechum-grandfinals.png"
+      image: "https://placehold.co/600x400/FFB86C/282A36?text=CodeChum+Finals"
     },
     {
       title: "FEU Tech Hackathon 2025",
@@ -248,10 +275,10 @@ export default function Portfolio() {
       organization: "De La Salle University",
       position: "Participant", 
       date: "2025",
-      description: "Team Leader; developed mobile app prototype for commuter assistance and pitched solution to judges",
+      description: "Team Leader; developed mobile app prototype for commuter assistance supporting SDG 11.2 (Sustainable Cities and Communities) using Flutter and pitched solution to judges",
       type: "competition",
       category: "hackathon",
-      image: "https://placehold.co/600x400/50FA7B/282A36?text=DLSU+Hackercup"
+      image: "/GitGood.png"
     },
     {
       title: "ISITE National IT Skills Competition 2025",
@@ -290,15 +317,6 @@ export default function Portfolio() {
       description: "Participated in programming challenges and algorithmic problem solving",
       type: "competition",
       image: "/cp2025.jpg"
-    },
-    {
-      title: "DLSU - Hackercup 2025",
-      organization: "De La Salle University - Manila",
-      position: "Participant",
-      date: "2025",
-      description: "Developed a mobile application supporting SDG 11.2 (Sustainable Cities and Communities) using Flutter",
-      type: "competition",
-      image: "/GitGood.png"
     }
   ]
 
@@ -389,6 +407,12 @@ export default function Portfolio() {
                 Education
               </button>
               <button
+                onClick={() => scrollToSection("experience")}
+                className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
+              >
+                Experience
+              </button>
+              <button
                 onClick={() => scrollToSection("achievements")}
                 className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] hover:scale-105 transition-all duration-200 cursor-pointer px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746] text-sm whitespace-nowrap"
               >
@@ -463,6 +487,12 @@ export default function Portfolio() {
                   className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
                 >
                   Education
+                </button>
+                <button
+                  onClick={() => scrollToSection("experience")}
+                  className="text-gray-700 dark:text-[#F8F8F2] hover:text-[#8BE9FD] transition-colors text-left py-2 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#343746]"
+                >
+                  Experience
                 </button>
                 <button
                   onClick={() => scrollToSection("achievements")}
@@ -759,6 +789,102 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
+            Experience
+          </h2>
+          
+          <div className="space-y-8">
+            {/* Academic Experience */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2] flex items-center gap-2">
+                <Users className="h-6 w-6 text-[#50FA7B]" />
+                Academic
+              </h3>
+              
+              <Card className="bg-white dark:bg-[#2D2F3A] border-l-4 border-l-[#50FA7B] shadow-lg hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <h4 className="text-xl font-bold text-gray-800 dark:text-[#F8F8F2] mb-2 md:mb-0">
+                      Student Learning Community Tutor
+                    </h4>
+                    <Badge variant="outline" className="w-fit border-[#50FA7B] text-[#50FA7B]">
+                      2025 - Present
+                    </Badge>
+                  </div>
+                  <p className="text-gray-600 dark:text-[#8BE9FD] mb-3 font-semibold">
+                    MSEUF - Lucena - Student Learning Community
+                  </p>
+                  <p className="text-gray-700 dark:text-[#F8F8F2] leading-relaxed">
+                    Provided academic support and mentorship to fellow students in computer science subjects. 
+                    Facilitated study groups and helped improve understanding of programming concepts and problem-solving techniques.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Military Experience */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2] flex items-center gap-2">
+                <Shield className="h-6 w-6 text-[#FFB86C]" />
+                Military
+              </h3>
+              
+              <Card className="bg-white dark:bg-[#2D2F3A] border-l-4 border-l-[#FFB86C] shadow-lg hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <h4 className="text-xl font-bold text-gray-800 dark:text-[#F8F8F2] mb-2 md:mb-0">
+                      Naval ROTC Midshipman
+                    </h4>
+                    <Badge variant="outline" className="w-fit border-[#FFB86C] text-[#FFB86C]">
+                      2023 - 2024
+                    </Badge>
+                  </div>
+                  <p className="text-gray-600 dark:text-[#8BE9FD] mb-3 font-semibold">
+                    Philippine Navy Reserve Force
+                  </p>
+                  <p className="text-gray-700 dark:text-[#F8F8F2] leading-relaxed">
+                    Completed military training and leadership development program. Developed discipline, 
+                    teamwork, and leadership skills through various military exercises and academic coursework.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Competitive Programming Experience */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2] flex items-center gap-2">
+                <Trophy className="h-6 w-6 text-[#F1FA8C]" />
+                Competitions
+              </h3>
+              
+              <Card className="bg-white dark:bg-[#2D2F3A] border-l-4 border-l-[#F1FA8C] shadow-lg hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <h4 className="text-xl font-bold text-gray-800 dark:text-[#F8F8F2] mb-2 md:mb-0">
+                      CCMS - Cyber Academic Team
+                    </h4>
+                    <Badge variant="outline" className="w-fit border-[#F1FA8C] text-[#F1FA8C]">
+                      2023 - Present
+                    </Badge>
+                  </div>
+                  <p className="text-gray-600 dark:text-[#8BE9FD] mb-3 font-semibold">
+                    MSEUF - Lucena - College of Computing and Multimedia Studies
+                  </p>
+                  <p className="text-gray-700 dark:text-[#F8F8F2] leading-relaxed">
+                    Active member of the competitive programming team, participating in various programming contests 
+                    and hackathons. Developed advanced problem-solving skills and algorithmic thinking through 
+                    intensive training and competition participation.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
