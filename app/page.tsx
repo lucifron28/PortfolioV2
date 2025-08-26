@@ -31,128 +31,194 @@ import {
 } from "react-icons/si"
 import { StarField } from "@/components/star-field"
 import { ShootingStars } from "@/components/shooting-star"
+import { link } from "fs"
 
 export default function Portfolio() {
-  const [isDark, setIsDark] = useState(true)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [achievementFilter, setAchievementFilter] = useState("all")
+  const [isDark, setIsDark] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [achievementFilter, setAchievementFilter] = useState("all");
 
   const toggleMobileMenu = () => {
-    console.log('Hamburger clicked, current state:', isMobileMenuOpen)
-    setIsMobileMenuOpen(prev => {
-      console.log('Setting mobile menu to:', !prev)
-      return !prev
-    })
-  }
+    console.log("Hamburger clicked, current state:", isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => {
+      console.log("Setting mobile menu to:", !prev);
+      return !prev;
+    });
+  };
 
   useEffect(() => {
-    console.log('Mobile menu state changed to:', isMobileMenuOpen)
-  }, [isMobileMenuOpen])
+    console.log("Mobile menu state changed to:", isMobileMenuOpen);
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     if (isDark) {
-      document.documentElement.classList.add("dark")
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark")
+      document.documentElement.classList.remove("dark");
     }
-  }, [isDark])
+  }, [isDark]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const globalHook = (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
       if (globalHook) {
         globalHook.isDisabled = true;
       }
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-      const hamburgerButton = target.closest('[data-hamburger-menu]');
-      
+      const hamburgerButton = target.closest("[data-hamburger-menu]");
+
       if (hamburgerButton) return;
-      
-      if (isMobileMenuOpen && !target.closest('nav')) {
-        console.log('Clicking outside, closing menu')
+
+      if (isMobileMenuOpen && !target.closest("nav")) {
+        console.log("Clicking outside, closing menu");
         setIsMobileMenuOpen(false);
       }
     };
 
     if (isMobileMenuOpen) {
       setTimeout(() => {
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside);
       }, 100);
-      
+
       return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener("mousedown", handleClickOutside);
       };
     }
-  }, [isMobileMenuOpen])
+  }, [isMobileMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
-  }
+  };
 
   const projects = [
     {
+      title: "KitaKo",
+      description:
+        "AI-powered proof-of-income platform that converts BPI/GCash/PayMaya/bank statements into QR-verifiable reports using Django + React with Claude 3 via OpenRouter.",
+      tags: [
+        "AI",
+        "LLM",
+        "Django",
+        "React",
+        "PostgreSQL",
+        "OpenRouter",
+        "Claude 3",
+        "TailwindCSS",
+      ],
+      image: "./kitako.png",
+      link: "https://github.com/lucifron28/kita-ko-v3",
+    },
+    {
       title: "ScrybeSync",
-      description: "LLM-powered Markdown-based note-taking app with built-in audio/video transcription and AI summarization for enhanced productivity and content management",
-      tags: ["Django REST Framework", "React", "PostgreSQL", "AI/ML", "Markdown", "Audio Processing"],
+      description:
+        "LLM-powered Markdown-based note-taking app with built-in audio/video transcription and AI summarization for enhanced productivity and content management",
+      tags: [
+        "Django REST Framework",
+        "React",
+        "PostgreSQL",
+        "AI/ML",
+        "Markdown",
+        "Audio Processing",
+      ],
       image: "/ScrybeSync.png",
       link: "https://github.com/lucifron28/ScrybeSync",
     },
     {
       title: "AQuest",
-      description: "Gamified project management platform for teams and students developed during OpeniT Codefest 2025. Features Docker Compose deployment and comprehensive project tracking",
-      tags: ["Django REST Framework", "SvelteKit", "PostgreSQL", "Docker", "Gamification"],
+      description:
+        "Gamified project management platform for teams and students developed during OpeniT Codefest 2025. Features Docker Compose deployment and comprehensive project tracking",
+      tags: [
+        "Django REST Framework",
+        "SvelteKit",
+        "PostgreSQL",
+        "Docker",
+        "Gamification",
+      ],
       image: "/AQuest.png",
       link: "https://github.com/lucifron28/AQuest",
     },
     {
       title: "Zentry",
-      description: "AI-powered gamified task manager for productivity tracking and user rewards, built during FEU Tech Hackathon 2025 with Flutter and local database storage",
+      description:
+        "AI-powered gamified task manager for productivity tracking and user rewards, built during FEU Tech Hackathon 2025 with Flutter and local database storage",
       tags: ["Flutter", "Hive", "AI/ML", "Gamification", "Task Management"],
       image: "/Zentry.png",
       link: "https://github.com/lucifron28/Zentry",
     },
     {
       title: "JeepGo",
-      description: "Commuter assistant app for jeepney route optimization, fare calculation, and real-time tracking developed for DLSU Hackercup 2025",
-      tags: ["Flutter", "Firebase", "Real-time Tracking", "Route Optimization", "Mobile App"],
+      description:
+        "Commuter assistant app for jeepney route optimization, fare calculation, and real-time tracking developed for DLSU Hackercup 2025",
+      tags: [
+        "Flutter",
+        "Firebase",
+        "Real-time Tracking",
+        "Route Optimization",
+        "Mobile App",
+      ],
       image: "/JeepGo.png",
       link: "https://github.com/lucifron28/JeepGo",
     },
     {
       title: "Pixel Pages",
-      description: "Web-based eBook reader and management platform with EPUB parsing and annotation support. CS50x Final Project with comprehensive library management",
-      tags: ["Flask", "SQLite3", "EPUBLIB", "Jinja2", "EPUB Processing", "Web Development"],
+      description:
+        "Web-based eBook reader and management platform with EPUB parsing and annotation support. CS50x Final Project with comprehensive library management",
+      tags: [
+        "Flask",
+        "SQLite3",
+        "EPUBLIB",
+        "Jinja2",
+        "EPUB Processing",
+        "Web Development",
+      ],
       image: "/pixel-pages.png",
       link: "https://github.com/lucifron28/Pixel-Pages",
     },
     {
       title: "AkbayMed User",
-      description: "Medication donation and redistribution platform aligned with SDG 3 & 12, integrated with OpenFDA API for medication verification and tracking",
+      description:
+        "Medication donation and redistribution platform aligned with SDG 3 & 12, integrated with OpenFDA API for medication verification and tracking",
       tags: ["Flutter", "Dart", "Supabase", "openFDA API", "SDG", "Healthcare"],
       image: "/akbaymed.png",
       link: "https://github.com/lucifron28/AkbayMed_User",
     },
     {
       title: "NPMusic Player",
-      description: "C++/Qt desktop music player demonstrating data structures implementation with stack-based history, queue-based playlist management, and modern audio playbook controls",
-      tags: ["C++", "Qt Framework", "Data Structures", "Stack", "Queue", "Audio Processing"],
+      description:
+        "C++/Qt desktop music player demonstrating data structures implementation with stack-based history, queue-based playlist management, and modern audio playbook controls",
+      tags: [
+        "C++",
+        "Qt Framework",
+        "Data Structures",
+        "Stack",
+        "Queue",
+        "Audio Processing",
+      ],
       image: "/np-music.png",
       link: "https://github.com/lucifron28/CP103-Semi-Finals-Project-NPMusic",
     },
     {
       title: "PNA Bank System",
-      description: "Web-based banking application with Firebase authentication, user account management, admin panel for bank operations, and responsive UI with modern animations",
-      tags: ["JavaScript", "HTML/CSS", "Firebase", "REST API", "Responsive Design", "Banking"],
+      description:
+        "Web-based banking application with Firebase authentication, user account management, admin panel for bank operations, and responsive UI with modern animations",
+      tags: [
+        "JavaScript",
+        "HTML/CSS",
+        "Firebase",
+        "REST API",
+        "Responsive Design",
+        "Banking",
+      ],
       image: "/pna_bank.png",
       link: "https://github.com/lucifron28/PNA-Bank-CSPI101-Midterm-Project",
     },
-  ]
+  ];
 
   const techStack = {
     core: [
@@ -181,145 +247,160 @@ export default function Portfolio() {
       { name: "Python", icon: SiPython },
       { name: "JavaScript", icon: SiJavascript },
     ],
-  }
+  };
 
   const education = [
     {
       degree: "Bachelor of Science in Information Technology",
       school: "Manuel S. Enverga University Foundation - Lucena City",
       period: "2023 - 2027",
-      description: "Specialization Track in Web & Mobile Application Development",
-      achievements: ["University Scholar", "Dean's Lister", "GWA: 1.328"]
-    }
-  ]
+      description:
+        "Specialization Track in Web & Mobile Application Development",
+      achievements: ["University Scholar", "Dean's Lister", "GWA: 1.328"],
+    },
+  ];
 
   const experience = [
     {
       title: "Student Learning Community — Tutor",
       organization: "Manuel S. Enverga University Foundation",
       period: "Aug 2025 - Present",
-      description: "Mentored peers in core CS and web dev topics; prepared study guides and practice sets to reinforce fundamentals.",
+      description:
+        "Mentored peers in core CS and web dev topics; prepared study guides and practice sets to reinforce fundamentals.",
       type: "academic",
-      icon: Users
+      icon: Users,
     },
     {
       title: "CCMS Cyber Academic Team — Participant & Representative",
       organization: "Manuel S. Enverga University Foundation",
       period: "Feb 2024 - Present",
-      description: "Represented the university at hackathons, programming competitions, and quiz bees.",
+      description:
+        "Represented the university at hackathons, programming competitions, and quiz bees.",
       type: "academic",
-      icon: Trophy
+      icon: Trophy,
     },
     {
       title: "NROTC — Midshipman",
       organization: "Naval Reserve Officers Training Corps",
       period: "Freshman Year (2023-2024)",
-      description: "Completed freshman-year midshipman training while balancing a full BSIT course load, developing discipline, reliability, and time management.",
+      description:
+        "Completed freshman-year midshipman training while balancing a full BSIT course load, developing discipline, reliability, and time management.",
       type: "military",
-      icon: Shield
-    }
-  ]
+      icon: Shield,
+    },
+  ];
 
   const achievements = [
     {
-      title: "Open iT Codefest 2025 - Next Level Code: Refining Good into Great",
+      title:
+        "Open iT Codefest 2025 - Next Level Code: Refining Good into Great",
       organization: "Open iT Philippines",
       position: "1st Place",
       date: "July 2025",
-      description: "Led team as Full-Stack Developer; implemented backend with Django REST Framework & PostgreSQL, deployed with Docker Compose",
+      description:
+        "Led team as Full-Stack Developer; implemented backend with Django REST Framework & PostgreSQL, deployed with Docker Compose",
       type: "competition",
       category: "hackathon",
-      image: "/openit-codefest.png"
+      image: "/openit-codefest.png",
     },
     {
       title: "CodeChum National Programming Competition - Group Stage 3",
       organization: "CodeChum",
       position: "1st Place",
       date: "November 2024",
-      description: "Regional programming competition focusing on algorithmic problem solving",
+      description:
+        "Regional programming competition focusing on algorithmic problem solving",
       type: "competition",
       category: "programming",
-      image: "/codechum.png"
+      image: "/codechum.png",
     },
     {
       title: "SikapTala: The National CS & IT Skills Competition",
       organization: "De La Salle University - Dasmariñas",
       position: "2nd Place",
       date: "March 2025",
-      description: "Competed in the Collegiate Python Programming Division at national level",
+      description:
+        "Competed in the Collegiate Python Programming Division at national level",
       type: "competition",
       category: "programming",
-      image: "/sikaptala.jpg"
+      image: "/sikaptala.jpg",
     },
     {
       title: "CodeChum National Programming Competition - Grand Finals",
       organization: "CodeChum",
       position: "Finalist",
       date: "2024",
-      description: "Advanced to Grand Finals in national programming competition",
+      description:
+        "Advanced to Grand Finals in national programming competition",
       type: "competition",
       category: "programming",
-      image: "/codechum-grandfinals.png"
+      image: "/codechum-grandfinals.png",
     },
     {
       title: "FEU Tech Hackathon 2025",
       organization: "Far Eastern University - Institute of Technology",
       position: "Participant",
       date: "2025",
-      description: "Team Leader & Full-Stack Developer; built scalable prototype under time pressure with AI-powered gamified task management",
+      description:
+        "Team Leader & Full-Stack Developer; built scalable prototype under time pressure with AI-powered gamified task management",
       type: "competition",
       category: "hackathon",
-      image: "/FEU_hackathon_cada.png"
+      image: "/FEU_hackathon_cada.png",
     },
     {
       title: "DLSU Hackercup 2025",
       organization: "De La Salle University",
-      position: "Participant", 
+      position: "Participant",
       date: "2025",
-      description: "Team Leader; developed mobile app prototype for commuter assistance supporting SDG 11.2 (Sustainable Cities and Communities) using Flutter and pitched solution to judges",
+      description:
+        "Team Leader; developed mobile app prototype for commuter assistance supporting SDG 11.2 (Sustainable Cities and Communities) using Flutter and pitched solution to judges",
       type: "competition",
       category: "hackathon",
-      image: "/JeepGo.png"
+      image: "/JeepGo.png",
     },
     {
       title: "ISITE National IT Skills Competition 2025",
       organization: "ISITE",
       position: "Participant",
       date: "2025",
-      description: "Participated in C Programming competition at national level",
+      description:
+        "Participated in C Programming competition at national level",
       type: "competition",
       category: "programming",
-      image: "/ISITE-C.jpg"
+      image: "/ISITE-C.jpg",
     },
     {
       title: "ISITE National IT Skills Competition 2024",
       organization: "ISITE",
       position: "Participant",
       date: "2024",
-      description: "Participated in Python Programming competition at national level",
+      description:
+        "Participated in Python Programming competition at national level",
       type: "competition",
       category: "programming",
-      image: "/ISITE-Python.jpg"
+      image: "/ISITE-Python.jpg",
     },
     {
       title: "CoCo - Coding Competition",
       organization: "PSITES",
       position: "1st Place",
       date: "2025",
-      description: "Participated in programming challenges and algorithmic problem solving",
+      description:
+        "Participated in programming challenges and algorithmic problem solving",
       type: "competition",
-      image: "/cp2024.jpg"
+      image: "/cp2024.jpg",
     },
     {
       title: "Cyberlympics 2024 - Hackathon",
       organization: "PSITES",
       position: "1st Place",
       date: "2024",
-      description: "Participated in programming challenges and algorithmic problem solving",
+      description:
+        "Participated in programming challenges and algorithmic problem solving",
       type: "competition",
-      image: "/cp2025.jpg"
-    }
-  ]
+      image: "/cp2025.jpg",
+    },
+  ];
 
   const certifications = [
     {
@@ -371,7 +452,7 @@ export default function Portfolio() {
       credentialId: "GZO6VI362EUG",
       type: "database",
       image: "intermediate-postgresql.png",
-    }
+    },
   ];
 
   return (
@@ -383,11 +464,15 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="font-bold text-base sm:text-lg md:text-xl text-gray-800 dark:text-[#F8F8F2] flex items-center min-w-[200px] sm:min-w-[250px]">
-              <img src="/favicon.ico" className="inline-block w-5 h-5 sm:w-6 sm:h-6 mr-2" alt="Favicon" />
+              <img
+                src="/favicon.ico"
+                className="inline-block w-5 h-5 sm:w-6 sm:h-6 mr-2"
+                alt="Favicon"
+              />
               <span className="hidden sm:inline">Ron Vincent Cada</span>
               <span className="sm:hidden">Ron Vincent Cada</span>
             </div>
-            
+
             <div className="hidden lg:flex items-center space-x-2 flex-wrap">
               <button
                 onClick={() => scrollToSection("projects")}
@@ -467,7 +552,7 @@ export default function Portfolio() {
               </button>
             </div>
           </div>
-          
+
           {isMobileMenuOpen && (
             <div className="lg:hidden border-t border-gray-200 dark:border-[#6272A4] bg-white/95 dark:bg-[#1E1F29]/95 backdrop-blur-md animate-in slide-in-from-top-2 duration-200">
               <div className="flex flex-col space-y-1 px-4 py-4">
@@ -518,84 +603,84 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
             <Image
-                src="/ron.jpg"
-                alt="Ron Vincent Cada"
-                width={150}
-                height={150}
-                className="rounded-full mx-auto mb-6 border-4 border-[#8BE9FD]"
-              />
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
-              Hi, I'm <span className="text-[#8BE9FD]">Ron Vincent Cada</span>
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-600 dark:text-[#F8F8F2]/80 max-w-3xl mx-auto px-4 sm:px-0">
-              a full-stack web & mobile developer.
-            </p>
-            <div className="flex items-center justify-center mb-8">
-              <MapPin className="h-5 w-5 mr-2 text-[#FF79C6]" />
-              <span className="text-lg text-gray-700 dark:text-[#F8F8F2]">
-                Philippines 🇵🇭
-              </span>
-            </div>
-            
-            {/* Contact Links */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 px-4 sm:px-0">
-              <a
-                href="mailto:cronvincent@gmail.com"
-                className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
-              >
-                <Mail className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                <span className="break-all">cronvincent@gmail.com</span>
-              </a>
-              <a
-                href="https://github.com/lucifron28"
-                className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                <span>github.com/lucifron28</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ron-vincent-cada/"
-                className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                <span>linkedin.com/in/ron-vincent-cada</span>
-              </a>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
-              <Button
-                size="lg"
-                className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] font-semibold w-full sm:w-auto"
-                onClick={() => scrollToSection("projects")}
-              >
-                View Projects
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-transparent border-[#FF79C6] text-[#FF79C6] hover:bg-[#FF79C6] hover:text-white dark:border-[#FF79C6] dark:text-[#FF79C6] dark:hover:bg-[#FF79C6] dark:hover:text-[#282A36] w-full sm:w-auto"
-                onClick={() => {
-                  const link = document.createElement('a');
-                  link.href = '/Cada_CV.pdf';
-                  link.download = 'Ron_Vincent_Cada_CV.pdf';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
-              >
-                <Download className="h-4 w-4 mr-2" />
-                Download CV
-              </Button>
-            </div>
+              src="/ron.jpg"
+              alt="Ron Vincent Cada"
+              width={150}
+              height={150}
+              className="rounded-full mx-auto mb-6 border-4 border-[#8BE9FD]"
+            />
           </div>
-        </section>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800 dark:text-[#F8F8F2]">
+            Hi, I'm <span className="text-[#8BE9FD]">Ron Vincent Cada</span>
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-600 dark:text-[#F8F8F2]/80 max-w-3xl mx-auto px-4 sm:px-0">
+            a full-stack web & mobile developer.
+          </p>
+          <div className="flex items-center justify-center mb-8">
+            <MapPin className="h-5 w-5 mr-2 text-[#FF79C6]" />
+            <span className="text-lg text-gray-700 dark:text-[#F8F8F2]">
+              Philippines 🇵🇭
+            </span>
+          </div>
 
-          {/* Projects Section */}
+          {/* Contact Links */}
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 px-4 sm:px-0">
+            <a
+              href="mailto:cronvincent@gmail.com"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
+            >
+              <Mail className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+              <span className="break-all">cronvincent@gmail.com</span>
+            </a>
+            <a
+              href="https://github.com/lucifron28"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+              <span>github.com/lucifron28</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ron-vincent-cada/"
+              className="flex items-center justify-center text-gray-700 hover:text-[#8BE9FD] dark:text-[#FF79C6] dark:hover:text-[#8BE9FD] transition-colors text-sm sm:text-base"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+              <span>linkedin.com/in/ron-vincent-cada</span>
+            </a>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
+            <Button
+              size="lg"
+              className="bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36] font-semibold w-full sm:w-auto"
+              onClick={() => scrollToSection("projects")}
+            >
+              View Projects
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="bg-transparent border-[#FF79C6] text-[#FF79C6] hover:bg-[#FF79C6] hover:text-white dark:border-[#FF79C6] dark:text-[#FF79C6] dark:hover:bg-[#FF79C6] dark:hover:text-[#282A36] w-full sm:w-auto"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/Cada_CV.pdf";
+                link.download = "Ron_Vincent_Cada_CV.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Download CV
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
@@ -603,7 +688,10 @@ export default function Portfolio() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 backdrop-blur-sm shadow-sm dark:shadow-none h-full">
+              <Card
+                key={index}
+                className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#8BE9FD] transition-all duration-300 backdrop-blur-sm shadow-sm dark:shadow-none h-full"
+              >
                 <CardHeader>
                   {project.title === "Zentry" ? (
                     <div className="w-full h-48 bg-gray-100 dark:bg-[#282A36] rounded-lg mb-4 flex items-center justify-center overflow-hidden">
@@ -643,7 +731,7 @@ export default function Portfolio() {
                       </Badge>
                     ))}
                   </div>
-                  
+
                   <div className="flex gap-2">
                     <Dialog>
                       <DialogTrigger asChild>
@@ -674,12 +762,12 @@ export default function Portfolio() {
                         </div>
                       </DialogContent>
                     </Dialog>
-                    
+
                     <Button
                       size="sm"
                       variant="outline"
                       className="border-[#FF79C6] text-[#FF79C6] hover:bg-[#FF79C6]/10"
-                      onClick={() => window.open(project.link, '_blank')}
+                      onClick={() => window.open(project.link, "_blank")}
                     >
                       <Github className="h-4 w-4 mr-2" />
                       View on GitHub
@@ -704,8 +792,8 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg mb-6 leading-relaxed text-gray-700 dark:text-[#F8F8F2]/80">
-                I'm Ron Vincent Cada, a full-stack web and mobile developer from the
-                Philippines. I'm currently open to internship opportunities,
+                I'm Ron Vincent Cada, a full-stack web and mobile developer from
+                the Philippines. I'm currently open to internship opportunities,
                 freelance work, and collaborations where I can contribute
                 meaningful solutions and continue growing as a developer.
               </p>
@@ -845,7 +933,7 @@ export default function Portfolio() {
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-[#F8F8F2]">
             Experience
           </h2>
-          
+
           <div className="space-y-8">
             {/* Academic Experience */}
             <div className="mb-12">
@@ -853,14 +941,17 @@ export default function Portfolio() {
                 <Users className="h-6 w-6 text-[#50FA7B]" />
                 Academic
               </h3>
-              
+
               <Card className="bg-white dark:bg-[#2D2F3A] border-l-4 border-l-[#50FA7B] shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <h4 className="text-xl font-bold text-gray-800 dark:text-[#F8F8F2] mb-2 md:mb-0">
                       Student Learning Community Tutor
                     </h4>
-                    <Badge variant="outline" className="w-fit border-[#50FA7B] text-[#50FA7B]">
+                    <Badge
+                      variant="outline"
+                      className="w-fit border-[#50FA7B] text-[#50FA7B]"
+                    >
                       2025 - Present
                     </Badge>
                   </div>
@@ -868,8 +959,10 @@ export default function Portfolio() {
                     MSEUF - Lucena - Student Learning Community
                   </p>
                   <p className="text-gray-700 dark:text-[#F8F8F2] leading-relaxed">
-                    Provided academic support and mentorship to fellow students in computer science subjects. 
-                    Facilitated study groups and helped improve understanding of programming concepts and problem-solving techniques.
+                    Provided academic support and mentorship to fellow students
+                    in computer science subjects. Facilitated study groups and
+                    helped improve understanding of programming concepts and
+                    problem-solving techniques.
                   </p>
                 </CardContent>
               </Card>
@@ -881,14 +974,17 @@ export default function Portfolio() {
                 <Shield className="h-6 w-6 text-[#FFB86C]" />
                 Military
               </h3>
-              
+
               <Card className="bg-white dark:bg-[#2D2F3A] border-l-4 border-l-[#FFB86C] shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <h4 className="text-xl font-bold text-gray-800 dark:text-[#F8F8F2] mb-2 md:mb-0">
                       Naval ROTC Midshipman
                     </h4>
-                    <Badge variant="outline" className="w-fit border-[#FFB86C] text-[#FFB86C]">
+                    <Badge
+                      variant="outline"
+                      className="w-fit border-[#FFB86C] text-[#FFB86C]"
+                    >
                       2023 - 2024
                     </Badge>
                   </div>
@@ -896,8 +992,10 @@ export default function Portfolio() {
                     Philippine Navy Reserve Force
                   </p>
                   <p className="text-gray-700 dark:text-[#F8F8F2] leading-relaxed">
-                    Completed military training and leadership development program. Developed discipline, 
-                    teamwork, and leadership skills through various military exercises and academic coursework.
+                    Completed military training and leadership development
+                    program. Developed discipline, teamwork, and leadership
+                    skills through various military exercises and academic
+                    coursework.
                   </p>
                 </CardContent>
               </Card>
@@ -909,14 +1007,17 @@ export default function Portfolio() {
                 <Trophy className="h-6 w-6 text-[#F1FA8C]" />
                 Competitions
               </h3>
-              
+
               <Card className="bg-white dark:bg-[#2D2F3A] border-l-4 border-l-[#F1FA8C] shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <h4 className="text-xl font-bold text-gray-800 dark:text-[#F8F8F2] mb-2 md:mb-0">
                       CCMS - Cyber Academic Team
                     </h4>
-                    <Badge variant="outline" className="w-fit border-[#F1FA8C] text-[#F1FA8C]">
+                    <Badge
+                      variant="outline"
+                      className="w-fit border-[#F1FA8C] text-[#F1FA8C]"
+                    >
                       2023 - Present
                     </Badge>
                   </div>
@@ -924,9 +1025,11 @@ export default function Portfolio() {
                     MSEUF - Lucena - College of Computing and Multimedia Studies
                   </p>
                   <p className="text-gray-700 dark:text-[#F8F8F2] leading-relaxed">
-                    Active member of the competitive programming team, participating in various programming contests 
-                    and hackathons. Developed advanced problem-solving skills and algorithmic thinking through 
-                    intensive training and competition participation.
+                    Active member of the competitive programming team,
+                    participating in various programming contests and
+                    hackathons. Developed advanced problem-solving skills and
+                    algorithmic thinking through intensive training and
+                    competition participation.
                   </p>
                 </CardContent>
               </Card>
@@ -936,54 +1039,67 @@ export default function Portfolio() {
       </section>
 
       {/* Achievements & Competitions Section */}
-      <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-[#1E1F29]/50">
+      <section
+        id="achievements"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-[#1E1F29]/50"
+      >
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800 dark:text-[#F8F8F2]">
             Achievements & Competitions
           </h2>
-          
+
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <Button
               variant={achievementFilter === "all" ? "default" : "outline"}
               size="sm"
               onClick={() => setAchievementFilter("all")}
-              className={achievementFilter === "all" 
-                ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
-                : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              className={
+                achievementFilter === "all"
+                  ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
+                  : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
               }
             >
               All
             </Button>
             <Button
-              variant={achievementFilter === "hackathon" ? "default" : "outline"}
+              variant={
+                achievementFilter === "hackathon" ? "default" : "outline"
+              }
               size="sm"
               onClick={() => setAchievementFilter("hackathon")}
-              className={achievementFilter === "hackathon" 
-                ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
-                : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              className={
+                achievementFilter === "hackathon"
+                  ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
+                  : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
               }
             >
               Hackathons
             </Button>
             <Button
-              variant={achievementFilter === "programming" ? "default" : "outline"}
+              variant={
+                achievementFilter === "programming" ? "default" : "outline"
+              }
               size="sm"
               onClick={() => setAchievementFilter("programming")}
-              className={achievementFilter === "programming" 
-                ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
-                : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              className={
+                achievementFilter === "programming"
+                  ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
+                  : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
               }
             >
               Programming
             </Button>
             <Button
-              variant={achievementFilter === "competition" ? "default" : "outline"}
+              variant={
+                achievementFilter === "competition" ? "default" : "outline"
+              }
               size="sm"
               onClick={() => setAchievementFilter("competition")}
-              className={achievementFilter === "competition" 
-                ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
-                : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
+              className={
+                achievementFilter === "competition"
+                  ? "bg-gray-800 hover:bg-gray-900 dark:bg-[#8BE9FD] dark:hover:bg-[#8BE9FD]/90 text-white dark:text-[#282A36]"
+                  : "bg-transparent border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-[#8BE9FD] dark:text-[#8BE9FD] dark:hover:bg-[#8BE9FD] dark:hover:text-[#282A36]"
               }
             >
               Other Competitions
@@ -992,7 +1108,7 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {achievements
-              .filter(achievement => {
+              .filter((achievement) => {
                 if (achievementFilter === "all") return true;
                 if (achievementFilter === "hackathon") {
                   return achievement.category === "hackathon";
@@ -1006,76 +1122,76 @@ export default function Portfolio() {
                 return true;
               })
               .map((achievement, index) => (
-              <Card
-                key={index}
-                className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#FF79C6] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
-              >
-                {achievement.image && (
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <div className="relative w-full h-60 overflow-hidden rounded-t-lg cursor-pointer">
-                        <Image
-                          src={achievement.image}
-                          alt={achievement.title}
-                          fill
-                          className="object-contain p-4 transition-transform duration-300"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[90vh]">
-                      <DialogHeader>
-                        <DialogTitle className="text-gray-800 dark:text-[#F8F8F2]">
-                          {achievement.title}
-                        </DialogTitle>
-                      </DialogHeader>
-                      <div className="flex items-center justify-center p-4">
-                        <div className="w-full h-96 bg-gray-100 dark:bg-[#282A36] rounded-lg flex items-center justify-center overflow-hidden">
+                <Card
+                  key={index}
+                  className="bg-white dark:bg-[#343746] border-gray-200 dark:border-[#6272A4] hover:border-[#FF79C6] transition-all duration-300 group backdrop-blur-sm shadow-sm dark:shadow-none"
+                >
+                  {achievement.image && (
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative w-full h-60 overflow-hidden rounded-t-lg cursor-pointer">
                           <Image
                             src={achievement.image}
                             alt={achievement.title}
-                            width={800}
-                            height={600}
-                            className="max-w-full max-h-full object-contain"
+                            fill
+                            className="object-contain p-4 transition-transform duration-300"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
                         </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh]">
+                        <DialogHeader>
+                          <DialogTitle className="text-gray-800 dark:text-[#F8F8F2]">
+                            {achievement.title}
+                          </DialogTitle>
+                        </DialogHeader>
+                        <div className="flex items-center justify-center p-4">
+                          <div className="w-full h-96 bg-gray-100 dark:bg-[#282A36] rounded-lg flex items-center justify-center overflow-hidden">
+                            <Image
+                              src={achievement.image}
+                              alt={achievement.title}
+                              width={800}
+                              height={600}
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  )}
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-center">
+                        {achievement.type === "competition" ? (
+                          <Trophy className="h-6 w-6 mr-3 text-[#FF79C6]" />
+                        ) : (
+                          <Award className="h-6 w-6 mr-3 text-[#8BE9FD]" />
+                        )}
+                        <div>
+                          <CardTitle className="text-gray-800 dark:text-[#F8F8F2] mb-1">
+                            {achievement.title}
+                          </CardTitle>
+                          <div className="text-[#FF79C6] font-semibold text-sm">
+                            {achievement.organization}
+                          </div>
+                        </div>
                       </div>
-                    </DialogContent>
-                  </Dialog>
-                )}
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <div className="flex items-center">
-                      {achievement.type === "competition" ? (
-                        <Trophy className="h-6 w-6 mr-3 text-[#FF79C6]" />
-                      ) : (
-                        <Award className="h-6 w-6 mr-3 text-[#8BE9FD]" />
-                      )}
-                      <div>
-                        <CardTitle className="text-gray-800 dark:text-[#F8F8F2] mb-1">
-                          {achievement.title}
-                        </CardTitle>
-                        <div className="text-[#FF79C6] font-semibold text-sm">
-                          {achievement.organization}
+                      <div className="text-right">
+                        <div className="text-[#8BE9FD] font-bold text-sm mb-1">
+                          {achievement.position}
+                        </div>
+                        <div className="flex items-center text-gray-600 dark:text-[#F8F8F2]/70 text-xs">
+                          <Calendar className="h-3 w-3 mr-1" />
+                          <span>{achievement.date}</span>
                         </div>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-[#8BE9FD] font-bold text-sm mb-1">
-                        {achievement.position}
-                      </div>
-                      <div className="flex items-center text-gray-600 dark:text-[#F8F8F2]/70 text-xs">
-                        <Calendar className="h-3 w-3 mr-1" />
-                        <span>{achievement.date}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70 ml-9">
-                    {achievement.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
+                    <CardDescription className="text-gray-600 dark:text-[#F8F8F2]/70 ml-9">
+                      {achievement.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              ))}
           </div>
         </div>
       </section>
