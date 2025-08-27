@@ -14,7 +14,7 @@ interface Star {
 export function StarField() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const starsRef = useRef<Star[]>([])
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | null>(null)
   const [isDark, setIsDark] = useState<boolean>(false)
 
   useEffect(() => {
