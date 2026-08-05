@@ -1,18 +1,32 @@
+'use client'
+
+import { Plus } from 'lucide-react'
+import { useState } from 'react'
+
 import { skillGroups } from '@/content/portfolio'
 
 export function TechnicalFocus() {
+  const [active, setActive] = useState(0)
   return (
-    <section className="container-shell section-space border-t border-border" aria-labelledby="focus-title">
-      <div className="section-heading pt-16">
-        <h2 id="focus-title" className="section-title">The tools I use most often.</h2>
+    <section className="container-shell section-space technical-section" aria-labelledby="focus-title">
+      <div className="section-heading">
+        <p className="eyebrow">Technical focus · working set</p>
+        <h2 id="focus-title" className="section-title">Tools organized by the problems they solve.</h2>
       </div>
-      <div className="mt-10 grid gap-x-12 gap-y-10 md:grid-cols-2">
-        {skillGroups.map((group) => (
-          <div key={group.title} className="border-t border-border pt-5">
-            <h3 className="text-base font-semibold text-foreground">{group.title}</h3>
-            <p className="mt-3 text-base leading-7 text-muted-foreground">{group.items.join(' · ')}</p>
-          </div>
-        ))}
+      <div className="technical-accordion">
+        {skillGroups.map((group, index) => {
+          const expanded = active === index
+          return (
+            <article key={group.title} className="technical-panel" data-expanded={expanded}>
+              <button type="button" aria-expanded={expanded} aria-controls={`skill-panel-${index}`} onClick={() => setActive(index)}>
+                <span className="technical-number">0{index + 1}</span><span>{group.title}</span><Plus aria-hidden="true" size={19} />
+              </button>
+              <div id={`skill-panel-${index}`} className="technical-panel-content" hidden={!expanded}>
+                <p>{group.items.join(' · ')}</p>
+              </div>
+            </article>
+          )
+        })}
       </div>
     </section>
   )

@@ -1,35 +1,21 @@
+import { ProofCarousel } from '@/components/proof-carousel'
 import { awards, certifications } from '@/content/portfolio'
+
+const proofItems = [...awards, ...certifications].filter((item) => item.media)
 
 export function Credentials() {
   return (
-    <section id="credentials" className="container-shell section-space border-t border-border" aria-labelledby="credentials-title">
-      <div className="section-heading">
-        <h2 id="credentials-title" className="section-title">Awards, training, and proof of practice.</h2>
-      </div>
-      <div className="mt-10 grid gap-12 lg:grid-cols-2">
-        <div>
-          <h3 className="text-base font-semibold text-foreground">Awards</h3>
-          <ul className="mt-5 divide-y divide-border border-y border-border">
-            {awards.map((award) => (
-              <li key={`${award.title}-${award.detail ?? ''}`} className="py-4">
-                <p className="text-sm font-medium leading-6 text-foreground">{award.title}</p>
-                {award.detail ? <p className="mt-1 text-sm leading-6 text-muted-foreground">{award.detail}</p> : null}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-base font-semibold text-foreground">Certifications and training</h3>
-          <ul className="mt-5 divide-y divide-border border-y border-border">
-            {certifications.map((credential) => (
-              <li key={`${credential.title}-${credential.detail ?? ''}`} className="py-4">
-                <p className="text-sm font-medium leading-6 text-foreground">{credential.title}</p>
-                {credential.detail ? <p className="mt-1 text-sm leading-6 text-muted-foreground">{credential.detail}</p> : null}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <section id="credentials" className="container-shell section-space credentials-section" aria-labelledby="credentials-title">
+      <div className="section-heading credentials-heading"><p className="eyebrow">Credentials · selected proof</p><h2 id="credentials-title" className="section-title">Recognition backed by the artifact.</h2></div>
+      <ProofCarousel items={proofItems} />
+      <div className="credentials-lists">
+        <CredentialList title="Awards" items={awards} />
+        <CredentialList title="Certifications and training" items={certifications} />
       </div>
     </section>
   )
+}
+
+function CredentialList({ title, items }: { title: string; items: readonly { title: string; detail?: string }[] }) {
+  return <div><h3>{title}</h3><ul>{items.map((item) => <li key={`${item.title}-${item.detail ?? ''}`}><span>{item.title}</span>{item.detail ? <small>{item.detail}</small> : null}</li>)}</ul></div>
 }

@@ -25,7 +25,7 @@ The system theme is the default; manual choice persists. Normal text must reach 
 ## Typography and spacing
 
 - Font stack: `Satoshi, ui-sans-serif, system-ui, sans-serif`.
-- Display title: `clamp(3rem, 7vw, 6.5rem)`, maximum width `64rem`, line-height `0.94`.
+- Display title: `clamp(3rem, 7vw, 6.5rem)`, maximum width `64rem`, line-height `0.94`; use a `2.5rem` optical override below 480px to preserve the required three-line wrap at 375px.
 - Section title: `clamp(2.25rem, 5vw, 4.75rem)`, tight editorial tracking.
 - Reading copy stays between 60 and 72 characters per line.
 - Section rhythm: `clamp(6rem, 11vw, 12rem)`.

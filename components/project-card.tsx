@@ -1,61 +1,30 @@
 import Image from 'next/image'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Plus } from 'lucide-react'
 
 import type { Project } from '@/lib/portfolio-types'
 
-type ProjectCardProps = {
-  project: Project
-  compact?: boolean
-}
-
-export function ProjectCard({ project, compact = false }: ProjectCardProps) {
+export function ProjectCard({ project, compact = false }: { project: Project; compact?: boolean }) {
+  const media = project.media[0]
   return (
-    <article className={`project-card ${compact ? 'project-card-compact' : ''}`}>
-      <div className="min-w-0">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-          <span className="font-medium text-primary">{project.type}</span>
-          <span aria-hidden="true">·</span>
-          <span>{project.role}</span>
-        </div>
-        <h3 className="mt-3 text-2xl font-semibold tracking-tight text-foreground">{project.name}</h3>
-        <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">{project.summary}</p>
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={project.imageAlt ?? `${project.name} project interface`}
-            width={360}
-            height={220}
-            className="project-image mt-6"
-          />
-        ) : null}
+    <article className={`project-card project-${project.id} ${compact ? 'project-card-compact' : ''}`}>
+      <div className="project-media" data-project-media>
+        <Image src={media.src} alt={media.alt} width={media.width} height={media.height} loading="lazy" sizes={compact ? '(min-width: 768px) 44vw, 92vw' : '(min-width: 1024px) 58vw, 92vw'} unoptimized={media.src.endsWith('.svg')} />
       </div>
-      <div className="project-details">
-        <div>
-          <p className="detail-label">Workflow</p>
-          <p className="mt-2 text-sm leading-6 text-muted-foreground">{project.workflow}</p>
+      <div className="project-content">
+        <div className="project-kicker"><span>{project.type}</span><span>{project.role}</span></div>
+        <h3>{project.name}</h3>
+        <p className="project-summary">{project.summary}</p>
+        <p className="project-stack">{project.technologies.join(' · ')}</p>
+        <div className="project-actions">
+          {project.repository ? <a className="repository-link" href={project.repository} target="_blank" rel="noreferrer">Repository <ArrowUpRight aria-hidden="true" size={17} /></a> : null}
+          <details className="project-disclosure">
+            <summary><span>Workflow & contribution</span><Plus aria-hidden="true" size={18} /></summary>
+            <div className="project-disclosure-content">
+              <p>{project.workflow}</p>
+              <ul>{project.contributions.map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
+          </details>
         </div>
-        <div className="mt-6">
-          <p className="detail-label">Technical contributions</p>
-          <ul className="mt-2 space-y-2 text-sm leading-6 text-muted-foreground">
-            {project.contributions.map((contribution) => (
-              <li key={contribution} className="relative pl-4 before:absolute before:left-0 before:top-[0.7em] before:h-1 before:w-1 before:bg-primary">
-                {contribution}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="project-meta">
-        <div>
-          <p className="detail-label">Technologies</p>
-          <p className="mt-2 text-sm leading-6 text-muted-foreground">{project.technologies.join(' · ')}</p>
-        </div>
-        {project.repository ? (
-          <a className="inline-link mt-6" href={project.repository} target="_blank" rel="noreferrer">
-            View repository
-            <ArrowUpRight aria-hidden="true" size={16} />
-          </a>
-        ) : null}
       </div>
     </article>
   )
