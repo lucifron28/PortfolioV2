@@ -14,7 +14,7 @@ export function ProjectCard({ project, compact = false }: { project: Project; co
         <div className="project-kicker"><span>{project.type}</span><span>{project.role}</span></div>
         <h3>{project.name}</h3>
         <p className="project-summary">{project.summary}</p>
-        <p className="project-stack">{project.technologies.join(' · ')}</p>
+        <p className="project-stack">{project.technologies.join(', ')}</p>
         <div className="project-actions">
           {project.repository ? <a className="repository-link" href={project.repository} target="_blank" rel="noreferrer">Repository <ArrowUpRight aria-hidden="true" size={17} /></a> : null}
           <details className="project-disclosure">

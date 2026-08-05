@@ -10,7 +10,7 @@ export function TechnicalFocus() {
   return (
     <section className="container-shell section-space technical-section" aria-labelledby="focus-title">
       <div className="section-heading">
-        <p className="eyebrow">Technical focus · working set</p>
+        <p className="eyebrow">Technical focus</p>
         <h2 id="focus-title" className="section-title">Tools organized by the problems they solve.</h2>
       </div>
       <div className="technical-accordion">
@@ -25,10 +25,10 @@ export function TechnicalFocus() {
               onFocus={() => setActive(index)}
             >
               <button type="button" aria-expanded={expanded} aria-controls={`skill-panel-${index}`} onClick={() => setActive(index)}>
-                <span className="technical-number">0{index + 1}</span><span>{group.title}</span><Plus aria-hidden="true" size={19} />
+                <span>{group.title}</span><Plus aria-hidden="true" size={19} />
               </button>
               <div id={`skill-panel-${index}`} className="technical-panel-content" hidden={!expanded}>
-                <p>{group.items.join(' · ')}</p>
+                <p>{group.items.join(', ')}</p>
               </div>
             </article>
           )

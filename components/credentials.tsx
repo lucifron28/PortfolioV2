@@ -6,7 +6,7 @@ const proofItems = [...awards, ...certifications].filter((item) => item.media)
 export function Credentials() {
   return (
     <section id="credentials" className="container-shell section-space credentials-section" aria-labelledby="credentials-title">
-      <div className="section-heading credentials-heading"><p className="eyebrow">Credentials · selected proof</p><h2 id="credentials-title" className="section-title">Recognition backed by the artifact.</h2></div>
+      <div className="section-heading credentials-heading"><p className="eyebrow">Credentials</p><h2 id="credentials-title" className="section-title">Recognition backed by the artifact.</h2></div>
       <ProofCarousel items={proofItems} />
       <div className="credentials-lists">
         <CredentialList title="Awards" items={awards} />

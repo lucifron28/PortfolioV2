@@ -1,26 +1,35 @@
 # Ron Cada Portfolio - Design System
 
-This file is the implementation source of truth for the corrected 2026 portfolio refresh.
+This file is the implementation source of truth for the portfolio refresh.
 
 ## Direction
 
 - Recruiter-first Swiss editorial: restrained, rational, scannable, and visibly technical.
+- Use a cold near-monochrome language. Authentic project screens, certificates, and photography may retain source color; interface chrome and repository-derived diagrams remain grayscale.
 - Preserve the single-page structure and factual content.
 - Use Satoshi from Fontshare's official CSS API with system fallbacks. Do not redistribute font binaries.
 - Prefer stable composition and immediate project visibility over theatrical scroll effects.
+
+## Design dials
+
+- Design variance: 5 out of 10.
+- Motion intensity: 3 out of 10.
+- Visual density: 4 out of 10.
 
 ## Color tokens
 
 | Role | Light | Dark |
 | --- | --- | --- |
-| Background | `#F5F3EE` | `#0B1020` |
-| Surface | `#FCFBF8` | `#121A2B` |
-| Foreground | `#101828` | `#F7F8FA` |
-| Muted | `#526074` | `#AAB4C5` |
-| Accent | `#215CCF` | `#72A7FF` |
-| Border | `#D5D9E0` | `#283349` |
+| Background | `#F3F3F0` | `#0D0D0D` |
+| Surface | `#FAFAF8` | `#161616` |
+| Foreground | `#111111` | `#F2F2EF` |
+| Muted | `#626262` | `#A3A3A3` |
+| Interactive | `#111111` | `#F2F2EF` |
+| Border | `#D2D2CE` | `#303030` |
+| Control border | `#747470` | `#777777` |
+| Strong surface | `#E8E8E4` | `#1C1C1C` |
 
-Follow the system theme by default and persist manual choice. Normal text must reach 4.5:1; large text and UI boundaries must reach 3:1.
+Follow the system theme by default and persist manual choice. Avoid pure black and pure white. Do not introduce a colored accent unless the identity is intentionally revised. Normal text must reach 4.5:1; large text and UI boundaries must reach 3:1.
 
 ## Typography and spacing
 
@@ -49,8 +58,9 @@ Follow the system theme by default and persist manual choice. Normal text must r
 - Hero: exactly two calls to action and a simple bordered portrait card.
 - Project cards: media, concise summary and stack, repository action, and native expandable contribution detail.
 - Technical focus: horizontal accordion on desktop and accessible vertical accordion on mobile.
-- Proof carousel: manual controls only; no testimonials and no auto-rotation.
+- Proof carousel: manual controls only; no testimonials and no auto-rotation. Use plain-language position labels rather than padded numeric pagination.
 - Availability and internship details live in the final contact panel.
+- Eyebrows describe content directly. Avoid version labels, section numbering, decorative middle dots, and generic process badges.
 
 ## Motion
 

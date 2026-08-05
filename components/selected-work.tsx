@@ -5,7 +5,7 @@ export function SelectedWork() {
   return (
     <section id="work" className="container-shell section-space" aria-labelledby="work-title">
       <div className="work-heading">
-        <p className="eyebrow">Selected work · 04 systems</p>
+        <p className="eyebrow">Selected work</p>
         <h2 id="work-title" className="section-title">Systems built around real workflows.</h2>
         <p className="section-intro">A proof-led view of how I approach backend services, authentication, data, clients, and applied AI.</p>
       </div>
@@ -14,7 +14,7 @@ export function SelectedWork() {
       </div>
       <div className="archive-section" aria-labelledby="additional-work-title">
         <div>
-          <p className="eyebrow">Archive · 02</p>
+          <p className="eyebrow">Additional work</p>
           <h3 id="additional-work-title">Earlier and competition work.</h3>
         </div>
         <div className="archive-grid">
