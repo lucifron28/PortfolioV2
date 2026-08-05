@@ -18,13 +18,12 @@ export function Hero() {
           <a className="button-secondary" href={site.resumePath} download><Download aria-hidden="true" size={17} /> Download résumé</a>
         </div>
       </div>
-      <div className="hero-portrait-wrap">
-        <span className="portrait-index" aria-hidden="true">01 / INTRO</span>
+      <figure className="hero-portrait-wrap">
         <div className="hero-portrait-frame">
           <Image src="/ron.jpg" alt="Ron Vincent Cada" fill priority sizes="(min-width: 1024px) 29vw, 70vw" className="hero-photo" />
         </div>
-        <p className="portrait-caption">Backend systems · reliable handoffs · product-minded delivery</p>
-      </div>
+        <figcaption>Ron Vincent Cada · Backend-focused software engineering student</figcaption>
+      </figure>
     </section>
   )
 }

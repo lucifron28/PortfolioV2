@@ -7,7 +7,7 @@ export function ProjectCard({ project, compact = false }: { project: Project; co
   const media = project.media[0]
   return (
     <article className={`project-card project-${project.id} ${compact ? 'project-card-compact' : ''}`}>
-      <div className="project-media" data-project-media>
+      <div className="project-media">
         <Image src={media.src} alt={media.alt} width={media.width} height={media.height} loading="lazy" sizes={compact ? '(min-width: 768px) 44vw, 92vw' : '(min-width: 1024px) 58vw, 92vw'} unoptimized={media.src.endsWith('.svg')} />
       </div>
       <div className="project-content">

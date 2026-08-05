@@ -1,13 +1,13 @@
-# Ron Cada Portfolio — Design System
+# Ron Cada Portfolio - Design System
 
-This file is the implementation source of truth for the 2026 portfolio refresh.
+This file is the implementation source of truth for the corrected 2026 portfolio refresh.
 
 ## Direction
 
-- Recruiter-first Swiss editorial: asymmetric, rational, highly scannable, and visibly technical.
-- AIDA sequence: asymmetric hero, screen-led work, technical/proof sections, internship contact panel.
-- Satoshi from Fontshare's official CSS API with system fallbacks. Do not commit or redistribute font binaries.
-- Single-page structure and factual content remain authoritative.
+- Recruiter-first Swiss editorial: restrained, rational, scannable, and visibly technical.
+- Preserve the single-page structure and factual content.
+- Use Satoshi from Fontshare's official CSS API with system fallbacks. Do not redistribute font binaries.
+- Prefer stable composition and immediate project visibility over theatrical scroll effects.
 
 ## Color tokens
 
@@ -20,54 +20,51 @@ This file is the implementation source of truth for the 2026 portfolio refresh.
 | Accent | `#215CCF` | `#72A7FF` |
 | Border | `#D5D9E0` | `#283349` |
 
-The system theme is the default; manual choice persists. Normal text must reach 4.5:1, large text and UI boundaries 3:1.
+Follow the system theme by default and persist manual choice. Normal text must reach 4.5:1; large text and UI boundaries must reach 3:1.
 
 ## Typography and spacing
 
 - Font stack: `Satoshi, ui-sans-serif, system-ui, sans-serif`.
-- Display title: `clamp(3rem, 7vw, 6.5rem)`, maximum width `64rem`, line-height `0.94`; use a `2.5rem` optical override below 480px to preserve the required three-line wrap at 375px.
-- Section title: `clamp(2.25rem, 5vw, 4.75rem)`, tight editorial tracking.
-- Reading copy stays between 60 and 72 characters per line.
-- Section rhythm: `clamp(6rem, 11vw, 12rem)`.
-- Main container: maximum `90rem`, fluid side gutters.
-- Controls have a minimum 44 × 44px target.
+- Display title: `clamp(3rem, 6vw, 5.25rem)`, maximum width `50rem`, line-height `0.96`.
+- Narrow-phone title: `2.25rem` below 480px to maintain a readable three-line wrap.
+- Section title: `clamp(2.25rem, 4.5vw, 4rem)`.
+- Reading copy stays near 65 characters per line.
+- Section rhythm: `clamp(5rem, 8vw, 8rem)`.
+- Main container: maximum `75rem` with fluid gutters.
+- Every control has a minimum 44 by 44px target.
 
 ## Layout
 
-- Hero is single-column below 1024px and asymmetric split at 1024px and above.
-- Featured work uses a 12-column dense grid at desktop:
-  - UniPM: 7 columns × 2 rows.
-  - Sidekick: 5 columns × 1 row.
-  - Enverga Arena: 5 columns × 1 row.
-  - StudyLens: 12 columns × 1 row.
-- Grid proof: `14 + 5 + 5 + 12 = 36` cells, exactly three complete 12-cell rows.
+- Hero is stacked below 1024px and uses a stable copy/portrait split at 1024px and above.
+- The portrait never overlaps copy or leaves the container.
+- Featured work uses a two-column desktop grid. UniPM and StudyLens span both columns with media/content splits; Sidekick and Enverga Arena occupy one column each.
+- Project media uses a stable 16:10 frame and remains fully visible without scroll-based fading.
 - Primary project media is authentic UI or a repository-derived workflow diagram. Never use stock or fabricated product screens.
 - ScrybeSync and AQuest remain compact archive entries with their authentic screenshots.
 
 ## Components
 
 - Header: sticky, active section state, explicit resume action, 44px controls.
-- Mobile menu: Escape, outside-click and link dismissal; returns focus to trigger.
-- Hero: exactly two calls to action; portrait is editorially cropped. Availability belongs in the final contact panel.
-- Project cards: media first, concise summary and stack, repository action, native expandable contribution detail.
-- Technical focus: horizontal accordion on desktop, accessible vertical accordion on mobile; Backend opens first.
+- Mobile menu: Escape, outside-click and link dismissal; focus returns to the trigger.
+- Hero: exactly two calls to action and a simple bordered portrait card.
+- Project cards: media, concise summary and stack, repository action, and native expandable contribution detail.
+- Technical focus: horizontal accordion on desktop and accessible vertical accordion on mobile.
 - Proof carousel: manual controls only; no testimonials and no auto-rotation.
-- Selected-work heading contains one decorative inline authentic project crop excluded from the accessibility tree.
+- Availability and internship details live in the final contact panel.
 
 ## Motion
 
-- Use deferred client-only GSAP with ScrollTrigger.
-- About words scrub from opacity `0.1` to `1`.
-- Project media scales from `0.8` to `1` on entry, then fades/darkens toward `0.2` on exit.
-- Media hover scale: `1.05` over `700ms`; control transitions: `180–240ms`.
-- Disable scroll choreography on small screens and for `prefers-reduced-motion`.
-- Server-rendered and no-JavaScript content is fully visible and readable.
+- Do not use scroll scrubbing, pinned sections, image fading, or text opacity choreography.
+- Media hover scale is limited to `1.025` over `500ms`.
+- Controls transition in `180ms`.
+- Respect `prefers-reduced-motion` globally.
+- Server-rendered and no-JavaScript content remains fully visible.
 
 ## Quality gates
 
-- No horizontal overflow at 375×812, 768×1024, 844×390, 1024×768, or 1440×900.
+- No horizontal overflow at 375x812, 768x1024, 844x390, 1024x768, or 1440x900.
 - Hero title remains two to three lines at the acceptance viewports.
 - Hash targets clear the sticky header.
 - Every interactive element has hover, pressed, focus-visible, and keyboard states.
 - Only hero media is eager; below-fold media is lazy with explicit dimensions and responsive sizes.
-- Target Lighthouse Performance ≥90 and Accessibility ≥95; LCP <2.5s and CLS <0.1.
+- Required routes and the resume must return successful responses with no production console errors.

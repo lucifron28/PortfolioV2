@@ -8,7 +8,7 @@ export function About() {
           <p className="eyebrow">About · approach</p>
           <h2 id="about-title" className="section-title">Backend work with a clear product purpose.</h2>
         </div>
-        <p className="about-copy" data-scrub-copy>{aboutText.split(' ').map((word, index) => <span key={`${word}-${index}`}>{word}{' '}</span>)}</p>
+        <p className="about-copy">{aboutText}</p>
       </div>
       <div className="education-row">
         <div><p className="detail-label">Education</p><h3>{education.institution}</h3></div>

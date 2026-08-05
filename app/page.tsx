@@ -6,7 +6,6 @@ import { SelectedWork } from '@/components/selected-work'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TechnicalFocus } from '@/components/technical-focus'
-import { MotionBoundary } from '@/components/motion-boundary'
 
 export default function Home() {
   return (
@@ -22,7 +21,6 @@ export default function Home() {
         <Contact />
       </main>
       <SiteFooter />
-      <MotionBoundary />
     </>
   )
 }

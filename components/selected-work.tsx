@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import { additionalProjects, selectedProjects } from '@/content/projects'
 import { ProjectCard } from '@/components/project-card'
 
@@ -8,9 +6,7 @@ export function SelectedWork() {
     <section id="work" className="container-shell section-space" aria-labelledby="work-title">
       <div className="work-heading">
         <p className="eyebrow">Selected work · 04 systems</p>
-        <h2 id="work-title" className="section-title">
-          Systems built around <span className="inline-project-crop" aria-hidden="true"><Image src="/ScrybeSync.png" alt="" fill sizes="180px" /></span> real workflows.
-        </h2>
+        <h2 id="work-title" className="section-title">Systems built around real workflows.</h2>
         <p className="section-intro">A proof-led view of how I approach backend services, authentication, data, clients, and applied AI.</p>
       </div>
       <div className="project-grid">
