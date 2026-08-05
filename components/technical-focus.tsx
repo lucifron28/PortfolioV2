@@ -17,7 +17,13 @@ export function TechnicalFocus() {
         {skillGroups.map((group, index) => {
           const expanded = active === index
           return (
-            <article key={group.title} className="technical-panel" data-expanded={expanded}>
+            <article
+              key={group.title}
+              className="technical-panel"
+              data-expanded={expanded}
+              onMouseEnter={() => setActive(index)}
+              onFocus={() => setActive(index)}
+            >
               <button type="button" aria-expanded={expanded} aria-controls={`skill-panel-${index}`} onClick={() => setActive(index)}>
                 <span className="technical-number">0{index + 1}</span><span>{group.title}</span><Plus aria-hidden="true" size={19} />
               </button>
