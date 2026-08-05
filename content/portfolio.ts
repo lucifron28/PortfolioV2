@@ -3,9 +3,9 @@ import type { Credential, Education, SkillGroup } from '@/lib/portfolio-types'
 export const site = {
   name: 'Ron Vincent Cada',
   shortName: 'Ron Cada',
-  title: 'Backend-focused software engineering student.',
+  title: 'BSIT student with a backend focus.',
   description:
-    'Backend-focused software engineering student building secure APIs, workflow systems, full-stack applications, and source-grounded AI features with ASP.NET Core, Python, React, SQL, and Docker.',
+    'BSIT student specializing in Web and Mobile Application Development, building secure APIs, workflow systems, full-stack applications, and source-grounded AI features with ASP.NET Core, Python, React, SQL, and Docker.',
   location: 'Lucena City, Philippines',
   availability: 'Available for a 600-hour internship beginning December 2026',
   resumePath: '/Ron_Vincent_Cada_CV.pdf',

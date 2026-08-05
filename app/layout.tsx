@@ -7,7 +7,7 @@ import './globals.css'
 
 const baseUrl = 'https://ron-cada-portfolio.vercel.app'
 const description =
-  'Backend-focused software engineering student building secure APIs, workflow systems, full-stack applications, and source-grounded AI features with ASP.NET Core, Python, React, SQL, and Docker.'
+  'BSIT student specializing in Web and Mobile Application Development, building secure APIs, workflow systems, full-stack applications, and source-grounded AI features with ASP.NET Core, Python, React, SQL, and Docker.'
 
 const personStructuredData = {
   '@context': 'https://schema.org',
@@ -15,7 +15,7 @@ const personStructuredData = {
   name: 'Ron Vincent Cada',
   url: baseUrl,
   image: `${baseUrl}/ron.jpg`,
-  jobTitle: 'Backend-focused software engineering student',
+  jobTitle: 'BSIT student specializing in Web and Mobile Application Development',
   description,
   email: 'mailto:cronvincent@gmail.com',
   sameAs: ['https://github.com/lucifron28', 'https://www.linkedin.com/in/ron-vincent-cada/'],
@@ -46,12 +46,12 @@ const personStructuredData = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: 'Ron Vincent Cada | Backend Software Engineering Student',
+  title: 'Ron Vincent Cada | Backend-Focused BSIT Student',
   description,
   applicationName: 'Ron Vincent Cada Portfolio',
   keywords: [
     'Ron Vincent Cada',
-    'backend software engineering student',
+    'backend-focused BSIT student',
     'ASP.NET Core',
     'C#',
     'REST APIs',
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: baseUrl,
-    title: 'Ron Vincent Cada | Backend Software Engineering Student',
+    title: 'Ron Vincent Cada | Backend-Focused BSIT Student',
     description,
     siteName: 'Ron Vincent Cada Portfolio',
     locale: 'en_PH',
@@ -88,13 +88,13 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Ron Vincent Cada, Backend Software Engineering Student',
+        alt: 'Ron Vincent Cada, Backend-Focused BSIT Student',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ron Vincent Cada | Backend Software Engineering Student',
+    title: 'Ron Vincent Cada | Backend-Focused BSIT Student',
     description,
     images: ['/opengraph-image'],
   },

@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="container-shell hero-grid" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <p className="eyebrow">Software engineering student</p>
+        <p className="eyebrow">BSIT student</p>
         <h1 id="hero-title">{site.title}</h1>
         <div className="hero-support-row">
           <p>{heroSupport}</p>
@@ -22,7 +22,7 @@ export function Hero() {
         <div className="hero-portrait-frame">
           <Image src="/ron.jpg" alt="Ron Vincent Cada" fill priority sizes="(min-width: 1024px) 29vw, 70vw" className="hero-photo" />
         </div>
-        <figcaption>Ron Vincent Cada. Backend-focused software engineering student.</figcaption>
+        <figcaption>Ron Vincent Cada. BSIT student with a backend focus.</figcaption>
       </figure>
     </section>
   )
