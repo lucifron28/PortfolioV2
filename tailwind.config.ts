@@ -53,52 +53,15 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Dracula Theme Colors
-        dracula: {
-          // Light Theme (Dracula-Inspired)
-          bg: "#F8F8F2",
-          text: "#1E1E1E",
-          nav: "#E4E4E7",
-          primary: "#8BE9FD",
-          accent: "#FF79C6",
-          card: "#F0F0F5",
-          border: "#CCCCCC",
-          // Dark Theme (Dracula)
-          "bg-dark": "#282A36",
-          "text-dark": "#F8F8F2",
-          "nav-dark": "#1E1F29",
-          "card-dark": "#343746",
-          "border-dark": "#6272A4",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-      },
-      blur: {
-        xs: "1px",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 } satisfies Config
 
 export default config
