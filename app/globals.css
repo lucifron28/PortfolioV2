@@ -208,7 +208,7 @@
   .site-footer .container-shell { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; color: var(--muted-ink); font-size: .8rem; }
   .site-footer p { margin: 0; }
   .site-footer nav { display: flex; flex-wrap: wrap; gap: .4rem; }
-  .site-footer a { display: inline-flex; min-height: 44px; align-items: center; padding-inline: .55rem; text-decoration: none; }
+  .site-footer a { display: inline-flex; min-height: 44px; align-items: center; gap: .4rem; padding-inline: .55rem; text-decoration: none; }
   .site-footer a:hover { color: var(--ink); }
 }
 

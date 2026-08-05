@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { CodeXml } from 'lucide-react'
+import { CodeXml, Github } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 import { MobileNavigation } from '@/components/mobile-navigation'
@@ -43,6 +43,7 @@ export function SiteHeader() {
             ))}
             <a className="resume-link" href={site.resumePath} download>Résumé</a>
           </nav>
+          <a className="icon-button" href={site.links.github} target="_blank" rel="noreferrer" aria-label="Ron Cada on GitHub"><Github aria-hidden="true" size={19} /></a>
           <ThemeToggle />
           <MobileNavigation activeSection={activeSection} />
         </div>
