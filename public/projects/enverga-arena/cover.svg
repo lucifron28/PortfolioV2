@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Enverga Arena intramurals workflow</title><desc id="desc">Tryouts and registration flow through results to administrator-reviewed recap publication.</desc>
+  <rect width="1600" height="1000" fill="#0B1020"/><path d="M800 0v1000" stroke="#283349"/><circle cx="800" cy="500" r="286" fill="none" stroke="#215CCF" stroke-width="80" opacity=".34"/>
+  <text x="88" y="112" fill="#72A7FF" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="5">ENVERGA ARENA / INTRAMURALS</text>
+  <text x="88" y="286" fill="#F7F8FA" font-family="Arial,sans-serif" font-size="82" font-weight="700">One competition.</text><text x="88" y="376" fill="#F7F8FA" font-family="Arial,sans-serif" font-size="82" font-weight="700">Every handoff tracked.</text>
+  <g font-family="Arial,sans-serif"><g fill="#121A2B" stroke="#72A7FF" stroke-width="3"><rect x="88" y="570" width="310" height="158"/><rect x="458" y="570" width="310" height="158"/><rect x="828" y="570" width="310" height="158"/><rect x="1198" y="570" width="310" height="158"/></g><g fill="#72A7FF" font-size="24"><text x="120" y="620">01</text><text x="490" y="620">02</text><text x="860" y="620">03</text><text x="1230" y="620">04</text></g><g fill="#F7F8FA" font-size="31" font-weight="700"><text x="120" y="684">TRYOUTS</text><text x="490" y="684">REGISTRATIONS</text><text x="860" y="684">RESULTS</text><text x="1230" y="684">REVIEWED RECAP</text></g></g>
+  <text x="88" y="904" fill="#AAB4C5" font-family="Arial,sans-serif" font-size="25">Django REST Framework · React · OTP verification · Turnstile</text>
+</svg>

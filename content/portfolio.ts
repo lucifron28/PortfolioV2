@@ -70,20 +70,21 @@ export const awards: readonly Credential[] = [
     title: 'Top Performer and Best in Capstone',
     detail: 'Open iT Applied Full Stack and Data Science Bootcamp',
   },
-  { title: '1st Place', detail: 'Open iT Codefest' },
+  { title: '1st Place', detail: 'Open iT Codefest', media: { src: '/openit-codefest.png', alt: 'Ron Cada and teammates at the Open iT Codefest first-place presentation', width: 1600, height: 900, kind: 'credential' } },
   { title: 'Top Performer', detail: 'Hack4Gov CALABARZON CTF' },
-  { title: '2nd Place', detail: 'SikapTala National Python Collegiate Competition' },
+  { title: '2nd Place', detail: 'SikapTala National Python Collegiate Competition', media: { src: '/sikaptala.jpg', alt: 'SikapTala second-place certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
   {
     title: '1st Place Stage 3 and Grand Finals Finalist',
     detail: 'CodeChum National Programming Competition',
+    media: { src: '/codechum.png', alt: 'CodeChum Stage 3 first-place certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' },
   },
 ]
 
 export const certifications: readonly Credential[] = [
   { title: 'Microsoft Certified: Azure Fundamentals' },
-  { title: 'GitHub Foundations' },
-  { title: 'CS50x' },
-  { title: 'CS50P' },
-  { title: 'Intermediate PostgreSQL', detail: 'University of Michigan' },
+  { title: 'GitHub Foundations', media: { src: '/github-foundations.png', alt: 'GitHub Foundations certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
+  { title: 'CS50x', media: { src: '/cs50x.png', alt: 'CS50x certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
+  { title: 'CS50P', media: { src: '/cs50p.png', alt: 'CS50P certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
+  { title: 'Intermediate PostgreSQL', detail: 'University of Michigan', media: { src: '/intermediate-postgresql.png', alt: 'Intermediate PostgreSQL certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
   { title: 'Open iT Applied Full Stack and Data Science Bootcamp' },
 ]

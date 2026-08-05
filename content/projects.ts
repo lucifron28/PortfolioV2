@@ -16,6 +16,7 @@ export const selectedProjects: readonly Project[] = [
     ],
     technologies: ['ASP.NET Core', 'React + TypeScript', 'SQL Server', 'JWT', 'Full-Text Search'],
     repository: 'https://github.com/lucifron28/UniPM',
+    media: [{ src: '/projects/unipm/cover.svg', alt: 'UniPM workflow from university assets and schedules through inspections and maintenance review', width: 1600, height: 1000, kind: 'diagram' }],
   },
   {
     id: 'sidekick',
@@ -32,6 +33,7 @@ export const selectedProjects: readonly Project[] = [
     ],
     technologies: ['ASP.NET Core', 'Identity', 'React', 'PostgreSQL', 'Docker Compose'],
     repository: 'https://github.com/lucifron28/openit-bootcamp-capstone',
+    media: [{ src: '/projects/sidekick/cover.svg', alt: 'Sidekick marketplace workflow from profiles and skills through gigs and contracts', width: 1600, height: 1000, kind: 'diagram' }],
   },
   {
     id: 'enverga-arena',
@@ -49,6 +51,7 @@ export const selectedProjects: readonly Project[] = [
     ],
     technologies: ['Django REST Framework', 'React + TypeScript', 'JWT', 'PostgreSQL', 'Cloudflare Turnstile'],
     repository: 'https://github.com/lucifron28/EnvergaArena',
+    media: [{ src: '/projects/enverga-arena/cover.svg', alt: 'Enverga Arena workflow from tryouts and registrations through results and reviewed recaps', width: 1600, height: 1000, kind: 'diagram' }],
   },
   {
     id: 'studylens',
@@ -66,6 +69,7 @@ export const selectedProjects: readonly Project[] = [
     ],
     technologies: ['Kotlin', 'Jetpack Compose', 'CameraX + ML Kit OCR', 'Retrofit', 'Django REST Framework'],
     repository: 'https://github.com/lucifron28/StudyLens',
+    media: [{ src: '/projects/studylens/cover.svg', alt: 'StudyLens workflow from classroom capture and OCR through notes and study materials', width: 1600, height: 1000, kind: 'diagram' }],
   },
 ]
 
@@ -83,8 +87,7 @@ export const additionalProjects: readonly Project[] = [
     ],
     technologies: ['React', 'TypeScript', 'AI utilities'],
     repository: 'https://github.com/lucifron28/ScrybeSync',
-    image: '/ScrybeSync.png',
-    imageAlt: 'ScrybeSync project interface',
+    media: [{ src: '/ScrybeSync.png', alt: 'ScrybeSync note-taking project interface', width: 1600, height: 900, kind: 'screen' }],
   },
   {
     id: 'aquest',
@@ -99,7 +102,6 @@ export const additionalProjects: readonly Project[] = [
     ],
     technologies: ['React', 'TypeScript', 'Web application'],
     repository: 'https://github.com/lucifron28/AQuest',
-    image: '/AQuest.png',
-    imageAlt: 'AQuest project interface',
+    media: [{ src: '/AQuest.png', alt: 'AQuest Codefest project interface', width: 1600, height: 900, kind: 'screen' }],
   },
 ]

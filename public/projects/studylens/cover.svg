@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">StudyLens classroom capture workflow</title><desc id="desc">Classroom capture moves through OCR and editable notes into study materials.</desc>
+  <rect width="1600" height="1000" fill="#101828"/><path d="M82 80h1436v840H82z" fill="#0B1020" stroke="#283349" stroke-width="2"/><path d="M800 80v840" stroke="#283349"/>
+  <text x="132" y="154" fill="#72A7FF" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="5">STUDYLENS / ANDROID LEARNING COMPANION</text>
+  <text x="132" y="310" fill="#F7F8FA" font-family="Arial,sans-serif" font-size="86" font-weight="700">Turn the board</text><text x="132" y="402" fill="#F7F8FA" font-family="Arial,sans-serif" font-size="86" font-weight="700">into study material.</text>
+  <g font-family="Arial,sans-serif"><path d="M154 640h1292" stroke="#72A7FF" stroke-width="4" stroke-dasharray="9 14"/><g fill="#215CCF"><circle cx="190" cy="640" r="56"/><circle cx="596" cy="640" r="56"/><circle cx="1002" cy="640" r="56"/><circle cx="1408" cy="640" r="56"/></g><g fill="#F7F8FA" font-size="29" font-weight="700"><text x="132" y="756">01  CAPTURE</text><text x="548" y="756">02  OCR</text><text x="936" y="756">03  NOTES</text><text x="1340" y="756">04  STUDY</text></g></g>
+  <text x="132" y="864" fill="#AAB4C5" font-family="Arial,sans-serif" font-size="25">Kotlin · Jetpack Compose · CameraX · ML Kit OCR · Django REST Framework</text>
+</svg>
