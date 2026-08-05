@@ -69,7 +69,7 @@ export const selectedProjects: readonly Project[] = [
     ],
     technologies: ['Kotlin', 'Jetpack Compose', 'CameraX + ML Kit OCR', 'Retrofit', 'Django REST Framework'],
     repository: 'https://github.com/lucifron28/StudyLens',
-    media: [{ src: '/projects/studylens/cover.svg', alt: 'StudyLens workflow from classroom capture and OCR through notes and study materials', width: 1600, height: 1000, kind: 'diagram' }],
+    media: [{ src: '/projects/studylens/studylens-home.png', alt: 'StudyLens Android home screen showing tasks, recent board-scan activity, and Home, Subjects, Scans, and Profile navigation', width: 720, height: 1608, kind: 'screen' }],
   },
 ]
 
