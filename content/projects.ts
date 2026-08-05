@@ -7,12 +7,12 @@ export const selectedProjects: readonly Project[] = [
     type: 'Team capstone',
     role: 'Team capstone contributor',
     summary:
-      'A preventive-maintenance workflow system for university assets, schedules, inspections, and maintenance forms.',
+      'A preventive-maintenance system for university assets, schedules, inspections, and maintenance forms.',
     workflow:
-      'Asset and schedule management, inspection records, multi-row preventive-maintenance forms, and bounded maintenance-history review.',
+      'Tracks assets and schedules, records inspections, and stores maintenance forms and history.',
     contributions: [
       'ASP.NET Core API work covers asset, schedule, inspection, and form lifecycle endpoints with policy-protected writes.',
-      'Repository retrieval work combines SQL Server Full-Text Search, serialized embeddings, application cosine similarity, and inspectable Reciprocal Rank Fusion.',
+      'Built repository search with SQL Server Full-Text Search, serialized embeddings, application cosine similarity, and Reciprocal Rank Fusion.',
     ],
     technologies: ['ASP.NET Core', 'React + TypeScript', 'SQL Server', 'JWT', 'Full-Text Search'],
     repository: 'https://github.com/lucifron28/UniPM',
@@ -24,12 +24,12 @@ export const selectedProjects: readonly Project[] = [
     type: 'Team bootcamp capstone',
     role: 'Backend authentication and React delivery',
     summary:
-      'A talent marketplace for profiles, skills, gigs, applications, contracts, and related handoffs.',
+      'A talent marketplace for profiles, skills, gigs, applications, and contracts.',
     workflow:
-      'Profile and skill setup flows into gig discovery, applications, and contract management.',
+      'Users create profiles and skills, browse gigs, submit applications, and manage contracts.',
     contributions: [
       'Implemented ASP.NET Core Identity with JWT access tokens and HttpOnly refresh-token rotation.',
-      'Owned React delivery for profile, skill, gig, application, and contract workflows backed by PostgreSQL.',
+      'Built React screens for profiles, skills, gigs, applications, and contracts with PostgreSQL-backed APIs.',
     ],
     technologies: ['ASP.NET Core', 'Identity', 'React', 'PostgreSQL', 'Docker Compose'],
     repository: 'https://github.com/lucifron28/openit-bootcamp-capstone',
@@ -41,13 +41,13 @@ export const selectedProjects: readonly Project[] = [
     type: 'Solo project',
     role: 'Sole developer',
     summary:
-      'An intramurals registration, results, medal-tally, and reviewed AI news-recap system for MSEUF.',
+      'An MSEUF intramurals system for tryouts, registrations, results, medal tallies, and administrator-reviewed AI recaps.',
     workflow:
-      'Student tryout applications and registrations move through role-scoped review, results entry, and admin-controlled publication.',
+      'Students submit tryout applications and registrations. Authorized users review them, enter results, and publish recaps.',
     contributions: [
-      'Built Django REST Framework workflows for tryouts, registrations, results, medal tallies, and role-based operations.',
+      'Built Django REST Framework features for tryouts, registrations, results, medal tallies, and role-based permissions.',
       'Implemented JWT session handling, student-domain OTP verification, hashed OTP storage, rate and duplicate protection, and Turnstile checks.',
-      'Added an AI recap review flow so generated copy is checked by an administrator before publication.',
+      'Added an AI recap review flow so an administrator reviews generated copy before publication.',
     ],
     technologies: ['Django REST Framework', 'React + TypeScript', 'JWT', 'PostgreSQL', 'Cloudflare Turnstile'],
     repository: 'https://github.com/lucifron28/EnvergaArena',
@@ -59,13 +59,13 @@ export const selectedProjects: readonly Project[] = [
     type: 'Solo project',
     role: 'Sole developer',
     summary:
-      'A native Android learning companion for course modules, progress, notes, summaries, flashcards, quizzes, and tutor workflows.',
+      'A native Android learning companion for course modules, progress tracking, notes, summaries, flashcards, quizzes, and tutor features.',
     workflow:
-      'Students read modules, capture classroom board notes, edit OCR output, and review generated learning materials.',
+      'Students read modules, capture classroom boards, edit OCR text, and review generated study materials.',
     contributions: [
       'Built native Android screens with Kotlin, Jetpack Compose, CameraX, ML Kit OCR, and Retrofit.',
-      'Connected module, progress, note, summary, flashcard, quiz, and tutor workflows to Django REST Framework and PostgreSQL services.',
-      'Kept AI provider credentials on the server through the backend service layer.',
+      'Connected modules, progress, notes, summaries, flashcards, quizzes, and tutor features to Django REST Framework and PostgreSQL.',
+      'Stored AI provider credentials on the server through the backend service layer.',
     ],
     technologies: ['Kotlin', 'Jetpack Compose', 'CameraX + ML Kit OCR', 'Retrofit', 'Django REST Framework'],
     repository: 'https://github.com/lucifron28/StudyLens',
@@ -80,10 +80,9 @@ export const additionalProjects: readonly Project[] = [
     type: 'Additional work',
     role: 'Project contributor',
     summary: 'A note-taking project with AI summarization and transcription features.',
-    workflow: 'Capture notes, then use supporting AI utilities for review and organization.',
+    workflow: 'Users capture notes, then generate summaries and transcriptions for review.',
     contributions: [
-      'Combined a note-taking interface with summarization and transcription workflows.',
-      'Kept the project focused on a small, understandable productivity flow.',
+      'Built a note-taking interface with summarization and transcription features.',
     ],
     technologies: ['React', 'TypeScript', 'AI utilities'],
     repository: 'https://github.com/lucifron28/ScrybeSync',
@@ -94,12 +93,8 @@ export const additionalProjects: readonly Project[] = [
     name: 'AQuest',
     type: 'Additional work',
     role: 'Codefest project contributor',
-    summary: 'A project built for the Open iT Codefest 2025.',
-    workflow: 'A focused competition project shaped around a defined product brief and delivery window.',
-    contributions: [
-      'Delivered a working competition project with a clear product flow and presentation surface.',
-      'Used the project to practice focused scope, implementation, and demo readiness.',
-    ],
+    summary: 'Built for the Open iT Codefest 2025.',
+    contributions: [],
     technologies: ['React', 'TypeScript', 'Web application'],
     repository: 'https://github.com/lucifron28/AQuest',
     media: [{ src: '/AQuest.png', alt: 'AQuest Codefest project interface', width: 1600, height: 900, kind: 'screen' }],

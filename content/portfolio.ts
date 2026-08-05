@@ -5,7 +5,7 @@ export const site = {
   shortName: 'Ron Cada',
   title: 'BSIT student with a backend focus.',
   description:
-    'BSIT student specializing in Web and Mobile Application Development, building secure APIs, workflow systems, full-stack applications, and source-grounded AI features with ASP.NET Core, Python, React, SQL, and Docker.',
+    'BSIT student specializing in Web and Mobile Application Development. I build APIs, workflow systems, full-stack applications, and AI features with ASP.NET Core, Python, React, SQL, and Docker.',
   location: 'Lucena City, Philippines',
   availability: 'Available for a 600-hour internship beginning December 2026',
   resumePath: '/Ron_Vincent_Cada_CV.pdf',
@@ -26,7 +26,7 @@ export const navigationLinks = [
 ] as const
 
 export const heroSupport =
-  'I build secure APIs, workflow systems, full-stack applications, and source-grounded AI features using ASP.NET Core, Python, React, SQL Server, PostgreSQL, and Docker.'
+  'I build APIs, workflow systems, full-stack applications, and AI features with ASP.NET Core, Python, React, SQL Server, PostgreSQL, and Docker.'
 
 export const credibilityItems = [
   { label: 'Open iT Bootcamp', value: 'Top Performer and Best in Capstone' },
@@ -63,7 +63,7 @@ export const education: Education = {
 }
 
 export const aboutText =
-  'I am a BSIT student specializing in Web and Mobile Application Development at Manuel S. Enverga University Foundation. My main interest is backend engineering, including API design, authentication, relational databases, workflow systems, and reliable integration between services and clients. I also build Android applications and source-grounded AI features when they support a clear product requirement.'
+  'I am a BSIT student specializing in Web and Mobile Application Development at Manuel S. Enverga University Foundation. I focus on API design, authentication, relational databases, workflow systems, and service-client integration. I also build Android applications and AI features for specific product requirements.'
 
 export const awards: readonly Credential[] = [
   {

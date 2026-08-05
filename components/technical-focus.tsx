@@ -11,7 +11,7 @@ export function TechnicalFocus() {
     <section className="container-shell section-space technical-section" aria-labelledby="focus-title">
       <div className="section-heading">
         <p className="eyebrow">Technical focus</p>
-        <h2 id="focus-title" className="section-title">Tools organized by the problems they solve.</h2>
+        <h2 id="focus-title" className="section-title">Tools I use across backend, data, frontend, and AI work.</h2>
       </div>
       <div className="technical-accordion">
         {skillGroups.map((group, index) => {

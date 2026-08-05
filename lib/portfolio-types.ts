@@ -12,7 +12,7 @@ export type Project = {
   type: string
   role: string
   summary: string
-  workflow: string
+  workflow?: string
   contributions: readonly string[]
   technologies: readonly string[]
   repository?: string

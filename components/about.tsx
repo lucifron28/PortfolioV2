@@ -6,7 +6,7 @@ export function About() {
       <div className="about-grid">
         <div>
           <p className="eyebrow">About</p>
-          <h2 id="about-title" className="section-title">Backend work with a clear product purpose.</h2>
+          <h2 id="about-title" className="section-title">Backend engineering for web and mobile applications.</h2>
         </div>
         <p className="about-copy">{aboutText}</p>
       </div>
