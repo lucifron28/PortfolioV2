@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { CodeXml } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 import { MobileNavigation } from '@/components/mobile-navigation'
@@ -31,7 +32,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="container-shell header-inner">
         <Link href="/" className="brand-link" aria-label="Ron Cada home">
-          <span>RC</span><span className="brand-name">{site.shortName}</span>
+          <span aria-hidden="true"><CodeXml size={18} strokeWidth={2.25} /></span><span className="brand-name">{site.shortName}</span>
         </Link>
         <div className="header-actions">
           <nav className="desktop-navigation" aria-label="Primary navigation">
