@@ -140,10 +140,8 @@
   .credibility-strip li { display: grid; gap: .55rem; padding: 1.35rem 0; }
   .credibility-strip strong { max-width: 16rem; font-size: .94rem; font-weight: 700; line-height: 1.45; }
 
-  .work-heading { display: grid; gap: 2rem; align-items: end; }
+  .work-heading { display: block; }
   .work-heading-copy { max-width: 55rem; }
-  .work-heading-media { width: 6rem; height: 8rem; overflow: hidden; justify-self: start; background: var(--strong-surface); }
-  .work-heading-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(1); }
   .project-grid { display: grid; gap: 1rem; margin-top: 3rem; }
   .project-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
   .project-media { aspect-ratio: 16 / 10; overflow: hidden; background: #111; }
@@ -257,8 +255,6 @@
 }
 
 @media (min-width: 768px) {
-  .work-heading { grid-template-columns: minmax(0, 1fr) auto; }
-  .work-heading-media { justify-self: end; }
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .technical-grid, .how-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .how-work-grid article { min-height: 16rem; }
