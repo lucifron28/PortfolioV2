@@ -40,7 +40,8 @@ Use the system sans stack: ui-sans-serif, system-ui, -apple-system, BlinkMacSyst
 
 - Sticky header with 44px controls and a concise résumé action.
 - Hero stays content-driven and stacks the portrait below the copy until 1024px.
-- Selected work uses a 12-column dense grid at desktop: UniPM spans 7 columns by 2 rows, Sidekick 5 by 1, Enverga Arena 5 by 1, and StudyLens 12 by 1.
+- Selected work uses a two-column editorial grid at desktop: UniPM gets a full-width split evidence row, Sidekick and Enverga Arena share the next row, and StudyLens gets a full-width split row.
+- Overview cards stay scannable with the project, role, summary, stack, and links. Workflow and contribution detail lives on the linked case-study routes.
 - Additional work uses compact rows.
 - Technical focus is a static four-group grid, not a click-to-expand accordion.
 - Case studies are server-rendered and linkable at /work/[slug].

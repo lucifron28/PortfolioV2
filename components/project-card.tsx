@@ -40,15 +40,6 @@ export function ProjectCard({ project, compact = false }: { project: Project; co
         <div className="project-kicker"><span>{project.type}</span><span>{project.role}</span></div>
         <h3>{project.name}</h3>
         <p className="project-summary">{project.summary}</p>
-        {!compact && project.workflow ? <p className="project-workflow">{project.workflow}</p> : null}
-        {!compact && project.contributions.length ? (
-          <div className="project-contribution-block">
-            <p className="detail-label">What I built</p>
-            <ul className="project-contributions">
-              {project.contributions.slice(0, 2).map((contribution) => <li key={contribution}>{contribution}</li>)}
-            </ul>
-          </div>
-        ) : null}
         <p className="project-stack">{project.technologies.join(' · ')}</p>
         <div className="project-actions">
           {!compact && project.caseStudy ? (
