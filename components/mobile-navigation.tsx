@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { navigationLinks } from '@/content/portfolio'
 
-export function MobileNavigation({ activeSection }: { activeSection: string }) {
+export function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
@@ -39,8 +39,8 @@ export function MobileNavigation({ activeSection }: { activeSection: string }) {
       {isOpen ? (
         <nav id="mobile-navigation" className="mobile-navigation" aria-label="Mobile navigation">
           {navigationLinks.map((link) => (
-            <a key={link.label} href={link.href} download={link.download ? true : undefined} aria-current={activeSection === link.href ? 'location' : undefined} onClick={() => closeMenu()}>
-              {link.label}
+            <a key={link.label} href={link.href} download={link.download ? true : undefined} onClick={() => closeMenu()}>
+              {link.label === 'Resume' ? 'Download résumé' : link.label}
             </a>
           ))}
         </nav>
