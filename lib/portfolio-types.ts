@@ -6,6 +6,20 @@ export type ProjectMedia = {
   kind: 'screen' | 'diagram' | 'credential'
 }
 
+export type ProjectCaseStudy = {
+  status: string
+  scope: string
+  problem: string
+  team: string
+  architecture: readonly string[]
+  technicalDecisions: readonly string[]
+  securityAndData: readonly string[]
+  reliabilityAndOperations: readonly string[]
+  testing: readonly string[]
+  limitations: readonly string[]
+  mediaNote?: string
+}
+
 export type Project = {
   id: string
   name: string
@@ -17,6 +31,7 @@ export type Project = {
   technologies: readonly string[]
   repository?: string
   media: readonly ProjectMedia[]
+  caseStudy?: ProjectCaseStudy
 }
 
 export type SkillGroup = {

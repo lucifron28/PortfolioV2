@@ -1,7 +1,9 @@
 import { About } from '@/components/about'
 import { Contact } from '@/components/contact'
 import { Credentials } from '@/components/credentials'
+import { CredibilityStrip } from '@/components/credibility-strip'
 import { Hero } from '@/components/hero'
+import { HowIWork } from '@/components/how-i-work'
 import { SelectedWork } from '@/components/selected-work'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -14,8 +16,10 @@ export default function Home() {
       <SiteHeader />
       <main id="main-content" className="page-main">
         <Hero />
+        <CredibilityStrip />
         <SelectedWork />
         <TechnicalFocus />
+        <HowIWork />
         <About />
         <Credentials />
         <Contact />

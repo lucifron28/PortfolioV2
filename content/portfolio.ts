@@ -3,11 +3,11 @@ import type { Credential, Education, SkillGroup } from '@/lib/portfolio-types'
 export const site = {
   name: 'Ron Vincent Cada',
   shortName: 'Ron Cada',
-  title: 'BSIT student with a backend focus.',
+  title: 'Backend-focused BSIT student.',
   description:
-    'BSIT student specializing in Web and Mobile Application Development. I build APIs, workflow systems, full-stack applications, and AI features with ASP.NET Core, Python, React, SQL, and Docker.',
+    'Backend-focused BSIT student building secure APIs, workflow systems, Android applications, and source-grounded AI features with ASP.NET Core, Python, React, SQL Server, PostgreSQL, and Docker.',
   location: 'Lucena City, Philippines',
-  availability: 'Available for a 600-hour internship beginning December 2026',
+  availability: 'Available for a 600-hour internship beginning in early December 2026',
   resumePath: '/Ron_Vincent_Cada_CV.pdf',
   email: 'cronvincent@gmail.com',
   links: {
@@ -18,73 +18,72 @@ export const site = {
 } as const
 
 export const navigationLinks = [
-  { label: 'Work', href: '#work', download: false },
-  { label: 'About', href: '#about', download: false },
-  { label: 'Credentials', href: '#credentials', download: false },
-  { label: 'Contact', href: '#contact', download: false },
+  { label: 'Work', href: '/#work', download: false },
+  { label: 'About', href: '/#about', download: false },
+  { label: 'Credentials', href: '/#credentials', download: false },
+  { label: 'Contact', href: '/#contact', download: false },
   { label: 'Resume', href: site.resumePath, download: true },
 ] as const
 
 export const heroSupport =
-  'I build APIs, workflow systems, full-stack applications, and AI features with ASP.NET Core, Python, React, SQL Server, PostgreSQL, and Docker.'
+  'I build secure APIs, workflow systems, Android applications, and source-grounded AI features using ASP.NET Core, Python, React, SQL Server, PostgreSQL, and Docker.'
 
 export const credibilityItems = [
   { label: 'Open iT Bootcamp', value: 'Top Performer and Best in Capstone' },
   { label: 'Open iT Codefest', value: '1st Place' },
   { label: 'Microsoft Certified', value: 'Azure Fundamentals' },
-  { label: 'Academic standing', value: 'GWA 1.328, University Scholar and Dean’s Lister' },
+  { label: 'Academic standing', value: "GWA 1.328, University Scholar and Dean's Lister" },
 ] as const
 
 export const skillGroups: readonly SkillGroup[] = [
   {
     title: 'Backend',
-    items: ['C#', 'ASP.NET Core', 'EF Core', 'ASP.NET Core Identity', 'Django REST Framework', 'REST APIs'],
+    items: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'ASP.NET Core Identity', 'Django REST Framework', 'REST APIs'],
   },
   {
     title: 'Data and infrastructure',
-    items: ['SQL Server', 'PostgreSQL', 'Redis', 'Celery', 'Docker', 'Compose', 'Git', 'GitHub Actions'],
+    items: ['SQL Server', 'PostgreSQL', 'SQLite', 'Redis', 'Celery', 'Docker', 'Docker Compose', 'Git', 'GitHub Actions'],
   },
   {
     title: 'Frontend and mobile',
     items: ['React', 'TypeScript', 'Kotlin', 'Jetpack Compose', 'CameraX', 'ML Kit OCR', 'Retrofit'],
   },
   {
-    title: 'Applied AI',
-    items: ['Full-Text Search', 'Embeddings', 'RRF', 'RAG', 'Whisper', 'OCR'],
+    title: 'Retrieval and AI',
+    items: ['SQL Server Full-Text Search', 'embeddings', 'Reciprocal Rank Fusion', 'source-bounded retrieval', 'Whisper', 'OCR'],
   },
 ]
 
 export const education: Education = {
   institution: 'Manuel S. Enverga University Foundation',
-  program: 'BSIT',
+  program: 'Bachelor of Science in Information Technology',
   focus: 'Web and Mobile Application Development',
   expected: 'Expected 2027',
-  academicStanding: ['GWA 1.328', 'University Scholar', 'Dean’s Lister'],
+  academicStanding: ['GWA 1.328', 'University Scholar', "Dean's Lister"],
 }
 
 export const aboutText =
-  'I am a BSIT student specializing in Web and Mobile Application Development at Manuel S. Enverga University Foundation. I focus on API design, authentication, relational databases, workflow systems, and service-client integration. I also build Android applications and AI features for specific product requirements.'
+  'I am a Bachelor of Science in Information Technology student at Manuel S. Enverga University Foundation, specializing in Web and Mobile Application Development. My strongest interests are API design, authentication, relational databases, workflow systems, native Android clients, and AI-assisted features with a clear server boundary.'
+
+export const growthText =
+  'I was not a disciplined student in high school. College gave me a chance to rebuild my habits, and I have since become a University Scholar and competition winner.'
 
 export const awards: readonly Credential[] = [
   {
     title: 'Top Performer and Best in Capstone',
     detail: 'Open iT Applied Full Stack and Data Science Bootcamp',
   },
-  { title: '1st Place', detail: 'Open iT Codefest', media: { src: '/openit-codefest.png', alt: 'Ron Cada and teammates at the Open iT Codefest first-place presentation', width: 1600, height: 900, kind: 'credential' } },
+  { title: '1st Place', detail: 'Open iT Codefest, a 27-hour inter-institution hackathon' },
   { title: 'Top Performer', detail: 'Hack4Gov CALABARZON CTF' },
-  { title: '2nd Place', detail: 'SikapTala National Python Collegiate Competition', media: { src: '/sikaptala.jpg', alt: 'SikapTala second-place certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
-  {
-    title: '1st Place Stage 3 and Grand Finals Finalist',
-    detail: 'CodeChum National Programming Competition',
-    media: { src: '/codechum.png', alt: 'CodeChum Stage 3 first-place certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' },
-  },
+  { title: '2nd Place', detail: 'DLSU-D SikapTala National Python Collegiate Competition' },
+  { title: '1st Place Stage 3 and Grand Finals Finalist', detail: 'CodeChum National Programming Competition' },
 ]
 
 export const certifications: readonly Credential[] = [
   { title: 'Microsoft Certified: Azure Fundamentals' },
-  { title: 'GitHub Foundations', media: { src: '/github-foundations.png', alt: 'GitHub Foundations certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
-  { title: 'CS50x', media: { src: '/cs50x.png', alt: 'CS50x certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
-  { title: 'CS50P', media: { src: '/cs50p.png', alt: 'CS50P certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
-  { title: 'Intermediate PostgreSQL', detail: 'University of Michigan', media: { src: '/intermediate-postgresql.png', alt: 'Intermediate PostgreSQL certificate awarded to Ron Vincent Cada', width: 1600, height: 1131, kind: 'credential' } },
-  { title: 'Open iT Applied Full Stack and Data Science Bootcamp' },
+  { title: 'GitHub Foundations' },
+  { title: 'CS50x' },
+  { title: 'CS50P' },
+  { title: 'Intermediate PostgreSQL', detail: 'University of Michigan' },
+  { title: 'Open iT Applied Full Stack and Data Science Bootcamp', detail: 'Full Stack Development Track' },
 ]
