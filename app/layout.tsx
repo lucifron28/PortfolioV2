@@ -1,13 +1,11 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 
-import { ThemeProvider } from '@/components/theme-provider'
-
 import './globals.css'
 
 const baseUrl = 'https://ron-cada-portfolio.vercel.app'
 const description =
-  'Backend-focused BSIT student building secure APIs, workflow systems, Android applications, and source-grounded AI features with ASP.NET Core, Python, React, SQL Server, PostgreSQL, and Docker.'
+  'BSIT student building backend APIs and Android apps with C#, Python, Kotlin, React, SQL Server, PostgreSQL, and Docker.'
 
 const personStructuredData = {
   '@context': 'https://schema.org',
@@ -50,10 +48,10 @@ const personStructuredData = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: 'Ron Vincent Cada | Backend Software Engineering Student',
+  title: 'Ron Vincent Cada | BSIT Student and Backend Developer',
   description,
   applicationName: 'Ron Vincent Cada Portfolio',
-  keywords: ['Ron Vincent Cada', 'backend software engineering student', 'ASP.NET Core', 'C#', 'REST APIs', 'React', 'PostgreSQL', 'Docker'],
+  keywords: ['Ron Vincent Cada', 'BSIT student', 'backend developer', 'ASP.NET Core', 'C#', 'REST APIs', 'React', 'PostgreSQL', 'Docker'],
   authors: [{ name: 'Ron Vincent Cada', url: baseUrl }],
   creator: 'Ron Vincent Cada',
   publisher: 'Ron Vincent Cada',
@@ -62,32 +60,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: baseUrl,
-    title: 'Ron Vincent Cada | Backend Software Engineering Student',
+    title: 'Ron Vincent Cada | BSIT Student and Backend Developer',
     description,
     siteName: 'Ron Vincent Cada Portfolio',
     locale: 'en_PH',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Ron Vincent Cada, Backend Software Engineering Student' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Ron Vincent Cada, BSIT student and backend developer' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Ron Vincent Cada | Backend Software Engineering Student', description, images: ['/opengraph-image'] },
+  twitter: { card: 'summary_large_image', title: 'Ron Vincent Cada | BSIT Student and Backend Developer', description, images: ['/opengraph-image'] },
   verification: { google: 'mRGMIHxTxJmaNykLq5kCBRk_zHHPDujn9Qw1cCTfKiY', other: { 'msvalidate.01': '6299C8E535C59E0955DC49DB96407BDF' } },
   icons: { icon: '/favicon.ico' },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F5F3EE' },
-    { media: '(prefers-color-scheme: dark)', color: '#0D0D0D' },
-  ],
+  colorScheme: 'dark',
+  themeColor: '#09090b',
 }
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+        {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }} />
       </body>
     </html>

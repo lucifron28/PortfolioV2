@@ -3,7 +3,7 @@ export type ProjectMedia = {
   alt: string
   width: number
   height: number
-  kind: 'screen' | 'diagram' | 'credential'
+  kind: 'screen' | 'diagram'
 }
 
 export type ProjectCaseStudy = {
@@ -26,7 +26,6 @@ export type Project = {
   type: string
   role: string
   summary: string
-  workflow?: string
   contributions: readonly string[]
   technologies: readonly string[]
   repository?: string
@@ -42,7 +41,6 @@ export type SkillGroup = {
 export type Credential = {
   title: string
   detail?: string
-  media?: ProjectMedia
 }
 
 export type Education = {

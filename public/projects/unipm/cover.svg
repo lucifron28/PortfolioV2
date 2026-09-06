@@ -1,8 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">UniPM maintenance workflow</title><desc id="desc">Assets flow through schedules and inspections into review.</desc>
-  <rect width="1600" height="1000" fill="#111111"/><path d="M0 140h1600M0 860h1600" stroke="#303030"/>
-  <text x="96" y="118" fill="#A3A3A3" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="5">UNIPM / PREVENTIVE MAINTENANCE</text>
-  <text x="96" y="262" fill="#F2F2EF" font-family="Arial,sans-serif" font-size="86" font-weight="700">From asset records</text><text x="96" y="354" fill="#F2F2EF" font-family="Arial,sans-serif" font-size="86" font-weight="700">to inspectable history.</text>
-  <g font-family="Arial,sans-serif"><path d="M126 646h1348" stroke="#F2F2EF" stroke-width="4"/><g fill="#161616" stroke="#F2F2EF" stroke-width="3"><circle cx="176" cy="646" r="34"/><circle cx="584" cy="646" r="34"/><circle cx="992" cy="646" r="34"/><circle cx="1400" cy="646" r="34"/></g><g fill="#F2F2EF" font-size="30" font-weight="700"><text x="126" y="730">ASSETS</text><text x="526" y="730">SCHEDULES</text><text x="930" y="730">INSPECTIONS</text><text x="1340" y="730">REVIEW</text></g></g>
-  <text x="96" y="930" fill="#A3A3A3" font-family="Arial,sans-serif" font-size="25">ASP.NET Core / SQL Server / Full-Text Search / Reciprocal Rank Fusion</text>
+  <title id="title">UniPM maintenance record lifecycle</title>
+  <desc id="desc">Asset and schedule records lead to inspections, maintenance review, and official history.</desc>
+  <rect width="1600" height="1000" fill="#111111"/>
+  <text x="96" y="132" fill="#F2F2EF" font-family="Arial,sans-serif" font-size="72" font-weight="700">UniPM</text>
+  <text x="96" y="192" fill="#A3A3A3" font-family="Arial,sans-serif" font-size="28">Maintenance record lifecycle</text>
+  <path d="M176 570h1248" stroke="#797979" stroke-width="3"/>
+  <g fill="#111111" stroke="#F2F2EF" stroke-width="4">
+    <circle cx="176" cy="570" r="25"/><circle cx="488" cy="570" r="25"/><circle cx="800" cy="570" r="25"/><circle cx="1112" cy="570" r="25"/><circle cx="1424" cy="570" r="25"/>
+  </g>
+  <g fill="#F2F2EF" font-family="Arial,sans-serif" font-size="27" font-weight="700" text-anchor="middle">
+    <text x="176" y="650">Asset</text><text x="488" y="650">Schedule</text><text x="800" y="650">Inspection</text><text x="1112" y="650">Maintenance review</text><text x="1424" y="650">Official history</text>
+  </g>
+  <text x="96" y="892" fill="#A3A3A3" font-family="Arial,sans-serif" font-size="25">Acknowledged rows enter search and official history.</text>
 </svg>

@@ -4,9 +4,15 @@ import { ArrowUpRight } from 'lucide-react'
 
 import type { Project } from '@/lib/portfolio-types'
 
-export function ProjectCard({ project, compact = false }: { project: Project; compact?: boolean }) {
+type ProjectCardProps = {
+  project: Project
+  compact?: boolean
+  featured?: boolean
+}
+
+export function ProjectCard({ project, compact = false, featured = false }: ProjectCardProps) {
   const media = project.media[0]
-  const cardClassName = 'project-card project-' + project.id + (compact ? ' project-card-compact' : '')
+  const cardClassName = 'project-card project-' + project.id + (compact ? ' project-card-compact' : '') + (featured ? ' project-card-featured' : '')
   const mediaClassName = media ? 'project-media project-media-' + media.kind : ''
 
   return (
@@ -19,7 +25,7 @@ export function ProjectCard({ project, compact = false }: { project: Project; co
             width={media.width}
             height={media.height}
             loading="lazy"
-            sizes="(min-width: 640px) 8rem, 5rem"
+            sizes={featured ? '(min-width: 1180px) 26rem, (min-width: 640px) 20rem, calc(100vw - 2rem)' : '(min-width: 640px) 8rem, 5rem'}
           />
         </div>
       ) : null}
@@ -31,7 +37,7 @@ export function ProjectCard({ project, compact = false }: { project: Project; co
             width={media.width}
             height={media.height}
             loading="lazy"
-            sizes="(min-width: 1024px) 50vw, 92vw"
+            sizes="(min-width: 1180px) 26rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
             unoptimized={media.src.endsWith('.svg')}
           />
         </div>
@@ -40,11 +46,11 @@ export function ProjectCard({ project, compact = false }: { project: Project; co
         <div className="project-kicker"><span>{project.type}</span><span>{project.role}</span></div>
         <h3>{project.name}</h3>
         <p className="project-summary">{project.summary}</p>
-        <p className="project-stack">{project.technologies.join(' · ')}</p>
+        <p className="project-stack">{project.technologies.slice(0, 3).join(' · ')}</p>
         <div className="project-actions">
-          {!compact && project.caseStudy ? (
+          {project.caseStudy ? (
             <Link className="project-details-link" href={'/work/' + project.id}>
-              Project details <ArrowUpRight aria-hidden="true" size={17} />
+              View case study <ArrowUpRight aria-hidden="true" size={17} />
             </Link>
           ) : null}
           {project.repository ? (

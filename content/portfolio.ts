@@ -2,10 +2,9 @@ import type { Credential, Education, SkillGroup } from '@/lib/portfolio-types'
 
 export const site = {
   name: 'Ron Vincent Cada',
-  shortName: 'Ron Cada',
-  title: 'Backend-focused BSIT student.',
+  title: 'Profile.',
   description:
-    'Backend-focused BSIT student building secure APIs, workflow systems, Android applications, and source-grounded AI features with ASP.NET Core, Python, React, SQL Server, PostgreSQL, and Docker.',
+    'BSIT student building backend APIs and Android apps with C#, Python, Kotlin, React, SQL Server, PostgreSQL, and Docker.',
   location: 'Lucena City, Philippines',
   availability: 'Available for a 600-hour internship beginning in early December 2026',
   resumePath: '/Ron_Vincent_Cada_CV.pdf',
@@ -18,38 +17,29 @@ export const site = {
 } as const
 
 export const navigationLinks = [
-  { label: 'Work', href: '/#work', download: false },
-  { label: 'About', href: '/#about', download: false },
-  { label: 'Credentials', href: '/#credentials', download: false },
-  { label: 'Contact', href: '/#contact', download: false },
-  { label: 'Resume', href: site.resumePath, download: true },
-] as const
-
-export const heroSupport =
-  'I build secure APIs, workflow systems, Android applications, and source-grounded AI features using ASP.NET Core, Python, React, SQL Server, PostgreSQL, and Docker.'
-
-export const credibilityItems = [
-  { label: 'Open iT Bootcamp', value: 'Top Performer and Best in Capstone' },
-  { label: 'Open iT Codefest', value: '1st Place' },
-  { label: 'Microsoft Certified', value: 'Azure Fundamentals' },
-  { label: 'Academic standing', value: "GWA 1.328, University Scholar and Dean's Lister" },
+  { label: 'Home', href: '/', download: false },
+  { label: 'Work', href: '/portfolio', download: false },
+  { label: 'Background', href: '/about', download: false },
+  { label: 'Awards', href: '/credentials', download: false },
+  { label: 'Contact', href: '/contact', download: false },
+  { label: 'CV', href: site.resumePath, download: true },
 ] as const
 
 export const skillGroups: readonly SkillGroup[] = [
   {
-    title: 'Backend',
+    title: 'Authenticated APIs',
     items: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'ASP.NET Core Identity', 'Django REST Framework', 'REST APIs'],
   },
   {
-    title: 'Data and infrastructure',
+    title: 'Application data',
     items: ['SQL Server', 'PostgreSQL', 'SQLite', 'Redis', 'Celery', 'Docker', 'Docker Compose', 'Git', 'GitHub Actions'],
   },
   {
-    title: 'Frontend and mobile',
+    title: 'Web and Android clients',
     items: ['React', 'TypeScript', 'Kotlin', 'Jetpack Compose', 'CameraX', 'ML Kit OCR', 'Retrofit'],
   },
   {
-    title: 'Retrieval and AI',
+    title: 'Search and OCR',
     items: ['SQL Server Full-Text Search', 'embeddings', 'Reciprocal Rank Fusion', 'source-bounded retrieval', 'Whisper', 'OCR'],
   },
 ]
@@ -63,20 +53,26 @@ export const education: Education = {
 }
 
 export const aboutText =
-  'I am a Bachelor of Science in Information Technology student at Manuel S. Enverga University Foundation, specializing in Web and Mobile Application Development. My strongest interests are API design, authentication, relational databases, workflow systems, native Android clients, and AI-assisted features with a clear server boundary.'
+  'I study BS Information Technology at Manuel S. Enverga University Foundation. I build APIs and the React or Android clients that use them.'
 
 export const growthText =
-  'I was not a disciplined student in high school. College gave me a chance to rebuild my habits, and I have since become a University Scholar and competition winner.'
+  'College changed how I work. I became a University Scholar, earned a 1.328 GWA, and placed in programming competitions including Open iT Codefest, CodeChum, and DLSU-D SikapTala.'
+
+export const nowFacts: readonly { value: string; label: string }[] = [
+  { value: 'UniPM', label: 'Capstone, in development' },
+  { value: 'StudyLens', label: 'Latest solo build' },
+  { value: 'Dec 2026', label: '600-hour internship begins' },
+]
 
 export const awards: readonly Credential[] = [
   {
     title: 'Top Performer and Best in Capstone',
     detail: 'Open iT Applied Full Stack and Data Science Bootcamp',
   },
-  { title: '1st Place', detail: 'Open iT Codefest, a 27-hour inter-institution hackathon' },
-  { title: 'Top Performer', detail: 'Hack4Gov CALABARZON CTF' },
-  { title: '2nd Place', detail: 'DLSU-D SikapTala National Python Collegiate Competition' },
-  { title: '1st Place Stage 3 and Grand Finals Finalist', detail: 'CodeChum National Programming Competition' },
+  { title: '1st Place, Open iT Codefest', detail: '27-hour inter-institution hackathon' },
+  { title: 'Top Performer, Hack4Gov CALABARZON CTF' },
+  { title: '2nd Place, DLSU-D SikapTala', detail: 'National Python Collegiate Competition' },
+  { title: 'CodeChum National Programming Competition', detail: '1st Place Stage 3 and grand finals finalist' },
 ]
 
 export const certifications: readonly Credential[] = [

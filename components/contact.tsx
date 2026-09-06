@@ -6,17 +6,22 @@ export function Contact() {
   return (
     <section id="contact" className="container-shell contact-section" aria-labelledby="contact-title">
       <div className="contact-panel">
-        <div>
-          <p className="eyebrow">Next step</p>
-          <h2 id="contact-title">Looking for a software engineering intern?</h2>
+        <p className="contact-eyebrow">Contact</p>
+        <h1 id="contact-title">Internship availability.</h1>
+        <p className="contact-lede">I am available from December 2026 for a 600-hour development internship. I can work onsite or hybrid.</p>
+        <dl className="availability-grid">
+          <div><dt>Start date</dt><dd>December 2026</dd></div>
+          <div><dt>Requirement</dt><dd>600 hours</dd></div>
+          <div className="availability-wide"><dt>Locations</dt><dd>Lucena City, Alabang, Makati, Taguig, and nearby Metro Manila locations</dd></div>
+          <div className="availability-wide"><dt>Work setup</dt><dd>Onsite or hybrid</dd></div>
+        </dl>
+        <div className="contact-email">
+          <Mail aria-hidden="true" size={19} />
+          <div><span>Direct email</span><a href={site.links.email}>{site.email}</a></div>
         </div>
-        <div className="contact-detail">
-          <p>I am available for a 600-hour internship beginning in early December 2026. I can work onsite or hybrid in Lucena, Alabang, Makati, Taguig, and nearby Metro Manila locations.</p>
-          <div className="contact-actions">
-            <a className="button-contact" href={site.links.email}><Mail aria-hidden="true" size={18} /> Email Ron</a>
-            <a className="contact-link" href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight aria-hidden="true" size={17} /></a>
-            <a className="contact-link" href={site.resumePath} download>Download résumé <Download aria-hidden="true" size={17} /></a>
-          </div>
+        <div className="contact-actions">
+          <a className="contact-link" href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight aria-hidden="true" size={17} /></a>
+          <a className="contact-link" href={site.resumePath} download>Download CV <Download aria-hidden="true" size={17} /></a>
         </div>
       </div>
     </section>

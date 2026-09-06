@@ -1,8 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">Sidekick talent marketplace workflow</title><desc id="desc">Profiles and skills lead to gigs, applications, and contracts.</desc>
-  <rect width="1600" height="1000" fill="#111111"/><rect x="84" y="84" width="1432" height="832" rx="10" fill="#161616" stroke="#303030" stroke-width="2"/>
-  <text x="136" y="154" fill="#A3A3A3" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="5">SIDEKICK / TALENT MARKETPLACE</text>
-  <text x="136" y="300" fill="#F2F2EF" font-family="Arial,sans-serif" font-size="82" font-weight="700">Identity that carries</text><text x="136" y="390" fill="#F2F2EF" font-family="Arial,sans-serif" font-size="82" font-weight="700">through the whole gig.</text>
-  <g font-family="Arial,sans-serif" font-size="29" font-weight="700"><g fill="#303030"><rect x="136" y="548" width="286" height="132" rx="8"/><rect x="484" y="548" width="286" height="132" rx="8"/><rect x="832" y="548" width="286" height="132" rx="8"/><rect x="1180" y="548" width="286" height="132" rx="8"/></g><g fill="#F2F2EF"><text x="184" y="628">PROFILE</text><text x="536" y="628">SKILLS</text><text x="904" y="628">GIGS</text><text x="1220" y="628">CONTRACTS</text></g><path d="M422 614h62M770 614h62M1118 614h62" stroke="#F2F2EF" stroke-width="4"/></g>
-  <text x="136" y="834" fill="#A3A3A3" font-family="Arial,sans-serif" font-size="25">ASP.NET Core Identity / JWT rotation / React / PostgreSQL</text>
+  <title id="title">Sidekick marketplace entities</title>
+  <desc id="desc">Profiles and skills connect to gigs, applications, and contracts.</desc>
+  <rect width="1600" height="1000" fill="#111111"/>
+  <text x="96" y="132" fill="#F2F2EF" font-family="Arial,sans-serif" font-size="72" font-weight="700">Sidekick</text>
+  <text x="96" y="192" fill="#A3A3A3" font-family="Arial,sans-serif" font-size="28">Marketplace entities</text>
+  <path d="M176 570h1248" stroke="#797979" stroke-width="3"/>
+  <g fill="#111111" stroke="#F2F2EF" stroke-width="4">
+    <circle cx="176" cy="570" r="25"/><circle cx="488" cy="570" r="25"/><circle cx="800" cy="570" r="25"/><circle cx="1112" cy="570" r="25"/><circle cx="1424" cy="570" r="25"/>
+  </g>
+  <g fill="#F2F2EF" font-family="Arial,sans-serif" font-size="27" font-weight="700" text-anchor="middle">
+    <text x="176" y="650">Profile</text><text x="488" y="650">Skills</text><text x="800" y="650">Gigs</text><text x="1112" y="650">Applications</text><text x="1424" y="650">Contracts</text>
+  </g>
+  <text x="96" y="892" fill="#A3A3A3" font-family="Arial,sans-serif" font-size="25">ASP.NET Core Identity connects the account flow.</text>
 </svg>

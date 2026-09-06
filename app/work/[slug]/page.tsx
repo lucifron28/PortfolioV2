@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { CaseStudyLayout } from '@/components/case-study-layout'
-import { SiteFooter } from '@/components/site-footer'
-import { SiteHeader } from '@/components/site-header'
+import { PageFrame } from '@/components/page-frame'
 import { getProjectById, selectedProjects } from '@/content/projects'
 
 type ProjectPageProps = {
@@ -43,13 +42,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const next = index >= 0 && index < selectedProjects.length - 1 ? selectedProjects[index + 1] : undefined
 
   return (
-    <>
-      <a className="skip-link" href="#main-content">Skip to content</a>
-      <SiteHeader />
-      <main id="main-content" className="page-main">
-        <CaseStudyLayout project={project} caseStudy={project.caseStudy} previous={previous} next={next} />
-      </main>
-      <SiteFooter />
-    </>
+    <PageFrame>
+      <CaseStudyLayout project={project} caseStudy={project.caseStudy} previous={previous} next={next} />
+    </PageFrame>
   )
 }

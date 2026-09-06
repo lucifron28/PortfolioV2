@@ -18,8 +18,9 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
   return (
     <article className="case-study-page">
       <header className="container-shell case-study-header">
-        <Link className="back-link" href="/#work"><ArrowLeft aria-hidden="true" size={17} /> Back to selected work</Link>
-        <p className="eyebrow">{project.type} · {project.role}</p>
+        <Link className="back-link" href="/portfolio"><ArrowLeft aria-hidden="true" size={17} /> Back to portfolio</Link>
+        <p className="case-study-label">Project case study</p>
+        <p className="case-study-context">{project.type} / {project.role}</p>
         <h1>{project.name}</h1>
         <p className="case-study-lede">{project.summary}</p>
         <div className="case-study-actions">
@@ -42,13 +43,11 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
         ) : null}
 
         <div className="case-study-body">
-          <CaseStudySection title="The problem"><p>{caseStudy.problem}</p></CaseStudySection>
-          <CaseStudyList title="Architecture" items={caseStudy.architecture} />
-          <CaseStudyList title="Technical decisions" items={caseStudy.technicalDecisions} />
-          <CaseStudyList title="Security and data ownership" items={caseStudy.securityAndData} />
-          <CaseStudyList title="Reliability and operations" items={caseStudy.reliabilityAndOperations} />
-          <CaseStudyList title="Testing and verification" items={caseStudy.testing} />
-          <CaseStudyList title="Current limitations" items={caseStudy.limitations} />
+          <CaseStudySection title="Context"><p>{caseStudy.problem}</p></CaseStudySection>
+          <CaseStudyList title="What I built" items={project.contributions} />
+          <CaseStudyList title="Technical approach" items={[...caseStudy.architecture, ...caseStudy.technicalDecisions]} />
+          <CaseStudyList title="Security and verification" items={[...caseStudy.securityAndData, ...caseStudy.reliabilityAndOperations, ...caseStudy.testing]} />
+          <CaseStudyList title="Current limits" items={caseStudy.limitations} />
         </div>
       </div>
 
