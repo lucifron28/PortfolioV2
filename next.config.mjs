@@ -1,19 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-  compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
-  },
   reactStrictMode: true,
-  devIndicators: false
+  async redirects() {
+    return [
+      {
+        source: '/Cada_CV.pdf',
+        destination: '/Ron_Vincent_Cada_CV.pdf',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

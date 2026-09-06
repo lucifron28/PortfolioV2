@@ -1,50 +1,21 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
+
+import { selectedProjects } from '@/content/projects'
+
+const baseUrl = 'https://ron-cada-portfolio.vercel.app'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ron-cada-portfolio.vercel.app'
-  
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/#about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+    { url: baseUrl, changeFrequency: 'monthly', priority: 1 },
+    ...['portfolio', 'about', 'credentials', 'contact'].map((path) => ({
+      url: baseUrl + '/' + path,
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#projects`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#education`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/#achievements`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#certifications`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
+    })),
+    ...selectedProjects.map((project) => ({
+      url: baseUrl + '/work/' + project.id,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
   ]
 }

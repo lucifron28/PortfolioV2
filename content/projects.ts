@@ -1,0 +1,164 @@
+import type { Project } from '@/lib/portfolio-types'
+
+export const selectedProjects: readonly Project[] = [
+  {
+    id: 'unipm',
+    name: 'UniPM',
+    type: 'Team capstone',
+    role: 'Backend and retrieval contributor',
+    summary: 'Maintenance records move from inspection to review and searchable history.',
+    contributions: [
+      'Built policy-protected ASP.NET Core workflows for assets, schedules, inspections, and the maintenance-form lifecycle.',
+      'Implemented history retrieval with SQL Server Full-Text Search, serialized embeddings, bounded candidates, application cosine similarity, and Reciprocal Rank Fusion.',
+    ],
+    technologies: ['ASP.NET Core', 'React', 'SQL Server', 'SQL Server Full-Text Search', 'Embeddings', 'Reciprocal Rank Fusion'],
+    repository: 'https://github.com/lucifron28/UniPM',
+    media: [{ src: '/projects/unipm/cover.svg', alt: 'UniPM repository-derived workflow from university assets and schedules through inspections and maintenance review', width: 1600, height: 1000, kind: 'diagram' }],
+    caseStudy: {
+      status: 'Academic capstone MVP, 2026-present',
+      scope: 'University preventive-maintenance forms and maintenance-history search.',
+      problem: 'Draft and unacknowledged maintenance forms should not appear in official history or search results.',
+      team: 'Team capstone. I worked on the backend maintenance flow and retrieval system.',
+      architecture: [
+        'React and TypeScript client requests are served by an ASP.NET Core API backed by SQL Server.',
+        'Policy-protected API paths cover assets, schedules, inspections, and maintenance review records.',
+        'Retrieval combines SQL Server Full-Text Search candidates with serialized embedding metadata, application cosine similarity, and Reciprocal Rank Fusion.',
+      ],
+      technicalDecisions: [
+        'Only acknowledged maintenance rows enter official history and retrieval.',
+        'Candidate retrieval is bounded before semantic scoring, with an explicit lexical fallback when semantic services are unavailable.',
+        'Query vectors are transient and are not stored as user history.',
+      ],
+      securityAndData: [
+        'The repository documents JWT authentication and policy-based authorization across five roles.',
+        'Fictional users and synthetic maintenance records keep the capstone data separate from institutional production data.',
+      ],
+      reliabilityAndOperations: [
+        'The repository includes migrations, health checks, CI, and a command that rebuilds retrieval data.',
+        'Running the rebuild command again produces the same retrieval records.',
+      ],
+      testing: ['Tests use deterministic fixtures, including the 84 maintenance records described in my CV.'],
+      limitations: ['Academic MVP using fictional maintenance records. It has not been deployed at MSEUF.', 'It does not diagnose faults or predict maintenance needs. Corrected-action handoff is outside the current scope.'],
+      mediaNote: 'Workflow diagram based on the maintenance record lifecycle in the repository.',
+    },
+  },
+  {
+    id: 'sidekick',
+    name: 'Sidekick',
+    type: 'Team bootcamp capstone',
+    role: 'Backend authentication and React delivery',
+    summary: 'A talent marketplace with profiles, gigs, applications, and contracts.',
+    contributions: [
+      'Implemented ASP.NET Core Identity bearer authentication with an HttpOnly refresh-cookie flow.',
+      'Connected React profile, gig, application, and contract flows to PostgreSQL; Docker Compose starts the client, API, and database with health-aware startup.',
+    ],
+    technologies: ['ASP.NET Core', 'ASP.NET Core Identity', 'React', 'PostgreSQL', 'Docker Compose'],
+    repository: 'https://github.com/lucifron28/openit-bootcamp-capstone',
+    media: [{ src: '/projects/sidekick/cover.svg', alt: 'Sidekick repository-derived marketplace workflow from profiles and skills through gigs and contracts', width: 1600, height: 1000, kind: 'diagram' }],
+    caseStudy: {
+      status: 'Bootcamp capstone, 2026',
+      scope: 'Talent marketplace workflows for profiles, skills, gigs, applications, and contracts.',
+      problem: 'Profiles, gigs, applications, and contracts need to share one authenticated account flow while the client, API, and database run together locally.',
+      team: 'Team bootcamp capstone. I worked on authentication and React delivery.',
+      architecture: [
+        'A React client communicates with an ASP.NET Core API using an Entity Framework Core data model backed by PostgreSQL.',
+        'ASP.NET Core Identity supplies bearer authentication and the repository exposes profile, skill, gig, application, and contract entities.',
+        'Docker Compose runs the client, API, and database with a PostgreSQL health check before API startup.',
+      ],
+      technicalDecisions: ['Kept access credentials in the client flow while storing the refresh credential in an HttpOnly cookie.', 'Used the existing Identity endpoint and bearer-token support instead of describing the system as a custom JWT implementation.'],
+      securityAndData: ['ASP.NET Core Identity handles authentication and security-stamp validation for the refresh flow.', 'PostgreSQL persists the marketplace and Identity records.'],
+      reliabilityAndOperations: ['The Compose setup includes a health-aware dependency for PostgreSQL and a dedicated API health endpoint.'],
+      testing: ['The repository includes local setup for the React client, API, PostgreSQL database, and Docker Compose environment.'],
+      limitations: ['Bootcamp capstone intended for local demonstration. No public deployment is available.'],
+      mediaNote: 'Workflow diagram of the marketplace entities implemented in the capstone.',
+    },
+  },
+  {
+    id: 'enverga-arena',
+    name: 'Enverga Arena',
+    type: 'Solo project',
+    role: 'Sole developer',
+    summary: 'An intramurals system for tryouts, rosters, results, medals, and news.',
+    contributions: [
+      'Built Django REST Framework tryout, roster, registration, result, medal, and role workflows.',
+      'Added domain OTP, hashed OTP storage, server-side Turnstile verification, rate limiting, duplicate protection, and human review for AI recap publication.',
+    ],
+    technologies: ['Django REST Framework', 'React', 'TypeScript', 'SQLite', 'Cloudflare Turnstile', 'Brevo'],
+    repository: 'https://github.com/lucifron28/EnvergaArena',
+    media: [{ src: '/projects/enverga-arena/cover.svg', alt: 'Enverga Arena repository-derived workflow from verified tryouts and registrations through reviewed results and recaps', width: 1600, height: 1000, kind: 'diagram' }],
+    caseStudy: {
+      status: 'Solo project, 2026',
+      scope: 'MSEUF intramurals tryout, team, scheduling, result, medal, news, and reviewed-recap workflows.',
+      problem: 'Students, department representatives, and administrators need separate permissions for tryouts, rosters, results, and published recaps.',
+      team: 'Solo project. I built the React client, Django API, and role-based workflows.',
+      architecture: ['React and TypeScript client with a Django REST Framework API and the current local SQLite database.', 'Tryout, roster, registration, schedule, result, medal, and news workflows are separated by role.'],
+      technicalDecisions: ['Student tryouts are verified through the student-domain email and OTP flow before review.', 'AI recap generation creates a draft for administrator review rather than publishing generated text directly.', 'PostgreSQL is a future direction in the repository, not the current local database claim.'],
+      securityAndData: ['Access tokens are held in frontend memory and refresh credentials are set by the backend in an HttpOnly cookie.', 'OTP values are hashed, Turnstile is verified server-side, and rate limiting plus duplicate protection cover the public tryout path.'],
+      reliabilityAndOperations: ['Role-specific workflows and explicit review states keep official results and recaps under administrator control.'],
+      testing: ['I documented the authentication, tryout, roster, result, and recap flows used in the project.'],
+      limitations: ['The current project uses SQLite locally. PostgreSQL is documented as a future direction, not a current deployment.', 'AI recap text remains a draft until human review and approval.'],
+      mediaNote: 'Workflow diagram of the intramurals roles and publishing steps in the repository.',
+    },
+  },
+  {
+    id: 'studylens',
+    name: 'StudyLens',
+    type: 'Solo Android final project',
+    role: 'Sole developer',
+    summary: 'A native Android learning companion for modules, notes, board scans, and quizzes.',
+    contributions: [
+      'Built native Android module, progress, note, OCR, summary, flashcard, quiz, and tutor workflows.',
+      'Connected Jetpack Compose to JWT-secured DRF/PostgreSQL services and kept AI credentials behind the backend service layer.',
+    ],
+    technologies: ['Kotlin', 'Jetpack Compose', 'CameraX', 'ML Kit OCR', 'Retrofit', 'Django REST Framework'],
+    repository: 'https://github.com/lucifron28/StudyLens',
+    media: [{ src: '/projects/studylens/studylens-home.png', alt: 'StudyLens Android home screen showing tasks, recent board-scan activity, and Home, Subjects, Scans, and Profile navigation', width: 720, height: 1608, kind: 'screen' }],
+    caseStudy: {
+      status: 'Solo Android final project, 2026',
+      scope: 'Native Android learning companion with course content, OCR, progress, study tools, and a server-side AI boundary.',
+      problem: 'Students need one mobile workflow for reading course material, capturing classroom boards, and turning reviewed content into study aids without exposing provider credentials in the app.',
+      team: 'Solo project. I built the Android client and the supporting API integration.',
+      architecture: ['A Kotlin and Jetpack Compose Android client uses CameraX, ML Kit OCR, Retrofit, and local Android storage integrations.', 'The client communicates with a Django REST Framework API backed by PostgreSQL for user-owned course and study records.', 'The backend service layer owns configured AI provider calls and credentials.'],
+      technicalDecisions: ['Kept OCR text editable before it becomes a study input.', 'Put AI calls behind the API so the Android app does not hold provider credentials.', 'Scoped records to the authenticated user in the backend query and ownership paths.'],
+      securityAndData: ['The API uses JWT authentication and user-scoped records.', 'The Android client communicates with the server boundary for AI-assisted summaries, flashcards, quizzes, and tutor features.'],
+      reliabilityAndOperations: ['The repository includes backend API documentation, Docker/PostgreSQL development configuration, and explicit Android/backend module boundaries.'],
+      testing: ['The project has separate Android and backend build paths, with API documentation for local development.'],
+      limitations: ['The app is a final project and is not published on Google Play.'],
+    },
+  },
+]
+
+export const additionalProjects: readonly Project[] = [
+  {
+    id: 'scrybe-sync',
+    name: 'ScrybeSync',
+    type: 'Solo project',
+    role: 'Sole developer',
+    summary: 'Transcription and linked notes processed by background workers.',
+    contributions: [
+      'Built the Django REST Framework, Celery, Redis, PostgreSQL, and Docker Compose workflow for asynchronous transcription and summarization.',
+      'Kept transcripts and linked notes scoped to the authenticated owner in the API views and serializers.',
+    ],
+    technologies: ['Django REST Framework', 'Celery', 'Redis', 'PostgreSQL', 'Docker Compose', 'Whisper'],
+    repository: 'https://github.com/lucifron28/ScrybeSync',
+    media: [{ src: '/ScrybeSync.png', alt: 'ScrybeSync transcription and linked-note project interface', width: 1600, height: 900, kind: 'screen' }],
+  },
+  {
+    id: 'aquest',
+    name: 'AQuest',
+    type: 'Open iT Codefest project',
+    role: 'Codefest project contributor',
+    summary: 'A team project-management app with tasks, members, statistics, and an AI coach.',
+    contributions: [
+      'Contributed to project, task, member, statistics, and AI coach workflows in the Codefest application.',
+      'Kept achievement functionality labeled as not fully implemented, matching the repository documentation.',
+    ],
+    technologies: ['SvelteKit', 'Svelte', 'Django REST Framework', 'PostgreSQL', 'JWT', 'Docker Compose'],
+    repository: 'https://github.com/lucifron28/AQuest',
+    media: [{ src: '/AQuest.png', alt: 'AQuest Codefest project-management interface', width: 1600, height: 900, kind: 'screen' }],
+  },
+]
+
+export function getProjectById(id: string) {
+  return selectedProjects.find((project) => project.id === id)
+}
