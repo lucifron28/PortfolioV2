@@ -15,6 +15,10 @@ Run npm ci, then npm run dev.
 
 Open http://localhost:3000.
 
+## Visitor notifications
+
+`middleware.ts` posts one Discord embed per page visit. Set `DISCORD_WEBHOOK_URL` in `.env.local` for local runs, and add the same variable to the Vercel project environment variables for production. Without the variable the middleware skips reporting silently.
+
 ## Validation
 
 Run npm run lint, npx tsc --noEmit, and npm run build.
