@@ -40,10 +40,11 @@ export type SkillGroup = {
   title: string
   items: readonly string[]
 }
-
 export type Credential = {
   title: string
   detail?: string
+  image?: string
+  credentialId?: string
 }
 
 export type Education = {

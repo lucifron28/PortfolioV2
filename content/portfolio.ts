@@ -79,15 +79,31 @@ export const awards: readonly Credential[] = [
     title: 'Top Performer and Best in Capstone',
     detail: 'Open iT Applied Full Stack and Data Science Bootcamp',
   },
-  { title: '1st Place, Open iT Codefest', detail: '27-hour inter-institution hackathon' },
+  {
+    title: '1st Place, Open iT Codefest',
+    detail: '27-hour inter-institution hackathon',
+    image: '/credentials/openit-codefest.png',
+  },
   { title: 'Top Performer, Hack4Gov CALABARZON CTF' },
-  { title: '2nd Place, DLSU-D SikapTala', detail: 'National Python Collegiate Competition' },
-  { title: 'CodeChum National Programming Competition', detail: '1st Place Stage 3 and grand finals finalist' },
+  {
+    title: '2nd Place, DLSU-D SikapTala',
+    detail: 'National Python Collegiate Competition',
+    image: '/credentials/sikaptala.jpg',
+  },
+  {
+    title: 'CodeChum National Programming Competition',
+    detail: '1st Place Stage 3 and grand finals finalist',
+    image: '/credentials/codechum.png',
+  },
 ]
 
 export const certifications: readonly Credential[] = [
   { title: 'Microsoft Certified: Azure Fundamentals (AZ-900)' },
-  { title: 'GitHub Foundations' },
+  {
+    title: 'GitHub Foundations',
+    credentialId: 'nz51yDUa',
+    image: '/credentials/github-foundations.png',
+  },
 ]
 
 export const training: readonly Credential[] = [
@@ -98,13 +114,19 @@ export const training: readonly Credential[] = [
   {
     title: 'CS50x: Introduction to Computer Science',
     detail: 'Harvard CS50',
+    credentialId: '7a497a92-d84d-4e71-9830-4bef46a606b1',
+    image: '/credentials/cs50x.png',
   },
   {
     title: 'CS50P: Introduction to Programming with Python',
     detail: 'Harvard CS50',
+    credentialId: '4d3ce24e-561a-4004-bed2-e6e372995c6f',
+    image: '/credentials/cs50p.png',
   },
   {
     title: 'Intermediate PostgreSQL',
     detail: 'University of Michigan / Coursera',
+    credentialId: 'GZO6VI362EUG',
+    image: '/credentials/intermediate-postgresql.png',
   },
 ]
