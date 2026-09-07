@@ -1,12 +1,22 @@
 import type { Credential, Education, SkillGroup } from '@/lib/portfolio-types'
 
+export const profileDescription =
+  'I’m Ron Vincent Cada, a BS Information Technology student focused on backend and full-stack development. I mainly build APIs and web applications using C#, ASP.NET Core, Python, Django REST Framework, React, SQL, and Docker.'
+
+export const internshipRequirement = {
+  hours: '600 HRS',
+  duration: '600 hours',
+  label: 'OJT requirement',
+  availability: 'Available for a 600-hour internship beginning in early December 2026',
+  startDate: 'December 2026',
+} as const
+
 export const site = {
   name: 'Ron Vincent Cada',
   title: 'Profile.',
-  description:
-    'BSIT student building backend APIs and Android apps with C#, Python, Kotlin, React, SQL Server, PostgreSQL, and Docker.',
+  description: profileDescription,
   location: 'Lucena City, Philippines',
-  availability: 'Available for a 600-hour internship beginning in early December 2026',
+  availability: internshipRequirement.availability,
   resumePath: '/Ron_Vincent_Cada_CV.pdf',
   email: 'cronvincent@gmail.com',
   links: {
@@ -49,19 +59,19 @@ export const education: Education = {
   program: 'Bachelor of Science in Information Technology',
   focus: 'Web and Mobile Application Development',
   expected: 'Expected 2027',
-  academicStanding: ['GWA 1.328', 'University Scholar', "Dean's Lister"],
+  academicStanding: ['GWA 1.315', 'University Scholar', "Dean's Lister"],
 }
 
 export const aboutText =
   'I study BS Information Technology at Manuel S. Enverga University Foundation. I build APIs and the React or Android clients that use them.'
 
 export const growthText =
-  'College changed how I work. I became a University Scholar, earned a 1.328 GWA, and placed in programming competitions including Open iT Codefest, CodeChum, and DLSU-D SikapTala.'
+  'College changed how I work. I became a University Scholar, earned a 1.315 GWA, and placed in programming competitions including Open iT Codefest, CodeChum, and DLSU-D SikapTala.'
 
 export const nowFacts: readonly { value: string; label: string }[] = [
   { value: 'UniPM', label: 'Capstone, in development' },
   { value: 'StudyLens', label: 'Latest solo build' },
-  { value: 'Dec 2026', label: '600-hour internship begins' },
+  { value: 'Dec 2026', label: internshipRequirement.duration + ' internship begins' },
 ]
 
 export const awards: readonly Credential[] = [
@@ -76,10 +86,25 @@ export const awards: readonly Credential[] = [
 ]
 
 export const certifications: readonly Credential[] = [
-  { title: 'Microsoft Certified: Azure Fundamentals' },
+  { title: 'Microsoft Certified: Azure Fundamentals (AZ-900)' },
   { title: 'GitHub Foundations' },
-  { title: 'CS50x' },
-  { title: 'CS50P' },
-  { title: 'Intermediate PostgreSQL', detail: 'University of Michigan' },
-  { title: 'Open iT Applied Full Stack and Data Science Bootcamp', detail: 'Full Stack Development Track' },
+]
+
+export const training: readonly Credential[] = [
+  {
+    title: 'Open iT Applied Full Stack and Data Science Bootcamp',
+    detail: 'Full Stack Development Track',
+  },
+  {
+    title: 'CS50x: Introduction to Computer Science',
+    detail: 'Harvard CS50',
+  },
+  {
+    title: 'CS50P: Introduction to Programming with Python',
+    detail: 'Harvard CS50',
+  },
+  {
+    title: 'Intermediate PostgreSQL',
+    detail: 'University of Michigan / Coursera',
+  },
 ]

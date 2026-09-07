@@ -13,7 +13,11 @@ type CaseStudyLayoutProps = {
 }
 
 export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStudyLayoutProps) {
-  const media = project.media[0]
+  const mediaItems = project.caseStudyMedia && project.caseStudyMedia.length > 0
+    ? project.caseStudyMedia
+    : project.cardMedia
+      ? [project.cardMedia]
+      : project.media ?? []
 
   return (
     <article className="case-study-page">
@@ -35,11 +39,25 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
       </dl>
 
       <div className="container-shell case-study-content">
-        {media ? (
-          <figure className="case-study-media">
-            <Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(min-width: 1024px) 75rem, calc(100vw - 2rem)" unoptimized={media.src.endsWith('.svg')} />
-            {caseStudy.mediaNote ? <figcaption>{caseStudy.mediaNote}</figcaption> : null}
-          </figure>
+        {mediaItems.length > 0 ? (
+          <div className="case-study-media-stack">
+            {mediaItems.map((item, index) => {
+              const caption = item.caption ?? (index === mediaItems.length - 1 ? caseStudy.mediaNote : undefined)
+              return (
+                <figure key={item.src} className={'case-study-media case-study-media-' + item.kind}>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    sizes="(min-width: 1024px) 75rem, calc(100vw - 2rem)"
+                    unoptimized={item.src.endsWith('.svg')}
+                  />
+                  {caption ? <figcaption>{caption}</figcaption> : null}
+                </figure>
+              )
+            })}
+          </div>
         ) : null}
 
         <div className="case-study-body">

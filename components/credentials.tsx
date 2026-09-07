@@ -1,4 +1,4 @@
-import { awards, certifications } from '@/content/portfolio'
+import { awards, certifications, training } from '@/content/portfolio'
 
 export function Credentials() {
   return (
@@ -9,7 +9,8 @@ export function Credentials() {
       </div>
       <div className="credentials-lists">
         <CredentialList title="Awards" items={awards} />
-        <CredentialList title="Certifications and training" items={certifications} />
+        <CredentialList title="Certifications" items={certifications} />
+        <CredentialList title="Training" items={training} />
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 import { ArrowUpRight, Download, Mail } from 'lucide-react'
 
-import { site } from '@/content/portfolio'
+import { internshipRequirement, site } from '@/content/portfolio'
 
 export function Contact() {
   return (
@@ -10,8 +10,8 @@ export function Contact() {
         <h1 id="contact-title">Internship availability.</h1>
         <p className="contact-lede">I am available from December 2026 for a 600-hour development internship. I can work onsite or hybrid.</p>
         <dl className="availability-grid">
-          <div><dt>Start date</dt><dd>December 2026</dd></div>
-          <div><dt>Requirement</dt><dd>600 hours</dd></div>
+          <div><dt>Start date</dt><dd>{internshipRequirement.startDate}</dd></div>
+          <div><dt>Requirement</dt><dd>{internshipRequirement.duration}</dd></div>
           <div className="availability-wide"><dt>Locations</dt><dd>Lucena City, Alabang, Makati, Taguig, and nearby Metro Manila locations</dd></div>
           <div className="availability-wide"><dt>Work setup</dt><dd>Onsite or hybrid</dd></div>
         </dl>

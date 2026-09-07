@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 
+import { profileDescription } from '@/content/portfolio'
 import './globals.css'
 
 const baseUrl = 'https://ron-cada-portfolio.vercel.app'
-const description =
-  'BSIT student building backend APIs and Android apps with C#, Python, Kotlin, React, SQL Server, PostgreSQL, and Docker.'
+const description = profileDescription
 
 const personStructuredData = {
   '@context': 'https://schema.org',

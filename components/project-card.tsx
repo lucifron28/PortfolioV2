@@ -11,14 +11,14 @@ type ProjectCardProps = {
 }
 
 export function ProjectCard({ project, compact = false, featured = false }: ProjectCardProps) {
-  const media = project.media[0]
+  const media = project.cardMedia ?? project.media?.[0]
   const cardClassName = 'project-card project-' + project.id + (compact ? ' project-card-compact' : '') + (featured ? ' project-card-featured' : '')
   const mediaClassName = media ? 'project-media project-media-' + media.kind : ''
 
   return (
     <article className={cardClassName}>
       {compact && media ? (
-        <div className="project-compact-media">
+        <div className={'project-compact-media' + (media ? ' project-compact-media-' + media.kind : '')}>
           <Image
             src={media.src}
             alt={media.alt}

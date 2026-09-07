@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { FolderOpen, Star } from 'lucide-react'
 
-import { education } from '@/content/portfolio'
+import { education, internshipRequirement, profileDescription } from '@/content/portfolio'
 import { selectedProjects } from '@/content/projects'
 import { ProjectCard } from '@/components/project-card'
 
@@ -12,13 +12,13 @@ export function Hero() {
         <h1 id="hero-title">Profile.</h1>
       </div>
       <div className="identity-copy">
-        <p>I’m Ron Vincent Cada, a BS Information Technology student focused on backend and full-stack development. I work mainly with C#, ASP.NET Core, Python, Django REST Framework, React, SQL, and Docker, and I’m currently building projects to improve my software engineering skills.</p>
+        <p>{profileDescription}</p>
       </div>
       <section className="quick-facts" aria-labelledby="highlights-title">
         <h2 id="highlights-title"><Star aria-hidden="true" size={21} /> Highlights</h2>
         <dl>
           <div><dt>{education.academicStanding[0].replace('GWA ', '')}</dt><dd>Current GWA</dd></div>
-          <div><dt>{selectedProjects.length}</dt><dd>Featured projects</dd></div>
+          <div><dt>{internshipRequirement.hours}</dt><dd>{internshipRequirement.label}</dd></div>
           <div><dt>2027</dt><dd>Expected graduation</dd></div>
         </dl>
       </section>

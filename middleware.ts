@@ -77,8 +77,15 @@ function isSelfReferral(referer: string | null, request: NextRequest): boolean {
     return false
   }
 }
+function isLocalRequest(request: NextRequest): boolean {
+  if (process.env.NODE_ENV !== 'production') return true
+  const hostname = request.nextUrl.hostname
+  return hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1' || hostname.endsWith('.local')
+}
+
 
 function shouldReport(request: NextRequest): boolean {
+  if (isLocalRequest(request)) return false
   const pathname = request.nextUrl.pathname
   if (SKIP_PATHS.has(pathname) || ASSET_PATTERN.test(pathname)) return false
   if (request.headers.has('rsc') || request.headers.has('next-router-prefetch')) return false

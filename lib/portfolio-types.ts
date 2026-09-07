@@ -4,6 +4,7 @@ export type ProjectMedia = {
   width: number
   height: number
   kind: 'screen' | 'diagram'
+  caption?: string
 }
 
 export type ProjectCaseStudy = {
@@ -29,7 +30,9 @@ export type Project = {
   contributions: readonly string[]
   technologies: readonly string[]
   repository?: string
-  media: readonly ProjectMedia[]
+  media?: readonly ProjectMedia[]
+  cardMedia?: ProjectMedia
+  caseStudyMedia?: readonly ProjectMedia[]
   caseStudy?: ProjectCaseStudy
 }
 
