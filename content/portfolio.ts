@@ -78,6 +78,7 @@ export const awards: readonly Credential[] = [
   {
     title: 'Top Performer and Best in Capstone',
     detail: 'Open iT Applied Full Stack and Data Science Bootcamp',
+    image: '/credentials/openit-bootcamp-best-in-capstone.jpg',
   },
   {
     title: '1st Place, Open iT Codefest',
@@ -110,6 +111,7 @@ export const training: readonly Credential[] = [
   {
     title: 'Open iT Applied Full Stack and Data Science Bootcamp',
     detail: 'Full Stack Development Track',
+    image: '/credentials/openit-bootcamp-participation.jpg',
   },
   {
     title: 'CS50x: Introduction to Computer Science',
