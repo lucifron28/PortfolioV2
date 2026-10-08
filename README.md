@@ -1,6 +1,6 @@
 # Ron Cada Portfolio
 
-Evidence-first portfolio for Ron Vincent Cada, a Bachelor of Science in Information Technology student focused on backend and full-stack development.
+Evidence-first portfolio for Ron Vincent Cada, a Bachelor of Science in Information Technology student focused on full-stack development, with a particular interest in backend systems.
 
 The Next.js portfolio has separate projects, about, awards, and contact routes with server-rendered project case studies. The homepage puts competition recognition before featured projects. The interface uses dark backgrounds, thin borders, and Dracula accent colors.
 
