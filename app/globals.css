@@ -93,7 +93,7 @@
   .recognition-card { display:grid; min-width:0; align-content:start; gap:.4rem; padding:.8rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); }
   .recognition-card-primary { border-color:color-mix(in srgb,var(--accent) 72%,var(--line)); background:color-mix(in srgb,var(--accent) 4%,var(--surface)); }
   .recognition-card-heading { display:flex; align-items:baseline; justify-content:space-between; gap:.75rem; }
-  .recognition-placement { margin:0; color:var(--accent); font-size:1rem; font-weight:750; letter-spacing:-.025em; line-height:1.3; }
+  .recognition-placement { margin:0; color:var(--pink); font-size:1rem; font-weight:750; letter-spacing:-.025em; line-height:1.3; }
   .recognition-year { flex:0 0 auto; color:var(--muted); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.7rem; }
   .recognition-card h3 { margin:0; color:var(--cyan); font-size:1rem; font-weight:700; line-height:1.35; }
   .recognition-detail,.recognition-context { margin:0; color:var(--muted); font-size:.78rem; line-height:1.45; }
@@ -128,7 +128,7 @@
   .project-contribution-block { margin-top:.75rem; padding-top:.65rem; border-top:1px solid var(--line); }
   .project-contribution-label { margin:0; color:var(--pink); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.65rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
   .project-contribution { margin:.3rem 0 0; color:var(--muted); font-size:.8rem; line-height:1.5; }
-  .project-recognition { display:inline-flex; width:fit-content; min-height:40px; align-items:center; gap:.35rem; margin-top:.35rem; color:var(--accent); font-size:.75rem; font-weight:700; text-decoration:none; }
+  .project-recognition { display:inline-flex; width:fit-content; min-height:40px; align-items:center; gap:.35rem; margin-top:.35rem; color:var(--pink); font-size:.75rem; font-weight:700; text-decoration:none; }
   .project-recognition:hover { text-decoration:underline; }
   .project-stack { margin:.75rem 0 0; color:var(--muted); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.64rem; line-height:1.55; }
   .project-actions { display:flex; flex-wrap:wrap; gap:.25rem 1rem; margin-top:.85rem; }

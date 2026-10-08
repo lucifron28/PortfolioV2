@@ -3,6 +3,11 @@ import type { Credential, Education, SkillGroup } from '@/lib/portfolio-types'
 export const profileDescription =
   "I'm Ron Vincent Cada, a BSIT student focused on backend and full-stack development. I build APIs, database workflows, and web and mobile application logic."
 
+export const homepageIntroduction = [
+  "I'm an Information Technology student at MSEUF, specializing in Web and Mobile Application Development. I focus on full-stack development, with a particular interest in backend systems, APIs, databases, and application logic.",
+  'Programming is also something I enjoy outside the classroom. I like experimenting with ideas, figuring out how things work, and joining coding competitions for the challenge.',
+] as const
+
 export const internshipRequirement = {
   hours: '600 HRS',
   duration: '600 hours',

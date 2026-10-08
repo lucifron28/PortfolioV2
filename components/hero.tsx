@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { awards, profileDescription, site } from '@/content/portfolio'
+import { awards, homepageIntroduction, site } from '@/content/portfolio'
 import { selectedProjects } from '@/content/projects'
 import { ProjectCard } from '@/components/project-card'
 
@@ -12,7 +12,7 @@ export function Hero() {
           <h1 id="hero-title">{site.title}</h1>
         </div>
         <div className="identity-copy">
-          <p>{profileDescription}</p>
+          {homepageIntroduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
         <nav className="hero-actions" aria-label="Primary links">
           <Link className="button-primary" href="/portfolio">Projects</Link>
