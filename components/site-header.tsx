@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { CodeXml, Github } from 'lucide-react'
+import { CodeXml } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
@@ -26,7 +26,7 @@ export function SiteHeader() {
   const currentLabel = pathname === '/'
     ? 'Home'
     : pathname.startsWith('/work/') || pathname === '/portfolio'
-      ? 'Work'
+      ? 'Projects'
       : pathname === '/credentials'
         ? 'Awards'
         : pathname.slice(1).replace(/-/g, ' ').replace(/^./, (letter) => letter.toUpperCase())
@@ -41,12 +41,11 @@ export function SiteHeader() {
         <div className="header-actions">
           <nav className="desktop-navigation" aria-label="Primary navigation">
             {sectionLinks.map((link) => {
-              const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
+              const isActive = pathname === link.href || pathname.startsWith(link.href + '/') || (link.href === '/portfolio' && pathname.startsWith('/work/'))
               return <Link key={link.label} href={link.href} className={'nav-link' + (isActive ? ' is-active' : '')} aria-current={isActive ? 'page' : undefined}>{link.label}</Link>
             })}
             <a className="resume-link" href={site.resumePath} download>CV</a>
           </nav>
-          <a className="icon-button" href={site.links.github} target="_blank" rel="noreferrer" aria-label="Ron Cada on GitHub"><Github aria-hidden="true" size={19} /></a>
           <MobileNavigation />
         </div>
       </div>

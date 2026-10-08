@@ -29,6 +29,10 @@ export type Project = {
   summary: string
   contributions: readonly string[]
   technologies: readonly string[]
+  recognition?: {
+    label: string
+    href: string
+  }
   repository?: string
   media?: readonly ProjectMedia[]
   cardMedia?: ProjectMedia
@@ -41,10 +45,18 @@ export type SkillGroup = {
   items: readonly string[]
 }
 export type Credential = {
+  id?: string
   title: string
   detail?: string
+  year?: string
+  placement?: string
+  event?: string
+  context?: string
   image?: string
+  imageLabel?: string
+  supportingImages?: readonly { src: string; label: string }[]
   credentialId?: string
+  verificationUrl?: string
 }
 
 export type Education = {

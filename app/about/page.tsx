@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 
-import { About, AboutCta } from '@/components/about'
+import { About } from '@/components/about'
 import { PageFrame } from '@/components/page-frame'
 import { TechnicalFocus } from '@/components/technical-focus'
 
 export const metadata: Metadata = {
-  title: 'Background | Ron Vincent Cada',
-  description: 'Education, technical focus, and background of Ron Vincent Cada.',
+  title: 'About | Ron Vincent Cada',
+  description: 'About Ron Vincent Cada, his education, and technical skills.',
   alternates: { canonical: '/about' },
 }
 
@@ -15,7 +15,6 @@ export default function AboutPage() {
     <PageFrame>
       <About />
       <TechnicalFocus />
-      <AboutCta />
     </PageFrame>
   )
 }

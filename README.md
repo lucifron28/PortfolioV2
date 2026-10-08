@@ -1,8 +1,8 @@
 # Ron Cada Portfolio
 
-Recruiter-first portfolio for Ron Vincent Cada, a backend-focused Bachelor of Science in Information Technology student specializing in Web and Mobile Application Development.
+Evidence-first portfolio for Ron Vincent Cada, a Bachelor of Science in Information Technology student focused on full-stack development, with a particular interest in backend systems.
 
-The site is a static, single-page Next.js portfolio with server-rendered project case studies. Project claims are checked against the linked repositories and the current CV. The visual system uses a restrained warm-paper and charcoal palette with a system-aware dark theme.
+The Next.js portfolio has separate projects, about, awards, and contact routes with server-rendered project case studies. The homepage puts competition recognition before featured projects. The interface uses dark backgrounds, thin borders, and Dracula accent colors.
 
 ## Local development
 
@@ -17,7 +17,7 @@ Open http://localhost:3000.
 
 ## Visitor notifications
 
-`middleware.ts` posts one Discord embed per external site arrival. In-site navigation, Next.js prefetches, reloads, bots, and non-HTML requests stay silent, so one visit means one notification. Set `DISCORD_WEBHOOK_URL` in `.env.local` for local runs, and add the same variable to the Vercel project environment variables for production. Without the variable the middleware skips reporting silently.
+`middleware.ts` posts one Discord embed per external site arrival. In-site navigation, Next.js prefetches, reloads, bots, and non-HTML requests stay silent. A 15-minute cookie cooldown also suppresses repeat arrivals from the same browser and IP address. Set `DISCORD_WEBHOOK_URL` in `.env.local` for local runs, and add the same variable to the Vercel project environment variables for production. Without the variable the middleware skips reporting silently.
 
 ## Validation
 
@@ -26,6 +26,10 @@ Run npm run lint, npx tsc --noEmit, and npm run build.
 ## Routes
 
 - /
+- /portfolio
+- /about
+- /credentials
+- /contact
 - /work/unipm
 - /work/sidekick
 - /work/enverga-arena

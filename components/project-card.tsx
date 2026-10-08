@@ -46,7 +46,18 @@ export function ProjectCard({ project, compact = false, featured = false }: Proj
         <div className="project-kicker"><span>{project.type}</span><span>{project.role}</span></div>
         <h3>{project.name}</h3>
         <p className="project-summary">{project.summary}</p>
-        <p className="project-stack">{project.technologies.slice(0, 3).join(' · ')}</p>
+        {project.contributions[0] ? (
+          <div className="project-contribution-block">
+            <p className="project-contribution-label">My contribution</p>
+            <p className="project-contribution">{project.contributions[0]}</p>
+          </div>
+        ) : null}
+        {project.recognition ? (
+          <Link className="project-recognition" href={project.recognition.href}>
+            {project.recognition.label} <ArrowUpRight aria-hidden="true" size={15} />
+          </Link>
+        ) : null}
+        <p className="project-stack">{project.technologies.slice(0, 4).join(' · ')}</p>
         <div className="project-actions">
           {project.caseStudy ? (
             <Link className="project-details-link" href={'/work/' + project.id}>
