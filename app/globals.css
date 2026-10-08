@@ -66,7 +66,7 @@
   .profile-contact-list dd { margin:0; font-size:.82rem; line-height:1.5; overflow-wrap:anywhere; }
   .profile-contact-list a { display:inline-flex; min-height:44px; align-items:center; text-decoration:none; }
   .profile-contact-list a:hover { color:var(--accent); }
-  .profile-links { display:flex; flex-wrap:wrap; gap:.2rem; }
+  .profile-links { display:flex; flex-wrap:wrap; justify-content:space-evenly; gap:.2rem; }
   .profile-links a { display:inline-grid; width:44px; height:44px; place-items:center; border:1px solid transparent; border-radius:.55rem; color:var(--muted); }
   .profile-links a:hover { border-color:var(--line); background:var(--raised); color:var(--accent); }
 
@@ -321,7 +321,7 @@
   .profile-contact-list dt { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
   .profile-contact-list dd { display:flex; min-height:44px; align-items:center; font-size:.72rem; line-height:1.25; }
   .profile-contact-list a { min-height:44px; overflow-wrap:anywhere; line-height:1.25; }
-  .profile-links { grid-column:1/-1; justify-content:flex-end; gap:0; padding-top:.25rem; border-top:1px solid var(--line); }
+  .profile-links { grid-column:1/-1; justify-content:space-evenly; gap:0; padding-top:.25rem; border-top:1px solid var(--line); }
   .profile-links a { width:44px; height:44px; }
   .portfolio-content-inner>section { padding-inline:1rem; }
   .hero-intro { gap:.85rem; padding-block:1.65rem; }
