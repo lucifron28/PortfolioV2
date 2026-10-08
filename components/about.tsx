@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
-import { aboutText, education, growthText, nowFacts } from '@/content/portfolio'
+import { aboutText, education, growthText, internshipRequirement, nowFacts } from '@/content/portfolio'
 
 export function About() {
   return (
@@ -25,7 +25,10 @@ export function About() {
       <div className="education-row">
         <div><p className="detail-label">Education</p><h3>{education.institution}</h3></div>
         <p>{education.program}<br />{education.focus}<br />{education.expected}</p>
-        <ul>{education.academicStanding.map((item) => <li key={item}>{item}</li>)}</ul>
+        <ul>
+          {education.academicStanding.map((item) => <li key={item}>{item}</li>)}
+          <li>{internshipRequirement.duration} {internshipRequirement.label}</li>
+        </ul>
       </div>
     </section>
   )

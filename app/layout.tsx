@@ -39,8 +39,6 @@ const personStructuredData = {
     'Django REST Framework',
     'Kotlin',
     'Jetpack Compose',
-    'SQL Server Full-Text Search',
-    'Reciprocal Rank Fusion',
     'OCR',
     'Whisper',
   ],

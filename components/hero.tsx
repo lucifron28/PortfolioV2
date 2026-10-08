@@ -1,36 +1,71 @@
 import Link from 'next/link'
-import { FolderOpen, Star } from 'lucide-react'
 
-import { education, internshipRequirement, profileDescription } from '@/content/portfolio'
+import { awards, profileDescription, site } from '@/content/portfolio'
 import { selectedProjects } from '@/content/projects'
 import { ProjectCard } from '@/components/project-card'
 
 export function Hero() {
   return (
-    <section className="hero-intro" aria-labelledby="hero-title">
-      <div className="identity-heading">
-        <h1 id="hero-title">Profile.</h1>
-      </div>
-      <div className="identity-copy">
-        <p>{profileDescription}</p>
-      </div>
-      <section className="quick-facts" aria-labelledby="highlights-title">
-        <h2 id="highlights-title"><Star aria-hidden="true" size={21} /> Highlights</h2>
-        <dl>
-          <div><dt>{education.academicStanding[0].replace('GWA ', '')}</dt><dd>Current GWA</dd></div>
-          <div><dt>{internshipRequirement.hours}</dt><dd>{internshipRequirement.label}</dd></div>
-          <div><dt>2027</dt><dd>Expected graduation</dd></div>
-        </dl>
+    <>
+      <section className="hero-intro" aria-labelledby="hero-title">
+        <div className="identity-heading">
+          <h1 id="hero-title">{site.title}</h1>
+        </div>
+        <div className="identity-copy">
+          <p>{profileDescription}</p>
+        </div>
+        <nav className="hero-actions" aria-label="Primary links">
+          <Link className="button-primary" href="/portfolio">Projects</Link>
+          <a className="button-secondary" href={site.resumePath} download>Download CV</a>
+          <Link className="button-secondary" href="/contact">Contact</Link>
+        </nav>
       </section>
+
+      <section className="recognition-section" aria-labelledby="recognition-title">
+        <div className="section-inline-heading recognition-heading">
+          <h2 id="recognition-title">Competition results &amp; recognition</h2>
+          <Link href="/credentials">All awards</Link>
+        </div>
+        <div className="recognition-grid">
+          {awards.slice(0, 4).map((award, index) => (
+            <article
+              key={award.id ?? award.title}
+              className={'recognition-card' + (index === 0 ? ' recognition-card-primary' : '')}
+            >
+              <div className="recognition-card-heading">
+                <p className="recognition-placement">{award.placement ?? award.title}</p>
+                {award.year ? <span className="recognition-year">{award.year}</span> : null}
+              </div>
+              <h3>{award.event ?? award.title}</h3>
+              {award.detail ? <p className="recognition-detail">{award.detail}</p> : null}
+              {award.context ? <p className="recognition-context">{award.context}</p> : null}
+              <div className="recognition-links">
+                {award.image ? (
+                  <a href={award.image} target="_blank" rel="noreferrer">{award.imageLabel ?? 'View certificate'}</a>
+                ) : null}
+                {award.verificationUrl ? (
+                  <a href={award.verificationUrl} target="_blank" rel="noreferrer">University article</a>
+                ) : null}
+                {!award.image && !award.verificationUrl ? (
+                  <Link href={award.id ? '/credentials#' + award.id : '/credentials'}>Award details</Link>
+                ) : null}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="featured-home-work" aria-labelledby="featured-work-title">
         <div className="section-inline-heading">
-          <h2 id="featured-work-title"><FolderOpen aria-hidden="true" size={21} /> Featured work</h2>
+          <h2 id="featured-work-title">Featured work</h2>
           <Link href="/portfolio">View all work</Link>
         </div>
         <div className="featured-work-grid">
-          {selectedProjects.slice(0, 2).map((project) => <ProjectCard key={project.id} project={project} compact featured />)}
+          {selectedProjects.slice(0, 2).map((project) => (
+            <ProjectCard key={project.id} project={project} compact featured />
+          ))}
         </div>
       </section>
-    </section>
+    </>
   )
 }

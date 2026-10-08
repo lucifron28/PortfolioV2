@@ -1,7 +1,7 @@
 import type { Credential, Education, SkillGroup } from '@/lib/portfolio-types'
 
 export const profileDescription =
-  'I’m Ron Vincent Cada, a BS Information Technology student focused on backend and full-stack development. I mainly build APIs and web applications using C#, ASP.NET Core, Python, Django REST Framework, React, SQL, and Docker.'
+  "I'm Ron Vincent Cada, a BSIT student focused on backend and full-stack development. I build APIs, database workflows, and web and mobile application logic."
 
 export const internshipRequirement = {
   hours: '600 HRS',
@@ -13,7 +13,7 @@ export const internshipRequirement = {
 
 export const site = {
   name: 'Ron Vincent Cada',
-  title: 'Profile.',
+  title: 'Backend and full-stack developer.',
   description: profileDescription,
   location: 'Lucena City, Philippines',
   availability: internshipRequirement.availability,
@@ -49,8 +49,8 @@ export const skillGroups: readonly SkillGroup[] = [
     items: ['React', 'TypeScript', 'Kotlin', 'Jetpack Compose', 'CameraX', 'ML Kit OCR', 'Retrofit'],
   },
   {
-    title: 'Search and OCR',
-    items: ['SQL Server Full-Text Search', 'embeddings', 'Reciprocal Rank Fusion', 'source-bounded retrieval', 'Whisper', 'OCR'],
+    title: 'Document and study tools',
+    items: ['Whisper', 'OCR', 'FFmpeg', 'Server-side AI integration'],
   },
 ]
 
@@ -76,25 +76,60 @@ export const nowFacts: readonly { value: string; label: string }[] = [
 
 export const awards: readonly Credential[] = [
   {
-    title: 'Top Performer and Best in Capstone',
-    detail: 'Open iT Applied Full Stack and Data Science Bootcamp',
-    image: '/credentials/openit-bootcamp-best-in-capstone.jpg',
-  },
-  {
-    title: '1st Place, Open iT Codefest',
-    detail: '27-hour inter-institution hackathon',
-    image: '/credentials/openit-codefest.png',
-  },
-  { title: 'Top Performer, Hack4Gov CALABARZON CTF' },
-  {
-    title: '2nd Place, DLSU-D SikapTala',
-    detail: 'National Python Collegiate Competition',
+    id: 'sikaptala',
+    title: '2nd Place, DLSU-D SikapTala National CS and IT Skills Competition',
+    placement: '2nd Place',
+    event: 'DLSU-D SikapTala',
+    year: '2025',
+    detail: 'National CS and IT Skills Competition, Collegiate Python Category',
+    context: 'Individual competition organized by De La Salle University-Dasmarinas.',
     image: '/credentials/sikaptala.jpg',
   },
   {
-    title: 'CodeChum National Programming Competition',
-    detail: '1st Place Stage 3 and grand finals finalist',
+    id: 'openit-codefest',
+    title: '1st Place, Open iT Codefest',
+    placement: '1st Place',
+    event: 'Open iT Codefest',
+    year: '2025',
+    detail: '27-hour inter-institution hackathon',
+    context: 'Team software development under time constraints.',
+    image: '/credentials/openit-codefest.png',
+    imageLabel: 'View award photo',
+    verificationUrl: 'https://mseuf.edu.ph/ccms/news/codefest-2025-1st-place',
+  },
+  {
+    id: 'openit-bootcamp',
+    title: 'Top Performer & Best in Capstone, Open iT Bootcamp',
+    placement: 'Top Performer & Best in Capstone',
+    event: 'Open iT Bootcamp',
+    year: '2026',
+    detail: 'Applied Full Stack and Data Science Bootcamp, Full Stack Development Track',
+    context: 'Best in Capstone awarded for Sidekick.',
+    image: '/credentials/openit-bootcamp-best-in-capstone.jpg',
+    supportingImages: [{ src: '/credentials/openit-bootcamp-top-performer.jpg', label: 'Top Performer certificate' }],
+    verificationUrl: 'https://mseuf.edu.ph/ccms/news/open-it-bootcamp',
+  },
+  {
+    id: 'hack4gov',
+    title: 'Top Individual Performer, Hack4Gov CALABARZON CTF',
+    placement: 'Top Individual Performer',
+    event: 'Hack4Gov CALABARZON CTF',
+    year: '2025',
+    detail: 'Regional cybersecurity competition',
+    context: 'Recognition for individual performance.',
+  },
+  {
+    id: 'codechum',
+    title: '1st Place, Stage 3 & Grand Finals Finalist, CodeChum National Programming Challenge',
+    year: '2024',
+    detail: 'National programming competition',
     image: '/credentials/codechum.png',
+  },
+  {
+    id: 'coco',
+    title: 'Back-to-Back 1st Place, COCO Coding Competition',
+    year: '2025-2026',
+    detail: 'MSEUF Cyber Week',
   },
 ]
 

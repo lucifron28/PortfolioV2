@@ -27,7 +27,7 @@ function summaryFor(title: string) {
     'Authenticated APIs': 'Requests, identity, and permission boundaries.',
     'Application data': 'Persistence, background work, and repeatable environments.',
     'Web and Android clients': 'Interfaces that connect the workflow to the API.',
-    'Search and OCR': 'Retrieval, OCR, and source-bounded processing.',
+    'Document and study tools': 'Transcription, editable OCR notes, and AI calls handled by the backend.',
   }
 
   return summaries[title] ?? 'Tools used across my project work.'
