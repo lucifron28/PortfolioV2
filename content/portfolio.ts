@@ -4,8 +4,8 @@ export const profileDescription =
   "I'm Ron Vincent Cada, a BSIT student focused on full-stack development, with a particular interest in backend systems, APIs, and databases."
 
 export const homepageIntroduction = [
-  "I'm an Information Technology student at MSEUF, specializing in Web and Mobile Application Development. I focus on full-stack development, with a particular interest in backend systems, APIs, databases, and application logic.",
-  'Programming is also something I enjoy outside the classroom. I like experimenting with ideas, figuring out how things work, and joining coding competitions for the challenge.',
+  "I'm an Information Technology student at MSEUF, specializing in Web and Mobile Application Development. I build full-stack applications, but I particularly enjoy working on the backend, especially APIs, databases, and application logic.",
+  'Programming is something I enjoy outside the classroom, too. I like experimenting with ideas, figuring out how things work, and joining coding competitions for the challenge.',
 ] as const
 
 export const internshipRequirement = {

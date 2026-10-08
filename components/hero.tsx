@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { homepageIntroduction, site } from '@/content/portfolio'
+import { homepageIntroduction } from '@/content/portfolio'
 import { selectedProjects } from '@/content/projects'
 import { HomepageRecognition } from '@/components/homepage-recognition'
 import { ProjectCard } from '@/components/project-card'
@@ -10,7 +10,7 @@ export function Hero() {
     <>
       <section className="hero-intro" aria-labelledby="hero-title">
         <div className="identity-heading">
-          <h1 id="hero-title">{site.title}</h1>
+          <h1 id="hero-title">{"Hi, I'm Ron."}</h1>
         </div>
         <div className="identity-copy">
           {homepageIntroduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
