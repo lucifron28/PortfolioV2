@@ -11,9 +11,12 @@ export function About() {
         <p className="about-growth">{growthText}</p>
       </div>
       <div className="education-row">
-        <div><h2>Education</h2><h3>{education.institution}</h3></div>
-        <p>{education.program}<br />{education.focus}<br />{education.expected}</p>
-        <ul>
+        <div className="education-details">
+          <h2>Education</h2>
+          <h3>{education.institution}</h3>
+          <p>{education.program}<br />{education.focus}<br />{education.expected}</p>
+        </div>
+        <ul className="education-standing">
           {education.academicStanding.map((item) => <li key={item}>{item}</li>)}
         </ul>
       </div>
