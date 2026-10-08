@@ -159,6 +159,8 @@
   .technical-grid { display:grid; gap:1.5rem 2rem; margin-top:1.5rem; }
   .technical-panel { min-width:0; padding-top:.8rem; border-top:1px solid var(--line); }
   .technical-panel h3 { margin:0; color:var(--cyan); font-size:1rem; line-height:1.35; }
+  .technical-panel:nth-child(1) h3 { color:var(--pink); }
+  .technical-panel:nth-child(3) h3 { color:var(--green); }
   .technical-panel ul { display:flex; flex-wrap:wrap; gap:.25rem .45rem; margin:.55rem 0 0; padding:0; color:var(--muted); font-size:.88rem; line-height:1.55; list-style:none; }
   .technical-panel li+li::before { margin-right:.45rem; color:var(--pink); content:'·'; }
 
@@ -166,8 +168,8 @@
   .about-copy { max-width:48rem; margin:0; font-size:clamp(1.05rem,1.8vw,1.35rem); font-weight:600; letter-spacing:-.02em; line-height:1.65; }
   .about-growth { max-width:42rem; margin:0; color:var(--muted); line-height:1.75; }
   .education-row { display:grid; gap:1.5rem; margin-top:2.5rem; padding:1.5rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); color:var(--muted); }
-  .education-row h2 { margin:0; color:var(--cyan); font-size:1.15rem; }
-  .education-row h3 { max-width:24rem; margin:.65rem 0 0; color:var(--ink); font-size:1.1rem; line-height:1.4; }
+  .education-row h2 { margin:0; color:var(--pink); font-size:1.15rem; }
+  .education-row h3 { max-width:24rem; margin:.65rem 0 0; color:var(--cyan); font-size:1.1rem; line-height:1.4; }
   .education-row p,.education-row ul { margin:0; line-height:1.7; }
   .education-row ul { padding:0; color:var(--green); list-style:none; }
 
@@ -175,9 +177,12 @@
   .credentials-lists { display:grid; gap:2.5rem; }
   .credentials-secondary-lists { display:grid; gap:2rem; }
   .credentials-lists h2 { margin:0 0 1rem; color:var(--cyan); font-size:1.15rem; }
+  .credentials-awards-list h2 { color:var(--pink); }
+  .credentials-secondary-lists>div:nth-child(2) h2 { color:var(--green); }
   .credentials-lists ul { display:grid; gap:0; margin:0; padding:0; border-top:1px solid var(--line); list-style:none; }
   .credentials-lists li { display:flex; flex-direction:column; align-items:flex-start; gap:.55rem; padding:1.1rem 0; border-bottom:1px solid var(--line); line-height:1.5; scroll-margin-top:5rem; }
   .credential-info { display:grid; gap:.25rem; width:100%; }
+  .credential-info>span { color:var(--cyan); }
   .credentials-lists small { color:var(--muted); font-size:.84rem; }
   .credentials-lists .credential-year { color:var(--accent); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.7rem; }
   .credential-actions { display:flex; flex-wrap:wrap; gap:.4rem; }
