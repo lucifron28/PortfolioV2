@@ -99,8 +99,9 @@
   .recognition-detail,.recognition-context { margin:0; color:var(--muted); font-size:.78rem; line-height:1.45; }
   .recognition-context { font-size:.74rem; }
   .recognition-links { display:flex; flex-wrap:wrap; gap:.2rem 1rem; margin-top:.1rem; }
-  .recognition-links a { display:inline-flex; min-height:36px; align-items:center; color:var(--accent); font-size:.75rem; font-weight:700; text-decoration:none; }
-  .recognition-links a:hover { text-decoration:underline; }
+  .recognition-links a,.recognition-links button { display:inline-flex; min-height:36px; align-items:center; color:var(--accent); font-size:.75rem; font-weight:700; text-decoration:none; }
+  .recognition-links button { padding:0; border:0; background:transparent; font:inherit; font-size:.75rem; font-weight:700; cursor:pointer; }
+  .recognition-links a:hover,.recognition-links button:hover { text-decoration:underline; }
   .featured-home-work { display:grid; gap:1rem; padding-block:1.4rem 3rem; }
   .section-inline-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.75rem 1rem; }
   .section-inline-heading h2 { display:flex; align-items:center; gap:.6rem; margin:0; color:var(--ink); font-size:1.3rem; letter-spacing:-.03em; }
