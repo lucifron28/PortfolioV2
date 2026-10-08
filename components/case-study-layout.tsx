@@ -22,7 +22,7 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
   return (
     <article className="case-study-page">
       <header className="container-shell case-study-header">
-        <Link className="back-link" href="/portfolio"><ArrowLeft aria-hidden="true" size={17} /> Back to portfolio</Link>
+        <Link className="back-link" href="/portfolio"><ArrowLeft aria-hidden="true" size={17} /> Back to projects</Link>
         <p className="case-study-label">Project case study</p>
         <p className="case-study-context">{project.type} / {project.role}</p>
         <h1>{project.name}</h1>

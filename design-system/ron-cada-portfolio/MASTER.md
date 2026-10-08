@@ -43,7 +43,7 @@ Type scale is constrained by the right-card width: 11px technical labels, 13px m
 - About and technical focus live at `/about`. Awards and training live at `/credentials`. Internship details live at `/contact`.
 - The about route leads with a declarative heading, a current-work facts block, and closes with onward links to `/portfolio` and `/credentials`.
 - Contact uses an availability sheet: a factual internship heading, structured start date, hours, locations, and work setup, followed by one direct email row and secondary LinkedIn/CV actions.
-- Selected work uses two compact columns inside the 900px right card on desktop. Tablet cards switch to horizontal media-and-copy rows, and phone cards stack. Repository diagrams always use `object-fit: contain` so their labels are never cropped.
+- Selected projects use two compact columns inside the 900px right card on desktop. Tablet cards switch to horizontal media-and-copy rows, and phone cards stack. Repository diagrams always use `object-fit: contain` so their labels are never cropped.
 - Overview cards stay scannable with the project, role, summary, stack, and links. Workflow and contribution detail lives on the linked case-study routes.
 - Additional work uses compact rows.
 - Technical focus groups tools by the work they support. Panel lists stay visible on every screen size.

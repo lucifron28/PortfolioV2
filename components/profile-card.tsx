@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Download, Github, Linkedin, Mail, MapPin } from 'lucide-react'
+import { Github, Linkedin, Mail, MapPin } from 'lucide-react'
 
 import { site } from '@/content/portfolio'
 
@@ -27,7 +27,6 @@ export function ProfileCard() {
         <a href={site.links.github} target="_blank" rel="noreferrer" aria-label="Ron Cada on GitHub"><Github aria-hidden="true" size={19} /></a>
         <a href={site.links.linkedin} target="_blank" rel="noreferrer" aria-label="Ron Cada on LinkedIn"><Linkedin aria-hidden="true" size={19} /></a>
         <a href={site.links.email} aria-label="Email Ron Cada"><Mail aria-hidden="true" size={19} /></a>
-        <a href={site.resumePath} download aria-label="Download Ron Cada's résumé"><Download aria-hidden="true" size={19} /></a>
       </nav>
     </aside>
   )

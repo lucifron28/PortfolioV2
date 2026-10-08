@@ -42,9 +42,9 @@ export function MobileNavigation() {
       {isOpen ? (
         <nav id="mobile-navigation" className="mobile-navigation" aria-label="Mobile navigation">
           {navigationLinks.map((link) => {
-            const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'))
+            const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/')) || (link.href === '/portfolio' && pathname.startsWith('/work/'))
             return <Link key={link.label} href={link.href} download={link.download ? true : undefined} onClick={() => closeMenu()} aria-current={isActive ? 'page' : undefined}>
-              {link.label === 'CV' ? 'Download CV' : link.label}
+              {link.label}
             </Link>
           })}
         </nav>

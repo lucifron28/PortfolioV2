@@ -81,9 +81,13 @@ export function Credentials() {
         <h1 id="credentials-title" className="section-title">Awards &amp; credentials.</h1>
       </div>
       <div className="credentials-lists">
-        <CredentialList title="Awards" items={awards} onSelect={openCredential} />
-        <CredentialList title="Certifications" items={certifications} onSelect={openCredential} />
-        <CredentialList title="Training" items={training} onSelect={openCredential} />
+        <div className="credentials-awards-list">
+          <CredentialList title="Awards" items={awards} onSelect={openCredential} />
+        </div>
+        <div className="credentials-secondary-lists">
+          <CredentialList title="Certifications" items={certifications} onSelect={openCredential} />
+          <CredentialList title="Training" items={training} onSelect={openCredential} />
+        </div>
       </div>
 
       {selectedCredential && credentialImages.length > 0 ? (
@@ -150,7 +154,7 @@ function CredentialList({
 }) {
   return (
     <div>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <ul>
         {items.map((item) => {
           const hasCertificate = Boolean(item.image || item.supportingImages?.length)

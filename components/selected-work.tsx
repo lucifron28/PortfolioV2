@@ -5,8 +5,8 @@ export function SelectedWork() {
   return (
     <section id="work" className="container-shell section-space" aria-labelledby="work-title">
       <div className="work-heading-copy">
-        <p className="eyebrow">Portfolio</p>
-        <h1 id="work-title" className="section-title">Selected work.</h1>
+        <p className="eyebrow">Projects</p>
+        <h1 id="work-title" className="section-title">Selected projects.</h1>
         <p className="section-intro">Backend APIs, web applications, and an Android learning companion.</p>
       </div>
       <div className="project-grid">

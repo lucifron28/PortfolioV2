@@ -12,8 +12,9 @@ export const internshipRequirement = {
   hours: '600 HRS',
   duration: '600 hours',
   label: 'OJT requirement',
-  availability: 'Available for a 600-hour internship beginning in early December 2026',
-  startDate: 'December 2026',
+  availability: 'Expected to begin a 600-hour internship around December 7, 2026',
+  startDate: 'Around December 7, 2026',
+  arrangements: 'Final arrangements are subject to university requirements.',
 } as const
 
 export const site = {
@@ -33,8 +34,8 @@ export const site = {
 
 export const navigationLinks = [
   { label: 'Home', href: '/', download: false },
-  { label: 'Work', href: '/portfolio', download: false },
-  { label: 'Background', href: '/about', download: false },
+  { label: 'Projects', href: '/portfolio', download: false },
+  { label: 'About', href: '/about', download: false },
   { label: 'Awards', href: '/credentials', download: false },
   { label: 'Contact', href: '/contact', download: false },
   { label: 'CV', href: site.resumePath, download: true },
@@ -42,20 +43,16 @@ export const navigationLinks = [
 
 export const skillGroups: readonly SkillGroup[] = [
   {
-    title: 'Authenticated APIs',
-    items: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'ASP.NET Core Identity', 'Django REST Framework', 'REST APIs'],
+    title: 'Backend & Databases',
+    items: ['C#', 'ASP.NET Core', 'Python', 'Django REST Framework', 'PostgreSQL', 'SQL Server'],
   },
   {
-    title: 'Application data',
-    items: ['SQL Server', 'PostgreSQL', 'SQLite', 'Redis', 'Celery', 'Docker', 'Docker Compose', 'Git', 'GitHub Actions'],
+    title: 'Frontend & Mobile',
+    items: ['TypeScript', 'React', 'Kotlin', 'Jetpack Compose', 'Flutter'],
   },
   {
-    title: 'Web and Android clients',
-    items: ['React', 'TypeScript', 'Kotlin', 'Jetpack Compose', 'CameraX', 'ML Kit OCR', 'Retrofit'],
-  },
-  {
-    title: 'Document and study tools',
-    items: ['Whisper', 'OCR', 'FFmpeg', 'Server-side AI integration'],
+    title: 'Development Tools',
+    items: ['Git', 'Docker', 'GitHub Actions', 'Redis', 'Celery'],
   },
 ]
 
@@ -68,16 +65,13 @@ export const education: Education = {
 }
 
 export const aboutText =
-  'I study BS Information Technology at Manuel S. Enverga University Foundation. I build APIs and the React or Android clients that use them.'
+  'I enjoy programming outside class. I like trying out ideas to understand how software works and finding ways to solve a problem.'
 
 export const growthText =
-  'College changed how I work. I became a University Scholar, earned a 1.315 GWA, and placed in programming competitions including Open iT Codefest, CodeChum, and DLSU-D SikapTala.'
+  'My focus is full-stack development, with a stronger interest in backend systems, APIs, and databases. I also enjoy programming competitions for the challenge of working through unfamiliar problems.'
 
-export const nowFacts: readonly { value: string; label: string }[] = [
-  { value: 'UniPM', label: 'Capstone, in development' },
-  { value: 'StudyLens', label: 'Latest solo build' },
-  { value: 'Dec 2026', label: internshipRequirement.duration + ' internship begins' },
-]
+export const contactIntroduction =
+  'For internship opportunities, development roles, collaboration, or freelance project inquiries, you can reach me by email or LinkedIn.'
 
 export const awards: readonly Credential[] = [
   {

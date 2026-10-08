@@ -15,9 +15,8 @@ export function Hero() {
           {homepageIntroduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
         <nav className="hero-actions" aria-label="Primary links">
-          <Link className="button-primary" href="/portfolio">Projects</Link>
-          <a className="button-secondary" href={site.resumePath} download>Download CV</a>
-          <Link className="button-secondary" href="/contact">Contact</Link>
+          <Link className="button-primary" href="/portfolio">View Projects</Link>
+          <Link className="button-secondary" href="/contact">Get in Touch</Link>
         </nav>
       </section>
 
@@ -57,8 +56,8 @@ export function Hero() {
 
       <section className="featured-home-work" aria-labelledby="featured-work-title">
         <div className="section-inline-heading">
-          <h2 id="featured-work-title">Featured work</h2>
-          <Link href="/portfolio">View all work</Link>
+          <h2 id="featured-work-title">Featured projects</h2>
+          <Link href="/portfolio">View all projects</Link>
         </div>
         <div className="featured-work-grid">
           {selectedProjects.slice(0, 2).map((project) => (
