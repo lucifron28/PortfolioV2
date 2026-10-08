@@ -17,7 +17,7 @@ Open http://localhost:3000.
 
 ## Visitor notifications
 
-`middleware.ts` posts one Discord embed per external site arrival. In-site navigation, Next.js prefetches, reloads, bots, and non-HTML requests stay silent, so one visit means one notification. Set `DISCORD_WEBHOOK_URL` in `.env.local` for local runs, and add the same variable to the Vercel project environment variables for production. Without the variable the middleware skips reporting silently.
+`middleware.ts` posts one Discord embed per external site arrival. In-site navigation, Next.js prefetches, reloads, bots, and non-HTML requests stay silent. A 15-minute cookie cooldown also suppresses repeat arrivals from the same browser and IP address. Set `DISCORD_WEBHOOK_URL` in `.env.local` for local runs, and add the same variable to the Vercel project environment variables for production. Without the variable the middleware skips reporting silently.
 
 ## Validation
 

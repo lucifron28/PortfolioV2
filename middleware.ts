@@ -17,6 +17,8 @@ const SKIP_PATHS = new Set(['/opengraph-image'])
 const PRODUCTION_ORIGIN = 'https://ron-cada-portfolio.vercel.app'
 
 const BOT_PATTERN = /bot|crawl|spider|slurp|curl|wget|python-requests|axios|go-http|headless|lighthouse|monitor|uptime/i
+const VISIT_COOLDOWN_SECONDS = 15 * 60
+const VISIT_COOLDOWN_COOKIE = 'portfolio_visit_cooldown'
 
 function parseUserAgent(ua: string): string {
   if (BOT_PATTERN.test(ua)) return '🤖 Bot'
@@ -66,6 +68,16 @@ function decodeHeader(value: string | null): string | null {
 function firstIp(header: string | null): string | null {
   if (!header) return null
   return header.split(',')[0].trim() || null
+}
+
+function visitorIp(request: NextRequest): string | null {
+  return firstIp(request.headers.get('x-forwarded-for')) ?? firstIp(request.headers.get('x-real-ip'))
+}
+
+async function visitCooldownToken(request: NextRequest): Promise<string> {
+  const value = visitorIp(request) ?? 'unknown'
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('').slice(0, 32)
 }
 
 function isSelfReferral(referer: string | null, request: NextRequest): boolean {
@@ -135,14 +147,29 @@ async function reportVisit(request: NextRequest, webhookUrl: string) {
   }
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL
+  const response = NextResponse.next()
 
   if (webhookUrl && shouldReport(request)) {
-    runInBackground(reportVisit(request, webhookUrl))
+    const cooldownToken = await visitCooldownToken(request)
+    const isWithinCooldown = request.cookies.get(VISIT_COOLDOWN_COOKIE)?.value === cooldownToken
+
+    if (!isWithinCooldown) {
+      response.cookies.set({
+        name: VISIT_COOLDOWN_COOKIE,
+        value: cooldownToken,
+        httpOnly: true,
+        secure: request.nextUrl.protocol === 'https:',
+        sameSite: 'lax',
+        path: '/',
+        maxAge: VISIT_COOLDOWN_SECONDS,
+      })
+      runInBackground(reportVisit(request, webhookUrl))
+    }
   }
 
-  return NextResponse.next()
+  return response
 }
 
 export const config = {
