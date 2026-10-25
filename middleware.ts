@@ -1,13 +1,8 @@
-import { NextResponse, type NextRequest } from 'next/server'
-
-// Vercel's request context keeps background promises alive after the response
-// is returned from middleware. Falls back to plain execution outside Vercel.
-const REQUEST_CONTEXT = Symbol.for('@vercel/request-context')
-
-function runInBackground(promise: Promise<unknown>) {
-  const context = (globalThis as unknown as Record<symbol, { get?: () => { waitUntil?: (p: Promise<unknown>) => void } } | undefined>)[REQUEST_CONTEXT]?.get?.()
-  context?.waitUntil?.(promise)
-}
+import { NextResponse, type NextFetchEvent, type NextRequest } from 'next/server'
+import {
+  allowVisitorNotification,
+  VISITOR_NOTIFICATION_COOLDOWN_SECONDS as VISIT_COOLDOWN_SECONDS,
+} from './lib/visitor-notification-rate-limit'
 
 // Skips Next internals and static assets. Only external document arrivals are
 // reported: prefetches, client-side navigations, in-site traffic, bots, and
@@ -17,7 +12,6 @@ const SKIP_PATHS = new Set(['/opengraph-image'])
 const PRODUCTION_ORIGIN = 'https://ron-cada-portfolio.vercel.app'
 
 const BOT_PATTERN = /bot|crawl|spider|slurp|curl|wget|python-requests|axios|go-http|headless|lighthouse|monitor|uptime/i
-const VISIT_COOLDOWN_SECONDS = 15 * 60
 const VISIT_COOLDOWN_COOKIE = 'portfolio_visit_cooldown'
 
 function parseUserAgent(ua: string): string {
@@ -147,12 +141,27 @@ async function reportVisit(request: NextRequest, webhookUrl: string) {
   }
 }
 
-export async function middleware(request: NextRequest) {
+async function notifyVisitor(request: NextRequest, webhookUrl: string, cooldownToken: string) {
+  try {
+    if (await allowVisitorNotification(cooldownToken)) {
+      await reportVisit(request, webhookUrl)
+    }
+  } catch {
+    // Background failures must never affect the page response.
+  }
+}
+
+export async function middleware(request: NextRequest, event: NextFetchEvent) {
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL
   const response = NextResponse.next()
 
   if (webhookUrl && shouldReport(request)) {
-    const cooldownToken = await visitCooldownToken(request)
+    let cooldownToken: string
+    try {
+      cooldownToken = await visitCooldownToken(request)
+    } catch {
+      return response
+    }
     const isWithinCooldown = request.cookies.get(VISIT_COOLDOWN_COOKIE)?.value === cooldownToken
 
     if (!isWithinCooldown) {
@@ -165,7 +174,11 @@ export async function middleware(request: NextRequest) {
         path: '/',
         maxAge: VISIT_COOLDOWN_SECONDS,
       })
-      runInBackground(reportVisit(request, webhookUrl))
+      try {
+        event.waitUntil(notifyVisitor(request, webhookUrl, cooldownToken))
+      } catch {
+        // Failure to schedule notifications must never affect the page response.
+      }
     }
   }
 
