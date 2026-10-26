@@ -22,7 +22,9 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint app components content lib --max-warnings=0",
+    "lint": "eslint app components content lib middleware.ts tests/register-typescript.cjs tests/visitor-notification-security.test.cjs tests/visitor-notification-redis.test.cjs --max-warnings=0",
+    "test": "node --test tests/visitor-notification-security.test.cjs",
+    "test:redis": "node --test tests/visitor-notification-redis.test.cjs",
     "start": "next start"
   },
   "dependencies": {

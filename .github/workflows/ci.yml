@@ -8,6 +8,16 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7.4-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 5
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -26,6 +36,14 @@ jobs:
 
       - name: Type check
         run: npx tsc --noEmit
+
+      - name: Test
+        run: npm test
+
+      - name: Test Redis rate limiter
+        run: npm run test:redis
+        env:
+          REDIS_TEST_URL: redis://127.0.0.1:6379
 
       - name: Build
         run: npm run build
