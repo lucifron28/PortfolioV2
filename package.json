@@ -42,7 +42,7 @@
     "eslint-config-next": "^15.5.29",
     "postcss": "^8.5.32",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5"
+    "typescript": "^7"
   },
   "overrides": {
     "@typescript-eslint/typescript-estree": {
