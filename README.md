@@ -8,7 +8,7 @@ The Next.js portfolio has separate projects, about, awards, and contact routes w
 
 Requirements:
 
-- Node.js 20 or newer
+- Node.js 24 LTS or newer
 - npm 10 or newer
 
 Run npm ci, then npm run dev.
