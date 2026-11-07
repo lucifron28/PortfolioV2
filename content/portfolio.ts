@@ -129,6 +129,8 @@ export const awards: readonly Credential[] = [
     title: 'Back-to-Back 1st Place, COCO Coding Competition',
     year: '2025-2026',
     detail: 'MSEUF Cyber Week',
+    imageLabel: 'View 2025 certificate',
+    supportingImages: [{ src: '/credentials/coco-2025.jpg', label: '2025 first-place certificate' }],
   },
 ]
 
