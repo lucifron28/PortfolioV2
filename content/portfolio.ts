@@ -93,7 +93,8 @@ export const awards: readonly Credential[] = [
     detail: '27-hour inter-institution hackathon',
     context: 'Team software development under time constraints.',
     image: '/credentials/openit-codefest.png',
-    imageLabel: 'View award photo',
+    imageLabel: 'View photo and certificate',
+    supportingImages: [{ src: '/credentials/openit-codefest-2025-certificate.png', label: 'Open iT Codefest 2025 certificate of achievement' }],
     verificationUrl: 'https://mseuf.edu.ph/ccms/news/codefest-2025-1st-place',
   },
   {
@@ -116,6 +117,8 @@ export const awards: readonly Credential[] = [
     year: '2025',
     detail: 'Regional cybersecurity competition',
     context: 'Recognition for individual performance.',
+    imageLabel: 'View 2025 certificate',
+    supportingImages: [{ src: '/credentials/hack4gov-2025.png', label: 'Hack4Gov 2025 certificate of recognition' }],
   },
   {
     id: 'codechum',
@@ -129,6 +132,8 @@ export const awards: readonly Credential[] = [
     title: 'Back-to-Back 1st Place, COCO Coding Competition',
     year: '2025-2026',
     detail: 'MSEUF Cyber Week',
+    imageLabel: 'View 2025 certificate',
+    supportingImages: [{ src: '/credentials/coco-2025.png', label: '2025 first-place certificate' }],
   },
 ]
 
