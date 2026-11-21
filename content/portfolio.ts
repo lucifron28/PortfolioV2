@@ -1,11 +1,17 @@
 import type { Credential, Education, SkillGroup } from '@/lib/portfolio-types'
 
 export const profileDescription =
-  "I'm Ron Vincent Cada, a BSIT student focused on full-stack development, with a particular interest in backend systems, APIs, and databases."
+  "I'm Ron Vincent Cada, an Information Technology student building full-stack applications with a primary focus on C# and ASP.NET Core backend development."
 
 export const homepageIntroduction = [
-  "I'm an Information Technology student at MSEUF, specializing in Web and Mobile Application Development. I build full-stack applications, but I particularly enjoy working on the backend, especially APIs, databases, and application logic.",
+  "I'm an Information Technology student at MSEUF, specializing in Web and Mobile Application Development. I build full-stack applications, with a primary focus on backend development using C# and ASP.NET Core. I particularly enjoy working on APIs, databases, and application logic.",
   'Programming is something I enjoy outside the classroom, too. I like experimenting with ideas, figuring out how things work, and joining coding competitions for the challenge.',
+] as const
+
+export const professionalHighlights = [
+  { label: 'Primary Focus', value: 'ASP.NET Core / Backend Development' },
+  { label: 'Actively Learning', value: 'Web & API Security' },
+  { label: 'Technical Interests', value: 'Application Architecture, Cloud, Networking' },
 ] as const
 
 export const internshipRequirement = {
@@ -21,7 +27,7 @@ export const site = {
   name: 'Ron Vincent Cada',
   title: 'Full-stack developer.',
   description: profileDescription,
-  location: 'Lucena City, Philippines',
+  location: 'Mauban, Quezon, Philippines',
   availability: internshipRequirement.availability,
   resumePath: '/Ron_Vincent_Cada_CV.pdf',
   email: 'cronvincent@gmail.com',
@@ -43,16 +49,24 @@ export const navigationLinks = [
 
 export const skillGroups: readonly SkillGroup[] = [
   {
-    title: 'Backend & Databases',
-    items: ['C#', 'ASP.NET Core', 'Python', 'Django REST Framework', 'PostgreSQL', 'SQL Server'],
+    title: 'Backend Development',
+    items: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'PHP', 'Laravel', 'Python', 'Django REST Framework'],
+  },
+  {
+    title: 'Databases & Background Jobs',
+    items: ['SQL Server', 'PostgreSQL', 'SQLite', 'Redis', 'Celery'],
   },
   {
     title: 'Frontend & Mobile',
-    items: ['TypeScript', 'React', 'Kotlin', 'Jetpack Compose', 'Flutter'],
+    items: ['TypeScript', 'React', 'Kotlin', 'Jetpack Compose', 'Flutter', 'React Native', 'Expo'],
   },
   {
-    title: 'Development Tools',
-    items: ['Git', 'Docker', 'GitHub Actions', 'Redis', 'Celery'],
+    title: 'Testing & Quality',
+    items: ['xUnit', 'PHPUnit', 'pytest', 'API and integration tests', 'Concurrency tests'],
+  },
+  {
+    title: 'Tools & Infrastructure',
+    items: ['Git', 'Docker', 'GitHub Actions'],
   },
 ]
 
@@ -65,10 +79,10 @@ export const education: Education = {
 }
 
 export const aboutText =
-  'I enjoy programming outside class. I like trying out ideas to understand how software works and finding ways to solve a problem.'
+  'I keep programming outside class because I like turning ideas into small experiments and seeing how they behave. I enjoy tracing how a system works and figuring out where a problem comes from.'
 
 export const growthText =
-  'My focus is full-stack development, with a stronger interest in backend systems, APIs, and databases. I also enjoy programming competitions for the challenge of working through unfamiliar problems.'
+  'My recent projects have included backend APIs, full-stack web applications, and mobile apps. I am concentrating on C# and ASP.NET Core, and I am currently learning more about web and API security. Application architecture, cloud infrastructure, networking, and programming competitions are interests I want to keep exploring.'
 
 export const contactIntroduction =
   'For internship opportunities, development roles, collaboration, or freelance project inquiries, you can reach me by email or LinkedIn.'
