@@ -24,7 +24,10 @@ export function Credentials() {
             <li key={item.id ?? item.title} id={item.id}>
               <article className={'credential-card award-card' + (index < 2 ? ' award-card-featured' : '')}>
                 <header className="credential-card-header">
-                  <h3>{item.placement && item.title.startsWith(item.placement) ? <><span className="award-placement">{item.placement}</span>{item.title.slice(item.placement.length)}</> : item.title}</h3>
+                  <div className="award-heading">
+                    {item.placement ? <p className="award-placement">{item.placement}</p> : null}
+                    <h3>{item.event ?? (item.placement && item.title.startsWith(item.placement) ? item.title.slice(item.placement.length).replace(/^,\s*/, '') : item.title)}</h3>
+                  </div>
                   {item.year ? <span className="credential-year">{item.year}</span> : null}
                 </header>
                 {item.detail ? <p className="credential-detail">{item.detail}</p> : null}
