@@ -201,10 +201,10 @@ const existingProjects: readonly Project[] = [
     technologies: ['FastAPI', 'Python', 'PostgreSQL', 'SQLAlchemy', 'SwiftUI', 'pytest'],
     repository: 'https://github.com/lucifron28/Provision',
     cardMedia: {
-      src: '/projects/provision/cook-with-pip-card.webp',
-      alt: 'Cook with Pip native iOS screen describing household recipes checked against pantry stock and safety',
+      src: '/projects/provision/cook-with-pip.webp',
+      alt: 'Cook with Pip screen showing recipe categories and pantry availability',
       width: 1206,
-      height: 678,
+      height: 2347,
       kind: 'screen',
       caption: 'Cook with Pip recipe screen.',
     },
