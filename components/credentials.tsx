@@ -8,10 +8,7 @@ import type { Credential } from '@/lib/portfolio-types'
 
 export function Credentials() {
   const { openCredential, modal } = useCredentialViewer()
-  const learning = [
-    ...certifications.map((item, index) => ({ item, category: 'Certification', issuer: index === 0 ? 'Microsoft' : 'GitHub' })),
-    ...training.map((item, index) => ({ item, category: index === 0 ? 'Training' : 'Course', issuer: index === 0 ? 'Open iT' : undefined })),
-  ]
+  const learning = [...certifications, ...training]
 
   return (
     <section id="credentials" className="container-shell section-space credentials-section" aria-labelledby="credentials-title">
@@ -41,12 +38,12 @@ export function Credentials() {
       <section className="credentials-group" aria-labelledby="learning-title">
         <h2 id="learning-title">Certifications &amp; training</h2>
         <ul className="credentials-grid learning-grid">
-          {learning.map(({ item, category, issuer }) => (
+          {learning.map((item) => (
             <li key={item.title}>
               <article className="credential-card learning-card">
-                <p className="credential-category">{category}</p>
+                <p className="credential-category">{item.category}</p>
                 <h3>{item.title}</h3>
-                {issuer ? <p className="credential-detail">{issuer}</p> : null}
+                {item.issuer ? <p className="credential-detail">{item.issuer}</p> : null}
                 {item.detail ? <p className="credential-detail">{item.detail}</p> : null}
                 <CredentialActions item={item} onSelect={openCredential} />
               </article>
