@@ -97,9 +97,11 @@ function CaseStudyFigure({ item, variant }: { item: ProjectMedia; variant: 'prim
         alt={item.alt}
         width={item.width}
         height={item.height}
-        sizes={variant === 'primary'
-          ? '(min-width: 1180px) 75rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 1rem)'
-          : '(min-width: 1024px) 34rem, (min-width: 640px) calc((100vw - 4rem) / 2), calc(100vw - 2rem)'}
+        sizes={isPortrait
+          ? '(min-width: 400px) 22rem, calc(100vw - 2rem)'
+          : variant === 'primary'
+            ? '(min-width: 1232px) 56rem, (min-width: 1180px) calc(100vw - 20rem), (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)'
+            : '(min-width: 1232px) 28rem, (min-width: 1180px) calc((100vw - 21rem) / 2), (min-width: 640px) calc((100vw - 6rem) / 2), calc(100vw - 3rem)'}
         priority={variant === 'primary'}
       />
       {item.caption ? <figcaption>{item.caption}</figcaption> : null}

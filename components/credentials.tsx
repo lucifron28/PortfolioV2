@@ -36,7 +36,7 @@ function CredentialList({
 }: {
   title: string
   items: readonly Credential[]
-  onSelect: (item: Credential, opener: HTMLElement) => void
+  onSelect: (item: Credential) => void
 }) {
   return (
     <div>
@@ -58,7 +58,7 @@ function CredentialList({
                   <button
                     type="button"
                     className="credential-action-btn"
-                    onClick={(event) => onSelect(item, event.currentTarget)}
+                    onClick={() => onSelect(item)}
                     aria-label={(item.imageLabel ?? 'View certificate') + ' for ' + item.title}
                   >
                     {item.imageLabel ?? 'View certificate'} <ExternalLink aria-hidden="true" size={13} />
