@@ -11,7 +11,7 @@ export function ProfileCard() {
       </div>
       <div className="profile-heading">
         <p id="profile-name">{site.name}</p>
-        <span>BSIT student · full-stack development</span>
+        <span>BSIT student · full-stack developer</span>
       </div>
       <dl className="profile-contact-list">
         <div>

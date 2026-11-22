@@ -5,7 +5,7 @@ import { SelectedWork } from '@/components/selected-work'
 
 export const metadata: Metadata = {
   title: 'Projects | Ron Vincent Cada',
-  description: 'Backend, web, and Android projects by Ron Vincent Cada.',
+  description: 'Selected backend, web, mobile, and full-stack projects by Ron Vincent Cada.',
   alternates: { canonical: '/portfolio' },
 }
 
