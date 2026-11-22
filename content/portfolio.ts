@@ -11,15 +11,14 @@ export const homepageIntroduction = [
 export const professionalHighlights = [
   { label: 'Primary Focus', value: 'ASP.NET Core / Backend Development' },
   { label: 'Actively Learning', value: 'Web & API Security' },
-  { label: 'Technical Interests', value: 'Application Architecture, Cloud, Networking' },
 ] as const
 
 export const internshipRequirement = {
   hours: '600 HRS',
   duration: '600 hours',
   label: 'OJT requirement',
-  availability: 'Expected to begin a 600-hour internship around December 7, 2026',
-  startDate: 'Around December 7, 2026',
+  availability: 'Expected to begin a 600-hour internship on December 1, 2026',
+  startDate: 'December 1, 2026',
   arrangements: 'Final arrangements are subject to university requirements.',
 } as const
 
