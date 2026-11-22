@@ -40,7 +40,9 @@ export function ProjectCard({ project, compact = false, featured = false, priori
             height={media.height}
             loading={priority ? undefined : 'lazy'}
             priority={priority}
-            sizes="(min-width: 1180px) 27rem, (min-width: 768px) calc((100vw - 6rem) / 2), (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)"
+            sizes={isPortrait
+              ? '(min-width: 1180px) 11rem, (min-width: 768px) 20vw, 40vw'
+              : '(min-width: 1180px) 27rem, (min-width: 768px) calc((100vw - 6rem) / 2), (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)'}
             unoptimized={media.src.endsWith('.svg')}
           />
         </div>
