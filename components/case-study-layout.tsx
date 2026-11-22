@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Github } from 'lucide-react'
 
 import type { ReactNode } from 'react'
 
+import { caseStudyCopy } from '@/content/case-study-copy'
 import type { Project, ProjectCaseStudy, ProjectMedia } from '@/lib/portfolio-types'
 
 type CaseStudyLayoutProps = {
@@ -14,6 +15,7 @@ type CaseStudyLayoutProps = {
 }
 
 export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStudyLayoutProps) {
+  const copy = caseStudyCopy[project.id as keyof typeof caseStudyCopy]
   return (
     <article className={'case-study-page project-' + project.id}>
       <nav className="container-shell case-study-topbar" aria-label={project.name + ' links'}>
@@ -29,15 +31,15 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
 
       <header className="container-shell case-study-header">
         <h1>{project.name}</h1>
-        <p className="case-study-lede">{caseStudy.overview}</p>
+        <p className="case-study-lede">{copy.overview}</p>
         <dl className="case-study-meta">
           <div>
             <dt>Project type</dt>
-            <dd>{caseStudy.projectType ?? project.type}</dd>
+            <dd>{copy.projectType}</dd>
           </div>
           <div>
             <dt>Stack</dt>
-            <dd>{caseStudy.stack.join(' · ')}</dd>
+            <dd>{copy.stack.join(' · ')}</dd>
           </div>
         </dl>
       </header>
@@ -46,14 +48,20 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
 
       <div className="container-shell case-study-content">
         <div className="case-study-body">
+          <CaseStudySection title="The problem">
+            {copy.problem.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </CaseStudySection>
           <CaseStudySection title="What I worked on">
-            <p>{caseStudy.contribution}</p>
+            {copy.contribution.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </CaseStudySection>
           <CaseStudySection title="How it works">
-            {caseStudy.howItWorks.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            {copy.howItWorks.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </CaseStudySection>
-          <CaseStudySection title="Current status">
-            <p>{caseStudy.currentStatus}</p>
+          <CaseStudySection title="Key technical decisions">
+            {copy.decisions.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </CaseStudySection>
+          <CaseStudySection title="Testing and current status">
+            {copy.status.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {project.recognition ? (
               <Link className="case-study-recognition" href={project.recognition.href}>{project.recognition.label}</Link>
             ) : null}

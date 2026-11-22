@@ -22,15 +22,6 @@ const existingProjects: readonly Project[] = [
     },
     media: [{ src: '/projects/unipm/unipm-assets.png', alt: 'UniPM asset management interface showing university equipment records, category breakdowns, and maintenance status tracking', width: 1440, height: 900, kind: 'screen' }],
     caseStudy: {
-      overview: 'UniPM is a web and mobile system for the university\'s General Services Department. It helps staff track equipment, schedule maintenance, complete inspections, and keep maintenance records organized.',
-      stack: ['ASP.NET Core', 'SQL Server', 'React', 'Flutter'],
-      contribution: 'I worked on the ASP.NET Core backend, including asset management, inspection forms, maintenance workflows, and reporting. My teammate worked on the Flutter mobile app.',
-      howItWorks: [
-        'Inspection forms move from Draft to Submitted to Acknowledged. Only acknowledged inspections become part of the official maintenance history.',
-        'Field-work completion determines schedule completion. Acknowledgement records receipt and does not change the execution timestamp.',
-        'The reporting feature lets users ask questions about maintenance and equipment. The backend checks each request against supported reporting rules before calculating the results.',
-      ],
-      currentStatus: 'Academic capstone. The system has been tested, but regular university deployment has not been confirmed.',
       media: {
         primary: {
           src: '/projects/unipm/unipm-assets.png',
@@ -66,14 +57,6 @@ const existingProjects: readonly Project[] = [
     },
     media: [{ src: '/projects/sidekick/sidekick-gigs.png', alt: 'Sidekick talent marketplace interface displaying community gig posts, search options, and open listings', width: 1440, height: 900, kind: 'screen' }],
     caseStudy: {
-      overview: 'Sidekick is a community platform where people can post small jobs and find local gigs.',
-      stack: ['React', 'ASP.NET Core', 'PostgreSQL', 'Docker Compose'],
-      contribution: 'I worked on the React frontend, including profile pages, skills, and gig listings. I also connected the authentication flow and helped set up Docker Compose for our bootcamp project.',
-      howItWorks: [
-        'The React app connects to an ASP.NET Core API. ASP.NET Core Identity handles authentication, while PostgreSQL stores user and gig data.',
-        'Docker Compose starts the frontend, backend, and database together, making the project easier to run locally.',
-      ],
-      currentStatus: 'Team capstone for the Open iT Bootcamp, where the project received the Best in Capstone award. Some application and contract features still need frontend work.',
       media: {
         primary: {
           src: '/projects/sidekick/sidekick-gigs.png',
@@ -107,14 +90,6 @@ const existingProjects: readonly Project[] = [
     },
     media: [{ src: '/projects/enverga-arena/enverga-arena-dashboard.png', alt: 'Enverga Arena sports coordinator admin dashboard showing department KPIs, active events, and registration approval queues', width: 1440, height: 900, kind: 'screen' }],
     caseStudy: {
-      overview: 'Enverga Arena is a web app for university intramurals. Students can apply for tryouts and check event results, while department representatives and organizers can manage teams, schedules, and registrations.',
-      stack: ['React', 'Django REST Framework', 'SQLite', 'Cloudflare Turnstile'],
-      contribution: 'I worked on the React frontend and Django backend, including student verification, team registration, and admin features.',
-      howItWorks: [
-        'Students verify their school email through a one-time code before applying for tryouts. Cloudflare Turnstile and rate limits help protect the public forms from automated requests.',
-        'The app can also draft sports recaps using AI. An administrator must review a recap before it can be published as news.',
-      ],
-      currentStatus: 'Solo project. The current local setup uses SQLite.',
       media: {
         primary: {
           src: '/projects/enverga-arena/enverga-arena-dashboard.png',
@@ -148,15 +123,6 @@ const existingProjects: readonly Project[] = [
     },
     media: [{ src: '/projects/studylens/studylens-home.png', alt: 'StudyLens Android home screen showing tasks, recent board-scan activity, and Home, Subjects, Scans, and Profile navigation', width: 720, height: 1608, kind: 'screen' }],
     caseStudy: {
-      projectType: 'Solo Android project',
-      overview: 'StudyLens is an Android app that helps students organize course materials, capture whiteboard notes, and create study materials such as summaries, flashcards, and quizzes.',
-      stack: ['Kotlin', 'Jetpack Compose', 'ML Kit', 'Django REST Framework'],
-      contribution: 'I worked on the Android app using Kotlin and Jetpack Compose, including the OCR note scanner, study tools, and Django API integration.',
-      howItWorks: [
-        'Google ML Kit reads text from captured images. Students can review the text before using it as study material.',
-        'The Django backend manages user data and handles AI requests. This keeps AI provider credentials out of the Android app.',
-      ],
-      currentStatus: 'Android course project. The app has not been published on Google Play.',
       media: {
         primary: {
           src: '/projects/studylens/studylens-home.png',
@@ -191,16 +157,6 @@ const existingProjects: readonly Project[] = [
       caption: 'Organizer event list from a local run using synthetic draft event data.',
     },
     caseStudy: {
-      overview: 'Ingress is an event ticketing and admission system. It lets people register for events online while allowing gate staff to scan tickets over a local network, even without an internet connection.',
-      stack: ['Laravel', 'PostgreSQL', 'React Native', 'Expo'],
-      contribution: 'I worked on the Laravel backend, the separate Cloud and Event Node setup, and the React Native app used by gate staff.',
-      howItWorks: [
-        'The Cloud handles registrations and tickets. Before an event, an Event Node receives the data it needs to handle admission locally.',
-        'Gate staff scan tickets through the mobile app. The Event Node checks each ticket and records the admission after staff confirm it.',
-        'PostgreSQL transactions help prevent conflicting registrations and duplicate admissions. When internet access returns, the Event Node sends its admission records back to the Cloud.',
-        'The Event Node works without public internet but still needs a local server and the venue LAN.',
-      ],
-      currentStatus: 'Course project. The main workflows are implemented, but testing at a real venue is still pending.',
       media: {
         primary: {
           src: '/projects/ingress/ingress-events.webp',
@@ -253,16 +209,6 @@ const existingProjects: readonly Project[] = [
       caption: 'Cropped simulator capture of the Cook with Pip screen from a synthetic UI-test fixture.',
     },
     caseStudy: {
-      projectType: 'Solo project · In development',
-      overview: 'Provision is a household pantry app for tracking food, checking expiration dates, finding recipes, and managing shopping lists.',
-      stack: ['FastAPI', 'PostgreSQL', 'SQLAlchemy', 'SwiftUI'],
-      contribution: 'I worked on the FastAPI backend and SwiftUI app, including inventory management, recipe matching, and Cook with Pip.',
-      howItWorks: [
-        'Provision tracks food in separate batches and uses the earliest-expiring stock first.',
-        'Recipe suggestions check which ingredients are available and whether they are suitable for household members. Pip Chat can use household information with the user\'s consent.',
-        'The app asks for confirmation before making shopping changes.',
-      ],
-      currentStatus: 'Still in development. The iOS screenshots come from simulator runs, and physical-device testing has not been established.',
       media: {
         primary: {
           src: '/projects/provision/cook-with-pip-card.webp',
