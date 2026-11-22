@@ -121,7 +121,8 @@
   .work-heading-copy { max-width:42rem; }
   .project-grid { display:grid; gap:1rem; margin-top:2.25rem; }
   .project-card { min-width:0; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); }
-  .project-media { aspect-ratio:4/3; overflow:hidden; border-bottom:1px solid var(--line); background:#191a21; }
+  .project-media { aspect-ratio:16/10; overflow:hidden; border-bottom:1px solid var(--line); background:#191a21; }
+  .project-media.project-media-portrait { aspect-ratio:4/3; }
   .project-media img { display:block; width:100%; height:100%; object-fit:contain; object-position:center; }
   .project-content { display:grid; align-content:start; padding:1.15rem; }
   .project-kicker { margin:0; color:var(--cyan); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.75rem; line-height:1.4; }
@@ -153,7 +154,8 @@
   .project-card-featured .project-actions { margin-top:auto; padding-top:.85rem; }
 
   .technical-section,.about-section,.credentials-section { min-height:0; }
-  .technical-section { border-top:1px solid var(--line); }
+  .technical-section { padding-top:clamp(1.75rem,3vw,2.5rem); border-top:1px solid var(--line); }
+  .about-section { padding-bottom:clamp(1.75rem,3vw,2.5rem); }
   .technical-grid { display:grid; gap:1.5rem 2rem; margin-top:1.5rem; }
   .technical-panel { min-width:0; padding-top:.8rem; border-top:1px solid var(--line); }
   .technical-panel h3 { margin:0; color:var(--cyan); font-size:1rem; line-height:1.35; }
@@ -172,6 +174,8 @@
   .education-item>p:not(.education-label) { margin:.35rem 0 0; color:var(--muted); font-size:.82rem; line-height:1.5; }
   .education-item ul { display:grid; gap:.4rem; margin:.65rem 0 0; padding:0; list-style:none; }
   .education-item li { color:var(--muted); font-size:.82rem; line-height:1.4; }
+  .education-item li:first-child { color:var(--ink); font-size:1rem; font-weight:700; }
+  .education-item li:not(:first-child) { color:var(--green); font-weight:600; }
 
   .credentials-heading { margin-bottom:2rem; }
   .credentials-intro { max-width:40rem; margin:.75rem 0 0; color:var(--muted); line-height:1.6; }
@@ -183,7 +187,6 @@
   .award-card-featured { border-color:color-mix(in srgb,var(--accent) 55%,var(--line)); }
   .credential-card-header { display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem; }
   .credential-card h3 { margin:0; color:var(--ink); font-size:1rem; line-height:1.4; }
-  .award-card-featured h3 { color:var(--cyan); }
   .award-placement { color:var(--green); }
   .credential-year { flex:none; color:var(--pink); font-size:.78rem; line-height:1.5; }
   .credential-detail,.credential-context { margin:0; color:var(--muted); font-size:.84rem; line-height:1.5; }

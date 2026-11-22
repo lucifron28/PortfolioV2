@@ -53,7 +53,7 @@ export const skillGroups: readonly SkillGroup[] = [
   },
   {
     title: 'Data, Tools & Infrastructure',
-    items: ['SQL Server', 'PostgreSQL', 'SQLite', 'Redis', 'Celery', 'Git', 'Docker', 'GitHub Actions'],
+    items: ['SQL Server', 'PostgreSQL', 'SQLite', 'Redis', 'Celery', 'Git', 'Docker', 'GitHub Actions', 'OpenAI Codex'],
   },
   {
     title: 'Frontend & Mobile',
@@ -132,6 +132,7 @@ export const awards: readonly Credential[] = [
   {
     id: 'codechum',
     title: '1st Place, Stage 3 & Grand Finals Finalist, CodeChum National Programming Challenge',
+    placement: '1st Place, Stage 3 & Grand Finals Finalist',
     year: '2024',
     detail: 'National programming competition',
     image: '/credentials/codechum.png',
@@ -139,6 +140,7 @@ export const awards: readonly Credential[] = [
   {
     id: 'coco',
     title: 'Back-to-Back 1st Place, COCO Coding Competition',
+    placement: 'Back-to-Back 1st Place',
     year: '2025-2026',
     detail: 'MSEUF Cyber Week',
     imageLabel: 'View 2025 certificate',
