@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { homepageIntroduction } from '@/content/portfolio'
+import { homepageIntroduction, professionalHighlights } from '@/content/portfolio'
 import { selectedProjects } from '@/content/projects'
 import { HomepageRecognition } from '@/components/homepage-recognition'
 import { ProjectCard } from '@/components/project-card'
@@ -15,6 +15,14 @@ export function Hero() {
         <div className="identity-copy">
           {homepageIntroduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
+        <dl className="professional-focus" aria-label="Professional focus">
+          {professionalHighlights.map((item) => (
+            <div key={item.label}>
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
         <nav className="hero-actions" aria-label="Primary links">
           <Link className="button-primary" href="/portfolio">View Projects</Link>
           <Link className="button-secondary" href="/contact">Get in Touch</Link>

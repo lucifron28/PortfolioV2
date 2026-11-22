@@ -4,7 +4,7 @@ import { Contact } from '@/components/contact'
 import { PageFrame } from '@/components/page-frame'
 
 export const metadata: Metadata = {
-  title: 'Contact | Ron Vincent Cada',
+  title: 'Get in touch | Ron Vincent Cada',
   description: 'Contact Ron Vincent Cada about internships, development roles, collaboration, and freelance projects.',
   alternates: { canonical: '/contact' },
 }

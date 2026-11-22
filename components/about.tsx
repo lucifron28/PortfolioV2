@@ -10,16 +10,27 @@ export function About() {
         <p className="about-copy">{aboutText}</p>
         <p className="about-growth">{growthText}</p>
       </div>
-      <div className="education-row">
-        <div className="education-details">
-          <h2>Education</h2>
-          <h3>{education.institution}</h3>
-          <p>{education.program}<br />{education.focus}<br />{education.expected}</p>
+      <section className="education-section" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div className="education-grid">
+          <article className="education-item">
+            <p className="education-label">Institution</p>
+            <h3>{education.institution}</h3>
+            <p>{education.expected}</p>
+          </article>
+          <article className="education-item">
+            <p className="education-label">Program</p>
+            <h3>{education.program}</h3>
+            <p>{education.focus}</p>
+          </article>
+          <div className="education-item">
+            <p className="education-label">Academic standing</p>
+            <ul>
+              {education.academicStanding.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </div>
         </div>
-        <ul className="education-standing">
-          {education.academicStanding.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      </div>
+      </section>
     </section>
   )
 }
