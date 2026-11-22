@@ -22,7 +22,7 @@ export function Credentials() {
         <ul className="credentials-grid awards-grid">
           {awards.map((item, index) => (
             <li key={item.id ?? item.title} id={item.id}>
-              <article className={'credential-card award-card' + (index < 2 ? ' award-card-featured' : '')}>
+              <article className={'credential-card award-card' + (index === 0 ? ' award-card-featured' : '')}>
                 <header className="credential-card-header">
                   <div className="award-heading">
                     {item.placement ? <p className="award-placement">{item.placement}</p> : null}

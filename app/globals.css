@@ -184,11 +184,16 @@
   .credentials-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:.85rem; margin:0; padding:0; list-style:none; }
   .credentials-grid li { min-width:0; scroll-margin-top:5rem; }
   .credential-card { display:flex; height:100%; min-width:0; flex-direction:column; gap:.55rem; padding:1.15rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--raised); }
-  .award-card-featured { border-color:color-mix(in srgb,var(--accent) 55%,var(--line)); }
+  .award-card { gap:.4rem; padding:.8rem; background:var(--surface); }
+  .award-card-featured { border-color:color-mix(in srgb,var(--accent) 72%,var(--line)); background:color-mix(in srgb,var(--accent) 4%,var(--surface)); }
   .credential-card-header { display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem; }
   .credential-card h3 { margin:0; color:var(--ink); font-size:1rem; line-height:1.4; }
   .award-heading { min-width:0; display:grid; gap:.25rem; }
-  .award-placement { margin:0; color:var(--green); font-weight:600; line-height:1.4; }
+  .award-placement { margin:0; color:var(--pink); font-size:1rem; font-weight:750; letter-spacing:-.025em; line-height:1.3; }
+  .award-card h3 { color:var(--cyan); font-weight:700; line-height:1.35; }
+  .award-card .credential-year { color:var(--muted); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.7rem; }
+  .award-card .credential-detail,.award-card .credential-context { font-size:.78rem; line-height:1.45; }
+  .award-card .credential-context { font-size:.74rem; }
   .credential-year { flex:none; color:var(--pink); font-size:.78rem; line-height:1.5; }
   .credential-detail,.credential-context { margin:0; color:var(--muted); font-size:.84rem; line-height:1.5; }
   .credential-category { margin:0; color:var(--pink); font-size:.75rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
