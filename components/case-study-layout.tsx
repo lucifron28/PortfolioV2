@@ -33,6 +33,7 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
         <h1>{project.name}</h1>
         <p className="case-study-lede">{copy.overview}</p>
         <dl className="case-study-meta">
+          {project.date ? <div><dt>Dates</dt><dd>{project.date}</dd></div> : null}
           <div>
             <dt>Project type</dt>
             <dd>{copy.projectType}</dd>

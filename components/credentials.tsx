@@ -30,6 +30,7 @@ export function Credentials() {
                   </div>
                   {item.year ? <span className="credential-year">{item.year}</span> : null}
                 </header>
+                {item.date ? <p className="credential-detail">{item.date}</p> : null}
                 {item.detail ? <p className="credential-detail">{item.detail}</p> : null}
                 {item.context ? <p className="credential-context">{item.context}</p> : null}
                 <CredentialActions item={item} onSelect={openCredential} />
@@ -46,6 +47,7 @@ export function Credentials() {
               <article className="credential-card learning-card">
                 <p className="credential-category">{item.category}</p>
                 <h3>{item.title}</h3>
+                {item.date ? <p className="credential-detail">{item.date}</p> : null}
                 {item.issuer ? <p className="credential-detail">{item.issuer}</p> : null}
                 {item.detail ? <p className="credential-detail">{item.detail}</p> : null}
                 <CredentialActions item={item} onSelect={openCredential} />

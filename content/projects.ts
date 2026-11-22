@@ -3,6 +3,7 @@ import type { Project } from '@/lib/portfolio-types'
 const existingProjects: readonly Project[] = [
   {
     id: 'unipm',
+    date: 'January 2026 – Present',
     name: 'UniPM',
     type: 'Team capstone',
     role: 'ASP.NET Core backend contributor',
@@ -36,6 +37,7 @@ const existingProjects: readonly Project[] = [
   },
   {
     id: 'sidekick',
+    date: 'May 25–26, 2026',
     name: 'Sidekick',
     type: 'Team bootcamp capstone',
     role: 'React frontend and environment setup',
@@ -71,6 +73,7 @@ const existingProjects: readonly Project[] = [
   },
   {
     id: 'enverga-arena',
+    date: 'April 2026',
     name: 'Enverga Arena',
     type: 'Solo project',
     role: 'Sole developer',
@@ -104,6 +107,7 @@ const existingProjects: readonly Project[] = [
   },
   {
     id: 'studylens',
+    date: 'June 2026',
     name: 'StudyLens',
     type: 'Solo Android final project',
     role: 'Sole developer',
@@ -137,6 +141,7 @@ const existingProjects: readonly Project[] = [
   },
   {
     id: 'ingress',
+    date: 'Repository created October 2026',
     name: 'Ingress',
     type: 'Team course project',
     role: 'Backend and platform contributor',
@@ -189,6 +194,7 @@ const existingProjects: readonly Project[] = [
   },
   {
     id: 'provision',
+    date: 'Repository created September 2026',
     name: 'Provision',
     type: 'Solo project',
     role: 'Backend and iOS developer',
@@ -236,6 +242,7 @@ const existingProjects: readonly Project[] = [
 const supplementalProjects: readonly Project[] = [
   {
     id: 'scrybe-sync',
+    date: 'June 2025',
     name: 'ScrybeSync',
     type: 'Solo project',
     role: 'Sole developer',
@@ -251,6 +258,7 @@ const supplementalProjects: readonly Project[] = [
   },
   {
     id: 'aquest',
+    date: 'July 12–13, 2025',
     name: 'AQuest',
     type: 'Open iT Codefest project',
     role: 'Codefest project contributor',

@@ -51,6 +51,7 @@ export function useCredentialViewer() {
         <div className="credential-modal-header">
           <div>
             <h2 id="modal-credential-title">{selectedCredential.title}</h2>
+            {selectedCredential.date ? <p>{selectedCredential.date}</p> : null}
             {selectedCredential.detail ? <p>{selectedCredential.detail}</p> : null}
             {selectedCredential.credentialId ? (
               <p className="credential-id">Credential ID: {selectedCredential.credentialId}</p>

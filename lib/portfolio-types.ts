@@ -16,6 +16,7 @@ export type ProjectCaseStudy = {
 
 export type Project = {
   id: string
+  date?: string
   name: string
   type: string
   role: string
@@ -43,6 +44,7 @@ export type Credential = {
   title: string
   detail?: string
   year?: string
+  date?: string
   placement?: string
   event?: string
   context?: string
