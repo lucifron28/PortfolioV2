@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Github } from 'lucide-react'
+
 import type { ReactNode } from 'react'
 
-import type { Project, ProjectCaseStudy } from '@/lib/portfolio-types'
+import type { Project, ProjectCaseStudy, ProjectMedia } from '@/lib/portfolio-types'
 
 type CaseStudyLayoutProps = {
   project: Project
@@ -13,60 +14,60 @@ type CaseStudyLayoutProps = {
 }
 
 export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStudyLayoutProps) {
-  const mediaItems = project.caseStudyMedia && project.caseStudyMedia.length > 0
-    ? project.caseStudyMedia
-    : project.cardMedia
-      ? [project.cardMedia]
-      : project.media ?? []
-
   return (
     <article className={'case-study-page project-' + project.id}>
+      <nav className="container-shell case-study-topbar" aria-label={project.name + ' links'}>
+        <Link className="case-study-topbar-link" href="/portfolio">
+          <ArrowLeft aria-hidden="true" size={16} /> Back to projects
+        </Link>
+        {project.repository ? (
+          <a className="case-study-topbar-link" href={project.repository} target="_blank" rel="noopener noreferrer">
+            <Github aria-hidden="true" size={16} /> View on GitHub
+          </a>
+        ) : null}
+      </nav>
+
       <header className="container-shell case-study-header">
-        <Link className="back-link" href="/portfolio"><ArrowLeft aria-hidden="true" size={17} /> Back to projects</Link>
-        <p className="case-study-label">Project case study</p>
-        <p className="case-study-context">{project.type} / {project.role}</p>
         <h1>{project.name}</h1>
-        <p className="case-study-lede">{project.summary}</p>
-        <div className="case-study-actions">
-          {project.repository ? <a className="button-primary" href={project.repository} target="_blank" rel="noreferrer">View repository <ArrowUpRight aria-hidden="true" size={17} /></a> : null}
-        </div>
+        <p className="case-study-lede">{caseStudy.overview}</p>
+        <dl className="case-study-meta">
+          <div>
+            <dt>Project type</dt>
+            <dd>{caseStudy.projectType ?? project.type}</dd>
+          </div>
+          <div>
+            <dt>Stack</dt>
+            <dd>{caseStudy.stack.join(' · ')}</dd>
+          </div>
+        </dl>
       </header>
 
-      <dl className="container-shell case-study-facts">
-        <div><dt>Status</dt><dd>{caseStudy.status}</dd></div>
-        <div><dt>Scope</dt><dd>{caseStudy.scope}</dd></div>
-        <div><dt>Team and role</dt><dd>{caseStudy.team}</dd></div>
-      </dl>
+      <CaseStudyFigure item={caseStudy.media.primary} variant="primary" />
 
       <div className="container-shell case-study-content">
-        {mediaItems.length > 0 ? (
-          <div className="case-study-media-stack">
-            {mediaItems.map((item, index) => {
-              const caption = item.caption ?? (index === mediaItems.length - 1 ? caseStudy.mediaNote : undefined)
-              return (
-                <figure key={item.src} className={'case-study-media case-study-media-' + item.kind}>
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    width={item.width}
-                    height={item.height}
-                    sizes="(min-width: 1024px) 75rem, calc(100vw - 2rem)"
-                    unoptimized={item.src.endsWith('.svg')}
-                  />
-                  {caption ? <figcaption>{caption}</figcaption> : null}
-                </figure>
-              )
-            })}
-          </div>
-        ) : null}
-
         <div className="case-study-body">
-          <CaseStudySection title="Context"><p>{caseStudy.problem}</p></CaseStudySection>
-          <CaseStudyList title="What I built" items={project.contributions} />
-          <CaseStudyList title="Technical approach" items={[...caseStudy.architecture, ...caseStudy.technicalDecisions]} />
-          <CaseStudyList title="Security and verification" items={[...caseStudy.securityAndData, ...caseStudy.reliabilityAndOperations, ...caseStudy.testing]} />
-          <CaseStudyList title="Current limits" items={caseStudy.limitations} />
+          <CaseStudySection title="What I worked on">
+            <p>{caseStudy.contribution}</p>
+          </CaseStudySection>
+          <CaseStudySection title="How it works">
+            {caseStudy.howItWorks.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </CaseStudySection>
+          <CaseStudySection title="Current status">
+            <p>{caseStudy.currentStatus}</p>
+            {project.recognition ? (
+              <Link className="case-study-recognition" href={project.recognition.href}>{project.recognition.label}</Link>
+            ) : null}
+          </CaseStudySection>
         </div>
+
+        {caseStudy.media.gallery?.length ? (
+          <section className="case-study-gallery" aria-label={project.name + ' screenshots'}>
+            <h2>More screenshots</h2>
+            <div className="case-study-gallery-grid">
+              {caseStudy.media.gallery.map((item) => <CaseStudyFigure key={item.src} item={item} variant="gallery" />)}
+            </div>
+          </section>
+        ) : null}
       </div>
 
       <nav className="container-shell case-study-pagination" aria-label="Project case studies">
@@ -77,19 +78,32 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
   )
 }
 
+function CaseStudyFigure({ item, variant }: { item: ProjectMedia; variant: 'primary' | 'gallery' }) {
+  const isPortrait = item.height > item.width
+  const className = 'container-shell case-study-media case-study-media-' + variant + (isPortrait ? ' case-study-media-portrait' : '')
+
+  return (
+    <figure className={className}>
+      <Image
+        src={item.src}
+        alt={item.alt}
+        width={item.width}
+        height={item.height}
+        sizes={variant === 'primary'
+          ? '(min-width: 1180px) 75rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 1rem)'
+          : '(min-width: 1024px) 34rem, (min-width: 640px) calc((100vw - 4rem) / 2), calc(100vw - 2rem)'}
+        priority={variant === 'primary'}
+      />
+      {item.caption ? <figcaption>{item.caption}</figcaption> : null}
+    </figure>
+  )
+}
+
 function CaseStudySection({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="case-study-section">
       <h2>{title}</h2>
       {children}
     </section>
-  )
-}
-
-function CaseStudyList({ title, items }: { title: string; items: readonly string[] }) {
-  return (
-    <CaseStudySection title={title}>
-      <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
-    </CaseStudySection>
   )
 }
