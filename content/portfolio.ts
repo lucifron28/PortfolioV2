@@ -151,7 +151,7 @@ export const awards: readonly Credential[] = [
 ]
 
 export const certifications: readonly Credential[] = [
-  { title: 'Microsoft Certified: Azure Fundamentals (AZ-900)' },
+  { title: 'Microsoft Certified: Azure Fundamentals (AZ-900)', image: '/credentials/azure-fundamentals.png' },
   {
     title: 'GitHub Foundations',
     credentialId: 'nz51yDUa',
