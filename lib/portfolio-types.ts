@@ -8,12 +8,6 @@ export type ProjectMedia = {
 }
 
 export type ProjectCaseStudy = {
-  projectType?: string
-  overview: string
-  stack: readonly string[]
-  contribution: string
-  howItWorks: readonly string[]
-  currentStatus: string
   media: {
     primary: ProjectMedia
     gallery?: readonly ProjectMedia[]
