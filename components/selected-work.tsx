@@ -7,7 +7,7 @@ export function SelectedWork() {
       <div className="work-heading-copy">
         <p className="eyebrow">Projects</p>
         <h1 id="work-title" className="section-title">Selected projects.</h1>
-        <p className="section-intro">Backend APIs, web applications, and an Android learning companion.</p>
+        <p className="section-intro">Web, mobile, and backend projects I&apos;ve worked on.</p>
       </div>
       <div className="project-grid">
         {selectedProjects.map((project, index) => <ProjectCard key={project.id} project={project} priority={index === 0} />)}
