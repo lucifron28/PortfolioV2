@@ -128,8 +128,13 @@ export const awards: readonly Credential[] = [
     year: '2025',
     detail: 'Regional cybersecurity competition',
     context: 'Recognition for individual performance.',
-    imageLabel: 'View 2025 certificate',
-    supportingImages: [{ src: '/credentials/hack4gov-2025.png', label: 'Hack4Gov 2025 certificate of recognition' }],
+    imageLabel: 'View award evidence',
+    supportingImages: [
+      { src: '/credentials/hack4gov-2025.png', label: 'Hack4Gov 2025 certificate of recognition' },
+      { src: '/credentials/hack4gov-2025-event.png', label: 'Hack4Gov 2025 event photo' },
+    ],
+    verificationUrl: 'https://www.facebook.com/share/18tF6Z89fx/',
+    verificationLabel: 'Event post',
   },
   {
     id: 'codechum',
