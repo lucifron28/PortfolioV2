@@ -20,7 +20,7 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
       : project.media ?? []
 
   return (
-    <article className="case-study-page">
+    <article className={'case-study-page project-' + project.id}>
       <header className="container-shell case-study-header">
         <Link className="back-link" href="/portfolio"><ArrowLeft aria-hidden="true" size={17} /> Back to projects</Link>
         <p className="case-study-label">Project case study</p>

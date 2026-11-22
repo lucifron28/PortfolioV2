@@ -6,7 +6,7 @@ import { TechnicalFocus } from '@/components/technical-focus'
 
 export const metadata: Metadata = {
   title: 'About | Ron Vincent Cada',
-  description: 'About Ron Vincent Cada, his education, and technical skills.',
+  description: 'About Ron Vincent Cada, his MSEUF education, backend development focus, current security learning, and technical skills.',
   alternates: { canonical: '/about' },
 }
 
