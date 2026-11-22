@@ -92,6 +92,8 @@ export const awards: readonly Credential[] = [
     detail: 'National CS and IT Skills Competition, Collegiate Python Category',
     context: 'Individual competition organized by De La Salle University-Dasmarinas.',
     image: '/credentials/sikaptala.jpg',
+    verificationUrl: 'https://www.facebook.com/DLSUD.CICSSG/posts/pfbid06UarEPHZAexXfowA2i9bmRymXeFWQ3ZPUecZEMQonqXqJZSQ6LWotNhtYJAVmvQQl',
+    verificationLabel: 'Winners announcement',
   },
   {
     id: 'openit-codefest',
@@ -126,8 +128,13 @@ export const awards: readonly Credential[] = [
     year: '2025',
     detail: 'Regional cybersecurity competition',
     context: 'Recognition for individual performance.',
-    imageLabel: 'View 2025 certificate',
-    supportingImages: [{ src: '/credentials/hack4gov-2025.png', label: 'Hack4Gov 2025 certificate of recognition' }],
+    imageLabel: 'View award evidence',
+    supportingImages: [
+      { src: '/credentials/hack4gov-2025.png', label: 'Hack4Gov 2025 certificate of recognition' },
+      { src: '/credentials/hack4gov-2025-event.png', label: 'Hack4Gov 2025 event photo' },
+    ],
+    verificationUrl: 'https://www.facebook.com/share/18tF6Z89fx/',
+    verificationLabel: 'Event post',
   },
   {
     id: 'codechum',
@@ -143,8 +150,12 @@ export const awards: readonly Credential[] = [
     placement: 'Back-to-Back 1st Place',
     year: '2025-2026',
     detail: 'MSEUF Cyber Week',
-    imageLabel: 'View 2025 certificate',
-    supportingImages: [{ src: '/credentials/coco-2025.png', label: '2025 first-place certificate' }],
+    imageLabel: 'View award evidence',
+    supportingImages: [
+      { src: '/credentials/coco-2025.png', label: '2025 first-place certificate' },
+      { src: '/credentials/coco-2026-announcement.png', label: '2026 COCO first-place winner announcement' },
+    ],
+    verificationUrl: 'https://mseuf.edu.ph/oso/news/mastechlaban-cyber-week-2026',
   },
 ]
 
