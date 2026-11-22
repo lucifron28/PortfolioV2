@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { selectedProjects } from '@/content/projects'
+import { caseStudyProjects } from '@/content/projects'
 
 const baseUrl = 'https://ron-cada-portfolio.vercel.app'
 
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
-    ...selectedProjects.map((project) => ({
+    ...caseStudyProjects.map((project) => ({
       url: baseUrl + '/work/' + project.id,
       changeFrequency: 'monthly' as const,
       priority: 0.8,

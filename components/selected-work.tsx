@@ -14,7 +14,7 @@ export function SelectedWork() {
       </div>
       <div className="archive-section" aria-labelledby="additional-work-title">
         <div>
-          <h3 id="additional-work-title">Archive</h3>
+          <h2 id="additional-work-title">Archive</h2>
         </div>
         <div className="archive-grid">
           {additionalProjects.map((project) => <ProjectCard key={project.id} project={project} compact />)}

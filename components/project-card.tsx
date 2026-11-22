@@ -44,7 +44,7 @@ export function ProjectCard({ project, compact = false, featured = false }: Proj
       ) : null}
       <div className="project-content">
         <div className="project-kicker"><span>{project.type}</span><span>{project.role}</span></div>
-        <h3>{project.name}</h3>
+        {compact ? <h3>{project.name}</h3> : <h2>{project.name}</h2>}
         <p className="project-summary">{project.summary}</p>
         {project.contributions[0] ? (
           <div className="project-contribution-block">

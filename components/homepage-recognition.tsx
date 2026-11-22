@@ -33,7 +33,7 @@ export function HomepageRecognition() {
                   <button
                     type="button"
                     aria-label={(award.imageLabel ?? 'View certificate') + ' for ' + award.title}
-                    onClick={(event) => openCredential(award, event.currentTarget)}
+                    onClick={() => openCredential(award)}
                   >
                     {award.imageLabel ?? 'View certificate'}
                   </button>
