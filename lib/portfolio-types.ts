@@ -3,22 +3,21 @@ export type ProjectMedia = {
   alt: string
   width: number
   height: number
-  kind: 'screen' | 'diagram'
+  kind: 'screen'
   caption?: string
 }
 
 export type ProjectCaseStudy = {
-  status: string
-  scope: string
-  problem: string
-  team: string
-  architecture: readonly string[]
-  technicalDecisions: readonly string[]
-  securityAndData: readonly string[]
-  reliabilityAndOperations: readonly string[]
-  testing: readonly string[]
-  limitations: readonly string[]
-  mediaNote?: string
+  projectType?: string
+  overview: string
+  stack: readonly string[]
+  contribution: string
+  howItWorks: readonly string[]
+  currentStatus: string
+  media: {
+    primary: ProjectMedia
+    gallery?: readonly ProjectMedia[]
+  }
 }
 
 export type Project = {
@@ -36,7 +35,6 @@ export type Project = {
   repository?: string
   media?: readonly ProjectMedia[]
   cardMedia?: ProjectMedia
-  caseStudyMedia?: readonly ProjectMedia[]
   caseStudy?: ProjectCaseStudy
 }
 

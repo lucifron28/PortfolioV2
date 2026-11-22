@@ -3,14 +3,14 @@ import { notFound } from 'next/navigation'
 
 import { CaseStudyLayout } from '@/components/case-study-layout'
 import { PageFrame } from '@/components/page-frame'
-import { allProjects, getProjectById } from '@/content/projects'
+import { caseStudyProjects, getProjectById } from '@/content/projects'
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
-  return allProjects.filter((project) => project.caseStudy).map((project) => ({ slug: project.id }))
+  return caseStudyProjects.map((project) => ({ slug: project.id }))
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
@@ -37,10 +37,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   if (!project?.caseStudy) notFound()
 
-  const caseStudies = allProjects.filter((item) => item.caseStudy)
-  const index = caseStudies.findIndex((item) => item.id === project.id)
-  const previous = index > 0 ? caseStudies[index - 1] : undefined
-  const next = index >= 0 && index < caseStudies.length - 1 ? caseStudies[index + 1] : undefined
+  const index = caseStudyProjects.findIndex((item) => item.id === project.id)
+  const previous = index > 0 ? caseStudyProjects[index - 1] : undefined
+  const next = index >= 0 && index < caseStudyProjects.length - 1 ? caseStudyProjects[index + 1] : undefined
 
   return (
     <PageFrame>
