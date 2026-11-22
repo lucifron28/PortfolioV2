@@ -206,34 +206,26 @@ const existingProjects: readonly Project[] = [
       width: 1206,
       height: 678,
       kind: 'screen',
-      caption: 'Cropped simulator capture of the Cook with Pip screen from a synthetic UI-test fixture.',
+      caption: 'Cook with Pip recipe screen.',
     },
     caseStudy: {
       media: {
         primary: {
-          src: '/projects/provision/cook-with-pip-card.webp',
-          alt: 'Cook with Pip native iOS screen describing household recipes checked against pantry stock and safety',
+          src: '/projects/provision/cook-with-pip.webp',
+          alt: 'Cook with Pip screen showing recipe categories and pantry availability',
           width: 1206,
-          height: 678,
+          height: 2347,
           kind: 'screen',
-          caption: 'Cropped simulator capture of the Cook with Pip screen from a synthetic UI-test fixture.'
+          caption: 'Cook with Pip recipe screen.'
         },
         gallery: [
-          {
-            src: '/projects/provision/cook-with-pip.webp',
-            alt: 'Native SwiftUI Cook with Pip screen showing recipe categories and household recipe availability for synthetic data',
-            width: 1206,
-            height: 2347,
-            kind: 'screen',
-            caption: 'Simulator capture of the native recipe flow using synthetic household fixture data.'
-          },
           {
             src: '/projects/provision/shopping-preview.webp',
             alt: 'Native SwiftUI shopping preview showing servings, food safety status, and pantry ingredient availability before confirmation',
             width: 1206,
             height: 2347,
             kind: 'screen',
-            caption: 'Preconfirmation shopping review from the same simulator gallery; inventory changes require a separate confirmation.'
+            caption: 'Shopping preview before confirmation.'
           },
         ],
       },
