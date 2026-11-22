@@ -193,20 +193,22 @@
   .education-item li:nth-child(3) { color:var(--pink); }
 
   .credentials-heading { margin-bottom:2rem; }
-  .credentials-lists { display:grid; gap:2.5rem; }
-  .credentials-secondary-lists { display:grid; gap:2rem; }
-  .credentials-lists h2 { margin:0 0 1rem; color:var(--cyan); font-size:1.15rem; }
-  .credentials-awards-list h2 { color:var(--pink); }
-  .credentials-secondary-lists>div:nth-child(2) h2 { color:var(--green); }
-  .credentials-lists ul { display:grid; gap:0; margin:0; padding:0; border-top:1px solid var(--line); list-style:none; }
-  .credentials-lists li { display:flex; flex-direction:column; align-items:flex-start; gap:.55rem; padding:1.1rem 0; border-bottom:1px solid var(--line); line-height:1.5; scroll-margin-top:5rem; }
-  .credential-info { display:grid; gap:.25rem; width:100%; }
-  .credential-info>span { color:var(--cyan); }
-  .credentials-lists small { color:var(--muted); font-size:.84rem; }
-  .credentials-lists .credential-year { color:var(--accent); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.7rem; }
-  .credential-actions { display:flex; flex-wrap:wrap; gap:.4rem; }
-  .credential-action-btn { display:inline-flex; min-height:40px; align-items:center; gap:.35rem; padding:.25rem .6rem; border:1px solid var(--line); border-radius:.35rem; background:var(--raised); color:var(--accent); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.72rem; font-weight:600; text-decoration:none; cursor:pointer; transition:border-color 160ms ease,color 160ms ease,background-color 160ms ease; }
-  .credential-action-btn:hover { border-color:var(--accent); background:color-mix(in srgb,var(--accent) 12%,transparent); color:var(--ink); }
+  .credentials-intro { max-width:40rem; margin:.75rem 0 0; color:var(--muted); line-height:1.6; }
+  .credentials-group + .credentials-group { margin-top:2.5rem; }
+  .credentials-group h2 { margin:0 0 1rem; color:var(--cyan); font-size:1.1rem; }
+  .credentials-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:.85rem; margin:0; padding:0; list-style:none; }
+  .credentials-grid li { min-width:0; scroll-margin-top:5rem; }
+  .credential-card { display:flex; height:100%; min-width:0; flex-direction:column; gap:.55rem; padding:1.15rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--raised); }
+  .award-card-featured { border-color:color-mix(in srgb,var(--accent) 55%,var(--line)); }
+  .credential-card-header { display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem; }
+  .credential-card h3 { margin:0; color:var(--ink); font-size:1rem; line-height:1.4; }
+  .award-card-featured h3 { color:var(--cyan); }
+  .credential-year { flex:none; color:var(--pink); font-size:.78rem; line-height:1.5; }
+  .credential-detail,.credential-context { margin:0; color:var(--muted); font-size:.84rem; line-height:1.5; }
+  .credential-category { margin:0; color:var(--pink); font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+  .credential-actions { display:flex; flex-wrap:wrap; gap:0 1rem; margin-top:auto; }
+  .credential-action-btn { display:inline-flex; min-height:44px; align-items:center; gap:.35rem; padding:0; border:0; background:transparent; color:var(--accent); font:inherit; font-size:.82rem; font-weight:650; text-decoration:none; cursor:pointer; }
+  .credential-action-btn:hover { color:var(--ink); text-decoration:underline; }
 
   .credential-modal-card { width:min(calc(100% - 2rem),52rem); max-height:calc(100vh - 2rem); padding:0; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); color:var(--ink); box-shadow:0 24px 48px rgba(0,0,0,.6); }
   .credential-modal-card[open] { display:flex; flex-direction:column; }
@@ -290,7 +292,7 @@
 
 @media (min-width:640px) {
   .container-shell { width:min(calc(100% - 3rem),75rem); }
-  .credentials-secondary-lists { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .credentials-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .recognition-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media (min-width:640px) and (max-width:1179px) {
