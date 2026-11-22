@@ -196,7 +196,7 @@ export const caseStudyCopy = {
       "Keep secrets on the server. The iOS app uses the Keychain for authentication credentials. AI provider credentials remain in backend configuration rather than inside the mobile app."
     ],
     "status": [
-      "Provision is still in development. The backend repository has a broad pytest suite for inventory, household access, recipes, consent, shopping previews, stale-state checks, and repeated requests. The project also has iOS unit and UI tests in GitHub-hosted macOS workflows. The portfolio screenshots were captured in a simulator with synthetic data; they are not proof of a live end-to-end session with a physical iPhone.",
+      "Provision is still in development. The backend repository has a broad pytest suite for inventory, household access, recipes, consent, shopping previews, stale-state checks, and repeated requests. The project also has iOS unit and UI tests in GitHub-hosted macOS workflows.",
       "Some advanced cooking, meal planning, and leftover functions have backend work that is not yet represented by complete native app screens. Physical-device camera and scanner testing, accessibility checks, and final release testing remain pending."
     ]
   }
