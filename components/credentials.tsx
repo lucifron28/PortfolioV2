@@ -8,72 +8,73 @@ import type { Credential } from '@/lib/portfolio-types'
 
 export function Credentials() {
   const { openCredential, modal } = useCredentialViewer()
+  const learning = [
+    ...certifications.map((item, index) => ({ item, category: 'Certification', issuer: index === 0 ? 'Microsoft' : 'GitHub' })),
+    ...training.map((item, index) => ({ item, category: index === 0 ? 'Training' : 'Course', issuer: index === 0 ? 'Open iT' : undefined })),
+  ]
 
   return (
     <section id="credentials" className="container-shell section-space credentials-section" aria-labelledby="credentials-title">
       <div className="section-heading credentials-heading">
         <p className="eyebrow">Awards</p>
-        <h1 id="credentials-title" className="section-title">Awards &amp; credentials.</h1>
+        <h1 id="credentials-title" className="section-title">Awards &amp; credentials</h1>
+        <p className="credentials-intro">Competition placements, academic recognition, certifications, and technical training.</p>
       </div>
-      <div className="credentials-lists">
-        <div className="credentials-awards-list">
-          <CredentialList title="Awards" items={awards} onSelect={openCredential} />
-        </div>
-        <div className="credentials-secondary-lists">
-          <CredentialList title="Certifications" items={certifications} onSelect={openCredential} />
-          <CredentialList title="Training" items={training} onSelect={openCredential} />
-        </div>
-      </div>
+      <section className="credentials-group" aria-labelledby="competition-awards-title">
+        <h2 id="competition-awards-title">Competition awards</h2>
+        <ul className="credentials-grid awards-grid">
+          {awards.map((item, index) => (
+            <li key={item.id ?? item.title} id={item.id}>
+              <article className={'credential-card award-card' + (index < 2 ? ' award-card-featured' : '')}>
+                <header className="credential-card-header">
+                  <h3>{item.title}</h3>
+                  {item.year ? <span className="credential-year">{item.year}</span> : null}
+                </header>
+                {item.detail ? <p className="credential-detail">{item.detail}</p> : null}
+                {item.context ? <p className="credential-context">{item.context}</p> : null}
+                <CredentialActions item={item} onSelect={openCredential} />
+              </article>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="credentials-group" aria-labelledby="learning-title">
+        <h2 id="learning-title">Certifications &amp; training</h2>
+        <ul className="credentials-grid learning-grid">
+          {learning.map(({ item, category, issuer }) => (
+            <li key={item.title}>
+              <article className="credential-card learning-card">
+                <p className="credential-category">{category}</p>
+                <h3>{item.title}</h3>
+                {issuer ? <p className="credential-detail">{issuer}</p> : null}
+                {item.detail ? <p className="credential-detail">{item.detail}</p> : null}
+                <CredentialActions item={item} onSelect={openCredential} />
+              </article>
+            </li>
+          ))}
+        </ul>
+      </section>
       {modal}
     </section>
   )
 }
 
-function CredentialList({
-  title,
-  items,
-  onSelect,
-}: {
-  title: string
-  items: readonly Credential[]
-  onSelect: (item: Credential) => void
-}) {
-  return (
-    <div>
-      <h2>{title}</h2>
-      <ul>
-        {items.map((item) => {
-          const hasCertificate = Boolean(item.image || item.supportingImages?.length)
+function CredentialActions({ item, onSelect }: { item: Credential; onSelect: (item: Credential) => void }) {
+  const hasCertificate = Boolean(item.image || item.supportingImages?.length)
+  if (!hasCertificate && !item.verificationUrl) return null
 
-          return (
-            <li id={item.id} key={item.id ?? item.title + (item.detail ?? '')} className="credential-item">
-              <div className="credential-info">
-                <span>{item.title}</span>
-                {item.year ? <small className="credential-year">{item.year}</small> : null}
-                {item.detail ? <small>{item.detail}</small> : null}
-                {item.context ? <small>{item.context}</small> : null}
-              </div>
-              <div className="credential-actions">
-                {hasCertificate ? (
-                  <button
-                    type="button"
-                    className="credential-action-btn"
-                    onClick={() => onSelect(item)}
-                    aria-label={(item.imageLabel ?? 'View certificate') + ' for ' + item.title}
-                  >
-                    {item.imageLabel ?? 'View certificate'} <ExternalLink aria-hidden="true" size={13} />
-                  </button>
-                ) : null}
-                {item.verificationUrl ? (
-                  <a className="credential-action-btn" href={item.verificationUrl} target="_blank" rel="noreferrer">
-                    University article <ExternalLink aria-hidden="true" size={13} />
-                  </a>
-                ) : null}
-              </div>
-            </li>
-          )
-        })}
-      </ul>
+  return (
+    <div className="credential-actions">
+      {hasCertificate ? (
+        <button type="button" className="credential-action-btn" onClick={() => onSelect(item)} aria-label={(item.imageLabel ?? 'View certificate') + ' for ' + item.title}>
+          {item.imageLabel ?? 'View certificate'} <ExternalLink aria-hidden="true" size={14} />
+        </button>
+      ) : null}
+      {item.verificationUrl ? (
+        <a className="credential-action-btn" href={item.verificationUrl} target="_blank" rel="noreferrer">
+          University article <ExternalLink aria-hidden="true" size={14} />
+        </a>
+      ) : null}
     </div>
   )
 }
