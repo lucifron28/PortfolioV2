@@ -38,6 +38,8 @@ export type SkillGroup = {
 }
 export type Credential = {
   id?: string
+  category?: 'Certification' | 'Training' | 'Course'
+  issuer?: string
   title: string
   detail?: string
   year?: string

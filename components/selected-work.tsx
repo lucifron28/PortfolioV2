@@ -10,7 +10,7 @@ export function SelectedWork() {
         <p className="section-intro">Backend APIs, web applications, and an Android learning companion.</p>
       </div>
       <div className="project-grid">
-        {selectedProjects.map((project) => <ProjectCard key={project.id} project={project} />)}
+        {selectedProjects.map((project, index) => <ProjectCard key={project.id} project={project} priority={index === 0} />)}
       </div>
       <div className="archive-section" aria-labelledby="additional-work-title">
         <div>

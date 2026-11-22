@@ -52,8 +52,8 @@ export const skillGroups: readonly SkillGroup[] = [
     items: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'PHP', 'Laravel', 'Python', 'Django REST Framework'],
   },
   {
-    title: 'Databases & Background Jobs',
-    items: ['SQL Server', 'PostgreSQL', 'SQLite', 'Redis', 'Celery'],
+    title: 'Data, Tools & Infrastructure',
+    items: ['SQL Server', 'PostgreSQL', 'SQLite', 'Redis', 'Celery', 'Git', 'Docker', 'GitHub Actions'],
   },
   {
     title: 'Frontend & Mobile',
@@ -62,10 +62,6 @@ export const skillGroups: readonly SkillGroup[] = [
   {
     title: 'Testing & Quality',
     items: ['xUnit', 'PHPUnit', 'pytest', 'API and integration tests', 'Concurrency tests'],
-  },
-  {
-    title: 'Tools & Infrastructure',
-    items: ['Git', 'Docker', 'GitHub Actions'],
   },
 ]
 
@@ -84,7 +80,7 @@ export const growthText =
   'My recent projects have included backend APIs, full-stack web applications, and mobile apps. I am concentrating on C# and ASP.NET Core, and I am currently learning more about web and API security. Application architecture, cloud infrastructure, networking, and programming competitions are interests I want to keep exploring.'
 
 export const contactIntroduction =
-  'For internship opportunities, development roles, collaboration, or freelance project inquiries, you can reach me by email or LinkedIn.'
+  'For development opportunities, collaboration, or project inquiries, you can reach me by email or LinkedIn.'
 
 export const awards: readonly Credential[] = [
   {
@@ -151,9 +147,11 @@ export const awards: readonly Credential[] = [
 ]
 
 export const certifications: readonly Credential[] = [
-  { title: 'Microsoft Certified: Azure Fundamentals (AZ-900)', image: '/credentials/azure-fundamentals.png' },
+  { title: 'Microsoft Certified: Azure Fundamentals (AZ-900)', category: 'Certification', issuer: 'Microsoft', image: '/credentials/azure-fundamentals.png' },
   {
     title: 'GitHub Foundations',
+    category: 'Certification',
+    issuer: 'GitHub',
     credentialId: 'nz51yDUa',
     image: '/credentials/github-foundations.png',
   },
@@ -162,23 +160,28 @@ export const certifications: readonly Credential[] = [
 export const training: readonly Credential[] = [
   {
     title: 'Open iT Applied Full Stack and Data Science Bootcamp',
+    category: 'Training',
+    issuer: 'Open iT',
     detail: 'Full Stack Development Track',
     image: '/credentials/openit-bootcamp-participation.jpg',
   },
   {
     title: 'CS50x: Introduction to Computer Science',
+    category: 'Course',
     detail: 'Harvard CS50',
     credentialId: '7a497a92-d84d-4e71-9830-4bef46a606b1',
     image: '/credentials/cs50x.png',
   },
   {
     title: 'CS50P: Introduction to Programming with Python',
+    category: 'Course',
     detail: 'Harvard CS50',
     credentialId: '4d3ce24e-561a-4004-bed2-e6e372995c6f',
     image: '/credentials/cs50p.png',
   },
   {
     title: 'Intermediate PostgreSQL',
+    category: 'Course',
     detail: 'University of Michigan / Coursera',
     credentialId: 'GZO6VI362EUG',
     image: '/credentials/intermediate-postgresql.png',
