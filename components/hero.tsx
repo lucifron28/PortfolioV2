@@ -10,7 +10,7 @@ export function Hero() {
     <>
       <section className="hero-intro" aria-labelledby="hero-title">
         <div className="identity-heading">
-          <h1 id="hero-title">{"Hi, I'm Ron."}</h1>
+          <h1 id="hero-title">Profile.</h1>
         </div>
         <div className="identity-copy">
           {homepageIntroduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
