@@ -72,7 +72,7 @@ function CredentialActions({ item, onSelect }: { item: Credential; onSelect: (it
       ) : null}
       {item.verificationUrl ? (
         <a className="credential-action-btn" href={item.verificationUrl} target="_blank" rel="noreferrer">
-          University article <ExternalLink aria-hidden="true" size={14} />
+          {item.verificationLabel ?? 'University article'} <ExternalLink aria-hidden="true" size={14} />
         </a>
       ) : null}
     </div>

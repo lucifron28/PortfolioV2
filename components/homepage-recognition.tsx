@@ -39,7 +39,7 @@ export function HomepageRecognition() {
                   </button>
                 ) : null}
                 {award.verificationUrl ? (
-                  <a href={award.verificationUrl} target="_blank" rel="noreferrer">University article</a>
+                  <a href={award.verificationUrl} target="_blank" rel="noreferrer">{award.verificationLabel ?? 'University article'}</a>
                 ) : null}
                 {!award.image && !award.supportingImages?.length && !award.verificationUrl ? (
                   <Link href={award.id ? '/credentials#' + award.id : '/credentials'}>Award details</Link>

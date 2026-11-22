@@ -51,6 +51,7 @@ export type Credential = {
   supportingImages?: readonly { src: string; label: string }[]
   credentialId?: string
   verificationUrl?: string
+  verificationLabel?: string
 }
 
 export type Education = {
