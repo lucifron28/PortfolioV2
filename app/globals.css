@@ -183,8 +183,8 @@
   .credentials-group h2 { margin:0 0 1rem; color:var(--cyan); font-size:1.1rem; }
   .credentials-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:.85rem; margin:0; padding:0; list-style:none; }
   .credentials-grid li { min-width:0; scroll-margin-top:5rem; }
-  .credential-card { display:flex; height:100%; min-width:0; flex-direction:column; gap:.55rem; padding:1.15rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--raised); }
-  .award-card { gap:.4rem; padding:.8rem; background:var(--surface); }
+  .credential-card { display:flex; height:100%; min-width:0; flex-direction:column; gap:.55rem; padding:1.15rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); }
+  .award-card { gap:.4rem; padding:.8rem; }
   .award-card-featured { border-color:color-mix(in srgb,var(--accent) 72%,var(--line)); background:color-mix(in srgb,var(--accent) 4%,var(--surface)); }
   .credential-card-header { display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem; }
   .credential-card h3 { margin:0; color:var(--ink); font-size:1rem; line-height:1.4; }
