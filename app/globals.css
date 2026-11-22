@@ -255,15 +255,15 @@
   .case-study-topbar { grid-area:topbar; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.25rem 1rem; padding-block:.35rem; }
   .case-study-topbar-link { display:inline-flex; min-height:44px; align-items:center; gap:.45rem; padding-inline:.35rem; color:var(--muted); font-size:.82rem; font-weight:650; text-decoration:none; }
   .case-study-topbar-link:hover { color:var(--accent); }
-  .case-study-header { grid-area:header; padding-block:1rem .35rem; }
-  .case-study-header h1 { max-width:48rem; margin:0; font-size:clamp(2.1rem,4.5vw,3.25rem); font-weight:760; letter-spacing:-.06em; line-height:1; }
-  .case-study-lede { max-width:52rem; margin:.75rem 0 0; color:var(--muted); font-size:1rem; line-height:1.65; }
-  .case-study-meta { display:flex; flex-wrap:wrap; gap:.75rem 2rem; margin:1.1rem 0 0; }
+  .case-study-header { grid-area:header; padding-block:.85rem .35rem; }
+  .case-study-header h1 { max-width:48rem; margin:0; font-size:clamp(1.85rem,3vw,2.6rem); font-weight:700; letter-spacing:-.04em; line-height:1.1; }
+  .case-study-lede { max-width:52rem; margin:.6rem 0 0; color:var(--muted); font-size:1rem; line-height:1.65; }
+  .case-study-meta { display:flex; flex-wrap:wrap; gap:.75rem 2rem; margin:.9rem 0 0; }
   .case-study-meta>div { display:grid; min-width:0; gap:.25rem; }
   .case-study-meta dt { color:var(--pink); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.66rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
   .case-study-meta dd { margin:0; color:var(--muted); font-size:.82rem; line-height:1.5; }
   .case-study-media { margin:0; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); background:var(--raised); }
-  .case-study-media-primary { grid-area:primary; }
+  .case-study-media-primary { grid-area:primary; justify-self:center; }
   .case-study-media-gallery { width:100%; margin:0; }
   .case-study-page .case-study-media-portrait { width:min(100%,22rem); margin-inline:auto; }
   .case-study-media img { display:block; width:100%; height:auto; max-height:min(70vh,42rem); object-fit:contain; object-position:center; }

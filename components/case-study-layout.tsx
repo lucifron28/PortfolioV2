@@ -80,7 +80,7 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
 
 function CaseStudyFigure({ item, variant }: { item: ProjectMedia; variant: 'primary' | 'gallery' }) {
   const isPortrait = item.height > item.width
-  const className = 'container-shell case-study-media case-study-media-' + variant + (isPortrait ? ' case-study-media-portrait' : '')
+  const className = 'container-shell case-study-media ' + (variant === 'primary' ? 'case-study-media-primary' : 'case-study-media-gallery') + (isPortrait ? ' case-study-media-portrait' : '')
 
   return (
     <figure className={className}>
