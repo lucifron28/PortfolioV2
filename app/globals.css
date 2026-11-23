@@ -240,7 +240,7 @@
   .case-study-topbar { grid-area:topbar; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.25rem 1rem; padding-block:.35rem; }
   .case-study-topbar-link { display:inline-flex; min-height:44px; align-items:center; gap:.45rem; padding-inline:.35rem; color:var(--muted); font-size:.82rem; font-weight:650; text-decoration:none; }
   .case-study-topbar-link:hover { color:var(--accent); }
-  .case-study-header { grid-area:header; padding-block:.85rem .35rem; }
+  .case-study-header { grid-area:header; max-width:50rem; padding-block:.85rem .35rem; }
   .case-study-header h1 { max-width:48rem; margin:0; font-size:clamp(1.85rem,3vw,2.6rem); font-weight:700; letter-spacing:-.04em; line-height:1.1; }
   .case-study-lede { max-width:52rem; margin:.6rem 0 0; color:var(--muted); font-size:1rem; line-height:1.65; }
   .case-study-meta { display:flex; flex-wrap:wrap; gap:.75rem 2rem; margin:.9rem 0 0; }
@@ -255,7 +255,7 @@
   .case-study-media-portrait img { max-height:78vh; }
   .case-study-media figcaption { padding:.65rem .8rem; border-top:1px solid var(--line); color:var(--muted); font-size:.74rem; line-height:1.5; }
   .case-study-content { grid-area:content; padding-block:.35rem 2.5rem; }
-  .case-study-body { max-width:50rem; margin:0; }
+  .case-study-body { max-width:50rem; margin:0 auto; }
   .unipm-copy { color:var(--muted); line-height:1.7; }
   .unipm-copy h2 { margin:2rem 0 .7rem; padding-top:1.25rem; border-top:1px solid var(--line); color:var(--cyan); font-size:1.08rem; }
   .unipm-copy > h2:first-child { margin:0 0 .7rem; }
