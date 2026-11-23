@@ -5,7 +5,6 @@ export const profileDescription =
 
 export const homepageIntroduction = [
   "I'm an Information Technology student at MSEUF, specializing in Web and Mobile Application Development. I build full-stack applications, with a primary focus on backend development using C# and ASP.NET Core. I particularly enjoy working on APIs, databases, and application logic.",
-  'Programming is something I enjoy outside the classroom, too. I like experimenting with ideas, figuring out how things work, and joining coding competitions for the challenge.',
 ] as const
 
 export const professionalHighlights = [
