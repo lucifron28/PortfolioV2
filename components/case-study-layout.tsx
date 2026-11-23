@@ -32,7 +32,7 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
 
       <header className="container-shell case-study-header">
         <h1>{project.name}</h1>
-        {project.id !== 'unipm' ? <><p className="case-study-lede">{copy.overview}</p>
+        <p className="case-study-lede">{copy.overview}</p>
         <dl className="case-study-meta">
           {project.date ? <div><dt>Dates</dt><dd>{project.date}</dd></div> : null}
           <div>
@@ -44,7 +44,6 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
             <dd>{copy.stack.join(' · ')}</dd>
           </div>
         </dl>
-        </> : null}
       </header>
 
       <CaseStudyFigure item={caseStudy.media.primary} variant="primary" />

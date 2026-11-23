@@ -1,21 +1,6 @@
 export function UniPMCaseStudy() {
   return (
     <div className="unipm-copy">
-      <h2>University Preventive Maintenance Management System</h2>
-      <p>UniPM is a web and mobile preventive maintenance system developed for the General Services Department (GSD) of Manuel S. Enverga University Foundation.</p>
-      <p>It brings equipment records, maintenance schedules, field inspections, digital forms, and reports into one system. GSD staff can manage equipment and review maintenance activities through the web application. Inspectors can use the mobile application to identify assets, complete inspections, and record findings in the field.</p>
-      <p>Each asset can also be identified through its QR code.</p>
-      <p><strong>Project details</strong></p>
-      <dl className="case-study-meta">
-        <div><dt>Dates</dt><dd>January 2026 – Present</dd></div>
-        <div><dt>Project type</dt><dd>Team Capstone</dd></div>
-        <div><dt>My role</dt><dd>Backend Developer</dd></div>
-        <div><dt>Backend</dt><dd>ASP.NET Core · C# · .NET 10</dd></div>
-        <div><dt>Database</dt><dd>Microsoft SQL Server · Entity Framework Core</dd></div>
-        <div><dt>Web application</dt><dd>React · TypeScript · Vite</dd></div>
-        <div><dt>Mobile application</dt><dd>Flutter · Dart</dd></div>
-      </dl>
-      <p><a href="/projects/unipm/unipm-assets.png">View the UniPM asset management interface</a></p>
       <h2>The problem</h2>
       <p>The General Services Department maintains different types of university equipment. Each category has its own preventive maintenance requirements and inspection forms.</p>
       <p>The existing GSD forms show these differences.</p>

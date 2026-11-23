@@ -258,7 +258,7 @@
   .case-study-body { max-width:50rem; margin:0; }
   .unipm-copy { color:var(--muted); line-height:1.7; }
   .unipm-copy h2 { margin:2rem 0 .7rem; padding-top:1.25rem; border-top:1px solid var(--line); color:var(--cyan); font-size:1.08rem; }
-  .unipm-copy > h2:first-child { margin:.35rem 0 .7rem; padding-top:0; border-top:0; }
+  .unipm-copy > h2:first-child { margin:0 0 .7rem; }
   .unipm-copy h3 { margin:1.3rem 0 .55rem; color:var(--ink); font-size:1rem; }
   .unipm-copy p { margin:.7rem 0; }
   .unipm-copy ul,.unipm-copy ol { padding-left:1.4rem; }
