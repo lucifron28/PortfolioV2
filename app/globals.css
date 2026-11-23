@@ -264,11 +264,17 @@
   .unipm-copy ul,.unipm-copy ol { padding-left:1.4rem; }
   .unipm-copy li { margin:.35rem 0; }
   .unipm-copy strong { color:var(--ink); }
-  .maintenance-diagram { max-width:100%; overflow-x:auto; margin:1rem 0; padding:1rem; border:1px solid var(--line); border-radius:var(--radius); background:#f8f8f6; color:#171717; }
+  .maintenance-preview { display:grid; justify-items:center; gap:.75rem; padding:1rem; margin:1rem 0; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); }
+  .maintenance-preview-image svg { display:block; width:auto; max-width:100%; height: min(45vh, 22rem); }
+  .maintenance-preview .button-secondary { min-height:44px; background:transparent; cursor:pointer; }
+  .maintenance-modal .credential-modal-header h2 { margin:0; padding:0; border:0; }
+  .maintenance-diagram { flex:1; min-height:0; max-width:100%; overflow:auto; margin:0; padding:1rem; background:var(--surface); color:var(--ink); }
   .maintenance-diagram > div { width:max-content; min-width:100%; text-align:center; }
   .maintenance-diagram svg { display:block; max-width:none; height:auto; margin-inline:auto; }
-  .maintenance-diagram .nodeLabel p { margin:0; line-height:1.3; }
-  .maintenance-diagram .node rect { rx:8px; ry:8px; filter:none; }
+  .maintenance-preview .nodeLabel p,.maintenance-diagram .nodeLabel p { margin:0; color:var(--ink); line-height:1.3; }
+  .maintenance-preview .node rect,.maintenance-diagram .node rect { rx:8px; ry:8px; filter:none; }
+  .maintenance-preview .node polygon,.maintenance-diagram .node polygon { stroke:var(--cyan); }
+  .maintenance-preview .edgeLabel p,.maintenance-diagram .edgeLabel p { color:var(--pink); }
   .unipm-table-wrap { max-width:100%; overflow:auto; margin:1rem 0; }
   .unipm-table-wrap table { width:100%; border-collapse:collapse; font-size:.85rem; }
   .unipm-table-wrap caption { text-align:left; color:var(--ink); font-weight:700; }
