@@ -30,7 +30,7 @@ const existingProjects: readonly Project[] = [
           width: 1440,
           height: 900,
           kind: 'screen',
-          caption: 'Running UniPM asset registry view displaying equipment records, category summaries, and maintenance status tracking.'
+          caption: 'Asset registry showing equipment records, category summaries, and maintenance status.'
         },
       },
     },

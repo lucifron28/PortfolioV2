@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Github } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 import { caseStudyCopy } from '@/content/case-study-copy'
+import { UniPMCaseStudy } from '@/components/unipm-case-study'
 import type { Project, ProjectCaseStudy, ProjectMedia } from '@/lib/portfolio-types'
 
 type CaseStudyLayoutProps = {
@@ -31,7 +32,7 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
 
       <header className="container-shell case-study-header">
         <h1>{project.name}</h1>
-        <p className="case-study-lede">{copy.overview}</p>
+        {project.id !== 'unipm' ? <><p className="case-study-lede">{copy.overview}</p>
         <dl className="case-study-meta">
           {project.date ? <div><dt>Dates</dt><dd>{project.date}</dd></div> : null}
           <div>
@@ -43,12 +44,14 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
             <dd>{copy.stack.join(' · ')}</dd>
           </div>
         </dl>
+        </> : null}
       </header>
 
       <CaseStudyFigure item={caseStudy.media.primary} variant="primary" />
 
       <div className="container-shell case-study-content">
         <div className="case-study-body">
+          {project.id === 'unipm' ? <UniPMCaseStudy /> : <>
           <CaseStudySection title="The problem">
             {copy.problem.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </CaseStudySection>
@@ -67,6 +70,7 @@ export function CaseStudyLayout({ project, caseStudy, previous, next }: CaseStud
               <Link className="case-study-recognition" href={project.recognition.href}>{project.recognition.label}</Link>
             ) : null}
           </CaseStudySection>
+          </>}
         </div>
 
         {caseStudy.media.gallery?.length ? (
