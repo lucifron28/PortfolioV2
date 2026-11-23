@@ -50,6 +50,7 @@ export function ProjectCard({ project, compact = false, featured = false, priori
       <div className="project-content">
         <p className="project-kicker">{project.type}</p>
         {compact ? <h3>{project.name}</h3> : <h2>{project.name}</h2>}
+        {project.date ? <p className="project-kicker">{project.date}</p> : null}
         <p className="project-summary">{project.summary}</p>
         {project.recognition ? (
           <Link className="project-recognition" href={project.recognition.href}>

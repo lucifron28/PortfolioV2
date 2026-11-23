@@ -5,7 +5,6 @@ export const profileDescription =
 
 export const homepageIntroduction = [
   "I'm an Information Technology student at MSEUF, specializing in Web and Mobile Application Development. I build full-stack applications, with a primary focus on backend development using C# and ASP.NET Core. I particularly enjoy working on APIs, databases, and application logic.",
-  'Programming is something I enjoy outside the classroom, too. I like experimenting with ideas, figuring out how things work, and joining coding competitions for the challenge.',
 ] as const
 
 export const professionalHighlights = [
@@ -74,10 +73,10 @@ export const education: Education = {
 }
 
 export const aboutText =
-  'I keep programming outside class because I like turning ideas into small experiments and seeing how they behave. I enjoy tracing how a system works and figuring out where a problem comes from.'
+  "I like building things, even when the idea is random or doesn't have much practical use. Sometimes I just want to see if I can make something work. I also enjoy figuring out what happens behind the interface, especially when something doesn't behave the way I expected."
 
 export const growthText =
-  'My recent projects have included backend APIs, full-stack web applications, and mobile apps. I am concentrating on C# and ASP.NET Core, and I am currently learning more about web and API security. Application architecture, cloud infrastructure, networking, and programming competitions are interests I want to keep exploring.'
+  "I've worked on web and mobile apps, but lately I've been more interested in backend development. I'm focusing on C# and ASP.NET Core while learning more about web and API security. I'm also curious about how the internet works behind the scenes, from how browsers communicate with servers to how everything connects. I enjoy programming competitions, too."
 
 export const contactIntroduction =
   'For development opportunities, collaboration, or project inquiries, you can reach me by email or LinkedIn.'
@@ -85,6 +84,7 @@ export const contactIntroduction =
 export const awards: readonly Credential[] = [
   {
     id: 'sikaptala',
+    date: 'March 31, 2025',
     title: '2nd Place, DLSU-D SikapTala National CS and IT Skills Competition',
     placement: '2nd Place',
     event: 'DLSU-D SikapTala',
@@ -97,6 +97,7 @@ export const awards: readonly Credential[] = [
   },
   {
     id: 'openit-codefest',
+    date: 'July 12–13, 2025',
     title: '1st Place, Open iT Codefest',
     placement: '1st Place',
     event: 'Open iT Codefest',
@@ -110,6 +111,7 @@ export const awards: readonly Credential[] = [
   },
   {
     id: 'openit-bootcamp',
+    date: 'May 28, 2026',
     title: 'Top Performer & Best in Capstone, Open iT Bootcamp',
     placement: 'Top Performer & Best in Capstone',
     event: 'Open iT Bootcamp',
@@ -122,6 +124,7 @@ export const awards: readonly Credential[] = [
   },
   {
     id: 'hack4gov',
+    date: 'October 6, 2025',
     title: 'Top Individual Performer, Hack4Gov CALABARZON CTF',
     placement: 'Top Individual Performer',
     event: 'Hack4Gov CALABARZON CTF',
@@ -138,6 +141,7 @@ export const awards: readonly Credential[] = [
   },
   {
     id: 'codechum',
+    date: 'Stage 3: November 27, 2024',
     title: '1st Place, Stage 3 & Grand Finals Finalist, CodeChum National Programming Challenge',
     placement: '1st Place, Stage 3 & Grand Finals Finalist',
     year: '2024',
@@ -146,23 +150,25 @@ export const awards: readonly Credential[] = [
   },
   {
     id: 'coco',
+    date: 'March 28, 2025 · March 2026',
     title: 'Back-to-Back 1st Place, COCO Coding Competition',
     placement: 'Back-to-Back 1st Place',
     year: '2025-2026',
     detail: 'MSEUF Cyber Week',
     imageLabel: 'View award evidence',
     supportingImages: [
-      { src: '/credentials/coco-2025.png', label: '2025 first-place certificate' },
-      { src: '/credentials/coco-2026-announcement.png', label: '2026 COCO first-place winner announcement' },
+      { src: '/credentials/coco-2025.png', label: 'First-place certificate · March 28, 2025' },
+      { src: '/credentials/coco-2026-announcement.png', label: 'COCO first-place winner announcement · March 2026' },
     ],
     verificationUrl: 'https://mseuf.edu.ph/oso/news/mastechlaban-cyber-week-2026',
   },
 ]
 
 export const certifications: readonly Credential[] = [
-  { title: 'Microsoft Certified: Azure Fundamentals (AZ-900)', category: 'Certification', issuer: 'Microsoft', image: '/credentials/azure-fundamentals.png' },
+  { title: 'Microsoft Certified: Azure Fundamentals (AZ-900)', category: 'Certification', issuer: 'Microsoft', date: 'July 6, 2026', image: '/credentials/azure-fundamentals.png' },
   {
     title: 'GitHub Foundations',
+    date: 'June 26, 2025',
     category: 'Certification',
     issuer: 'GitHub',
     credentialId: 'nz51yDUa',
@@ -173,6 +179,7 @@ export const certifications: readonly Credential[] = [
 export const training: readonly Credential[] = [
   {
     title: 'Open iT Applied Full Stack and Data Science Bootcamp',
+    date: 'May 4–29, 2026',
     category: 'Training',
     issuer: 'Open iT',
     detail: 'Full Stack Development Track',
@@ -180,6 +187,7 @@ export const training: readonly Credential[] = [
   },
   {
     title: 'CS50x: Introduction to Computer Science',
+    date: 'September 17, 2024',
     category: 'Course',
     detail: 'Harvard CS50',
     credentialId: '7a497a92-d84d-4e71-9830-4bef46a606b1',
@@ -187,6 +195,7 @@ export const training: readonly Credential[] = [
   },
   {
     title: 'CS50P: Introduction to Programming with Python',
+    date: 'January 17, 2024',
     category: 'Course',
     detail: 'Harvard CS50',
     credentialId: '4d3ce24e-561a-4004-bed2-e6e372995c6f',
@@ -194,6 +203,7 @@ export const training: readonly Credential[] = [
   },
   {
     title: 'Intermediate PostgreSQL',
+    date: 'June 9, 2025',
     category: 'Course',
     detail: 'University of Michigan / Coursera',
     credentialId: 'GZO6VI362EUG',
