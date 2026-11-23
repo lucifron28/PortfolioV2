@@ -4,13 +4,16 @@ export const caseStudyCopy = {
     "stack": [
       "ASP.NET Core",
       "C#",
+      ".NET 10",
       "Entity Framework Core",
       "SQL Server",
       "React",
       "TypeScript",
-      "Flutter"
+      "Vite",
+      "Flutter",
+      "Dart"
     ],
-    "overview": "UniPM is a web and mobile preventive maintenance system for the university's General Services Department. It keeps equipment records, inspection schedules, digital forms, and maintenance reports in one place. Staff can find an asset through its QR code and check the work linked to that asset.",
+    "overview": "UniPM is a web and mobile preventive maintenance system developed for the General Services Department (GSD) of Manuel S. Enverga University Foundation. It brings equipment records, maintenance schedules, field inspections, digital forms, and reports into one system. GSD staff can manage equipment and review maintenance activities through the web application. Inspectors can use the mobile application to identify assets, complete inspections, and record findings in the field. Each asset can also be identified through its QR code.",
     "problem": [
       "The department maintains different kinds of equipment, including fire extinguishers, fire alarm systems, emergency lights, and water drinking stations. Each category needs its own inspection details and schedule. Staff also need to know which inspections are complete and which forms are still waiting for acknowledgement. A saved inspection and an official maintenance record are not the same thing."
     ],
