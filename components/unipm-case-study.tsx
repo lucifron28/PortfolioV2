@@ -1,3 +1,5 @@
+import { MaintenanceWorkflow } from '@/components/maintenance-workflow'
+
 export function UniPMCaseStudy() {
   return (
     <div className="unipm-copy">
@@ -14,6 +16,7 @@ export function UniPMCaseStudy() {
       <p>A single generic checklist would not capture all the required information.</p>
       <p>The department also needs to track maintenance schedules, review inspection records, consolidate results, and identify outstanding work. Staff must also endorse inspection findings that require corrective maintenance.</p>
       <p>These requirements create a need for a shared system. It must support different equipment categories and their respective maintenance workflows.</p>
+      <MaintenanceWorkflow />
       <h2>Understanding the maintenance workflow</h2>
       <p>UniPM follows the department&apos;s Comprehensive Preventive Maintenance Program (CPMP).</p>
       <p>The program defines the maintenance cycles and inspection requirements for each equipment category. The system uses these requirements to organize schedules and assignments.</p>
