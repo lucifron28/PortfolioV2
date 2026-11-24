@@ -12,11 +12,11 @@ export function HomepageRecognition() {
     <>
       <section className="recognition-section" aria-labelledby="recognition-title">
         <div className="section-inline-heading recognition-heading">
-          <h2 id="recognition-title">Competition results &amp; recognition</h2>
+          <h2 id="recognition-title">Achievement Highlights</h2>
           <Link href="/credentials">All awards</Link>
         </div>
         <div className="recognition-grid">
-          {awards.slice(0, 4).map((award) => (
+          {awards.slice(0, 2).map((award) => (
             <article
               key={award.id ?? award.title}
               className="recognition-card"
