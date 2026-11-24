@@ -57,6 +57,7 @@
   .hero-actions .button-primary,.hero-actions .button-secondary { padding:.55rem .8rem; border-color:var(--line); background:transparent; color:var(--accent); font-weight:650; }
   .hero-actions .button-secondary { border-color:transparent; color:var(--muted); }
   .hero-actions .button-primary:hover,.hero-actions .button-secondary:hover { transform:none; background:transparent; text-decoration:underline; }
+  .hero-actions .button-primary:hover { border-color:var(--accent); box-shadow:0 0 10px rgba(189,147,249,.3); }
 
   .profile-card { display:grid; gap:1rem; padding:1.25rem; border:1px solid var(--line); border-radius:1.25rem; background:var(--surface); }
   .profile-portrait { position:relative; width:9rem; aspect-ratio:1; justify-self:center; overflow:hidden; border:1px solid var(--accent); border-radius:1rem; background:var(--raised); }
