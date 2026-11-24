@@ -133,6 +133,8 @@
   .project-stack { margin:.75rem 0 0; color:var(--muted); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.75rem; line-height:1.55; }
   .project-actions { display:flex; flex-wrap:wrap; gap:.25rem 1rem; margin-top:.85rem; }
   .project-actions a { font-size:.78rem; }
+  .project-demo-link { display:inline-flex; min-height:44px; align-items:center; padding:0; border:0; background:none; color:var(--accent); font:inherit; font-size:.78rem; font-weight:750; cursor:pointer; }
+  .project-demo-link:hover { text-decoration:underline; }
   .project-details-link { color:var(--accent); }
   .repository-link { color:var(--muted); }
   .repository-link:hover { color:var(--green); }
@@ -207,6 +209,7 @@
   .credential-modal-card::backdrop { background:rgba(0,0,0,.78); backdrop-filter:blur(4px); overflow:hidden; overscroll-behavior:contain; }
   .credential-modal-header { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; padding:1.15rem 1.4rem; border-bottom:1px solid var(--line); }
   .credential-modal-header h2 { margin:0; color:var(--ink); font-size:1.15rem; font-weight:700; }
+  .project-demo-video { display:block; width:100%; aspect-ratio:16 / 9; border:0; background:#000; }
   .credential-modal-header p { margin:.25rem 0 0; color:var(--muted); font-size:.82rem; }
   .credential-modal-header .credential-id { color:var(--cyan); font-family:var(--font-mono),Consolas,"Courier New",monospace; font-size:.74rem; }
   .credential-modal-close { display:grid; place-items:center; width:34px; height:34px; border:1px solid var(--line); border-radius:.4rem; background:var(--raised); color:var(--muted); cursor:pointer; flex-shrink:0; transition:border-color 160ms ease,color 160ms ease; }

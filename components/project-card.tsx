@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowUpRight, Github } from 'lucide-react'
 
 import type { Project } from '@/lib/portfolio-types'
+import { ProjectDemo } from '@/components/project-demo'
 
 type ProjectCardProps = {
   project: Project
@@ -61,9 +62,10 @@ export function ProjectCard({ project, compact = false, featured = false, priori
         <div className="project-actions">
           {project.caseStudy ? (
             <Link className="project-details-link" href={'/work/' + project.id}>
-              View case study <ArrowUpRight aria-hidden="true" size={17} />
+              View case study
             </Link>
           ) : null}
+          {project.id === 'unipm' ? <ProjectDemo /> : null}
           {project.repository ? (
             <a className="repository-link" href={project.repository} target="_blank" rel="noreferrer">
               <Github aria-hidden="true" size={16} /> View on GitHub
