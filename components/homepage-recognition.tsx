@@ -16,10 +16,10 @@ export function HomepageRecognition() {
           <Link href="/credentials">All awards</Link>
         </div>
         <div className="recognition-grid">
-          {awards.slice(0, 4).map((award, index) => (
+          {awards.slice(0, 4).map((award) => (
             <article
               key={award.id ?? award.title}
-              className={'recognition-card' + (index === 0 ? ' recognition-card-primary' : '')}
+              className="recognition-card"
             >
               <div className="recognition-card-heading">
                 <p className="recognition-placement">{award.placement ?? award.title}</p>

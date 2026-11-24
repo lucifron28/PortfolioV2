@@ -20,9 +20,9 @@ export function Credentials() {
       <section className="credentials-group" aria-labelledby="competition-awards-title">
         <h2 id="competition-awards-title">Competition awards</h2>
         <ul className="credentials-grid awards-grid">
-          {awards.map((item, index) => (
+          {awards.map((item) => (
             <li key={item.id ?? item.title} id={item.id}>
-              <article className={'credential-card award-card' + (index === 0 ? ' award-card-featured' : '')}>
+              <article className="credential-card award-card">
                 <header className="credential-card-header">
                   <div className="award-heading">
                     {item.placement ? <p className="award-placement">{item.placement}</p> : null}
